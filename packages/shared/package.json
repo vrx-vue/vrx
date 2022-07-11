@@ -1,6 +1,6 @@
 {
   "name": "@vrx/shared",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "sideEffects": false,
   "repository": "https://gitee.com/vrx/vrx",
@@ -8,6 +8,9 @@
     "vue",
     "utils",
     "vue-composition-api"
+  ],
+  "files": [
+    "dist"
   ],
   "scripts": {
     "build": "tsup-node"

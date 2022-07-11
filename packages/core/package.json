@@ -1,12 +1,15 @@
 {
   "name": "@vrx/core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "repository": "https://gitee.com/vrx/vrx",
   "keywords": [
     "vue",
     "utils",
     "vue-composition-api"
+  ],
+  "files": [
+    "dist"
   ],
   "scripts": {
     "build": "tsup-node"
