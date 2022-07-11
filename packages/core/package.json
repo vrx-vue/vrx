@@ -1,0 +1,43 @@
+{
+  "name": "@vrx/core",
+  "version": "0.0.1",
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "utils",
+    "vue-composition-api"
+  ],
+  "scripts": {
+    "build": "tsup-node"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "peerDependencies": {
+    "@vue/composition-api": "^1.1.0",
+    "vue": "^2.6.0 || ^3.2.0"
+  },
+  "peerDependenciesMeta": {
+    "vue": {
+      "optional": true
+    },
+    "@vue/composition-api": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "vue-demi": "*",
+    "@vrx/shared": "workspace:*",
+    "@vill-v/type-as": "^0.1.7"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

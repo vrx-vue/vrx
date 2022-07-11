@@ -1,0 +1,31 @@
+{
+  "name": "@vrx/monorepo",
+  "version": "0.0.1",
+  "private": true,
+  "author": {
+    "name": "whitekite",
+    "email": "1075790909@qq.com"
+  },
+  "packageManager": "pnpm@7.5.0",
+  "sideEffects": false,
+  "repository": "Colourlessglow/after-build",
+  "scripts": {
+    "build": "turbo run build",
+    "release": "bumpp package.json packages/*/package.json",
+    "changelogen": "changelogen"
+  },
+  "devDependencies": {
+    "tsup": "^6.1.3",
+    "typescript": "^4.7.4",
+    "eslint": "^8.19.0",
+    "prettier": "^2.7.1",
+    "@vill-v/eslint-config": "^0.0.7",
+    "@vill-v/prettier-config": "^0.0.7",
+    "@vill-v/tsconfig": "^0.0.7",
+    "@rushstack/eslint-patch": "^1.1.4",
+    "vue": "^3.2.37",
+    "turbo": "^1.3.1",
+    "bumpp": "^8.2.1",
+    "changelogen": "^0.1.1"
+  }
+}
