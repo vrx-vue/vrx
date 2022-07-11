@@ -2,6 +2,7 @@
   "name": "@vrx/core",
   "version": "0.0.1",
   "license": "MIT",
+  "repository": "https://gitee.com/vrx/vrx",
   "keywords": [
     "vue",
     "utils",
