@@ -2,6 +2,14 @@ import { useAsyncData, UseAsyncStateOptions } from '../useAsyncData'
 import { onMounted, Ref, ref, shallowRef, toRaw } from 'vue-demi'
 import { getByPath } from '@vrx/shared'
 
+/**
+ * 分页数据发生变化时入参
+ */
+export interface UsePaginatedDataPaginationChangeOptions {
+  pageSize: string
+  pageNum: string
+}
+
 export interface UsePaginatedDataOptions<
   Data = any,
   SearchData extends Record<string, any> = any,
@@ -100,6 +108,17 @@ export function usePaginatedData<Data = any, SearchData = any, Shallow extends b
   }
 
   /**
+   * 页码
+   * @param value
+   * @param options
+   */
+  const paginationChange = (value: any, options?: UsePaginatedDataPaginationChangeOptions) => {
+    pagination.value.pageNum = value[options?.pageNum || 'pageNum']
+    pagination.value.pageSize = value[options?.pageSize || 'pageSize']
+    return execute()
+  }
+
+  /**
    * 页码变化
    * @param pageNum
    */
@@ -145,6 +164,7 @@ export function usePaginatedData<Data = any, SearchData = any, Shallow extends b
     error,
     execute,
     search,
+    paginationChange,
     pageChange,
     pageSizeChange,
     resetSearch,
