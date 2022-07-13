@@ -13,8 +13,6 @@ export default {
   },
   scopeMap: {
     core: 'core',
-    unplugin: 'unplugin',
-    vite: 'vite',
-    'vue-cli': 'vue-cli',
+    shared: 'shared',
   },
 }
