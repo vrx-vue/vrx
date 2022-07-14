@@ -44,7 +44,8 @@ export function usePaginatedData<Data = any, SearchData = any, Shallow extends b
     shallow,
     immediate,
   } = options || {}
-  const { loading, error, execute: _execute } = useAsyncData(fn, options)
+
+  const { loading, error, execute: _execute } = useAsyncData(fn, { ...options, immediate: false })
 
   const list: Ref<Data[]> = shallow
     ? (shallowRef(initData?.()) as any)
