@@ -42,10 +42,10 @@ importers:
 
   packages/shared:
     specifiers:
-      '@vill-v/path-prop': ^0.1.7
+      '@vill-v/path-prop': ^0.1.9
       vue-demi: '*'
     dependencies:
-      '@vill-v/path-prop': 0.1.7
+      '@vill-v/path-prop': 0.1.9
       vue-demi: 0.13.2
 
 packages:
@@ -313,10 +313,10 @@ packages:
       - supports-color
     dev: true
 
-  /@vill-v/path-prop/0.1.7:
-    resolution: {integrity: sha512-gpv8zxoyG3/yZFVHeAzZuEEMt/y4qJOEKbYVSt4G4JZ5HxAP87HD5rIvCJ9f0MYImIOjLz77F+spm6cFRvurhA==}
+  /@vill-v/path-prop/0.1.9:
+    resolution: {integrity: sha512-ptiPvOO841zq4nPA7GxP5aTunskuefS1fxHs2C5I/2y97UGe8Qm//FShHAy251yiOgcvEvMdXwyAekJCrQxR3Q==}
     dependencies:
-      '@vill-v/type-as': 0.1.7
+      '@vill-v/type-as': 0.1.9
     dev: false
 
   /@vill-v/prettier-config/0.0.7:
@@ -327,6 +327,10 @@ packages:
     resolution: {integrity: sha512-mMqL/XftIgynEMRFNSVlkcMt/rDbQ8O95mnBin8VurmZLqRBu+7bQg8uJIwK/YXm2GT/fyy8rTfixJDYSOpo1A==}
     dev: false
 
+  /@vill-v/ts/0.1.9:
+    resolution: {integrity: sha512-+dA8puyZn9qXOR3VIxJlrK4oWwtOh8QanRS9gfHDKeXhEgSJSzy3BmuWd7QkNoTcwubEqBBxz0+LGryldAU+pw==}
+    dev: false
+
   /@vill-v/tsconfig/0.0.7:
     resolution: {integrity: sha512-3v5/nBosT/XBDcLxhdZkXc6i2OeZtGKpTDFxJJJslaLKYPKXf9cF60NkWxIEaV5aLxZzsuV0X8i9FJWxVgbofw==}
     dev: true
@@ -335,6 +339,12 @@ packages:
     resolution: {integrity: sha512-Er9JFt8s2GWgaXFe1nNe0lGAjtqf3U7eTsnMTQ1x2fUdVBDcAiU2R1z5sP8rh9ZI+XtSnjIUBt+JP0ueDamuHw==}
     dependencies:
       '@vill-v/ts': 0.1.7
+    dev: false
+
+  /@vill-v/type-as/0.1.9:
+    resolution: {integrity: sha512-1mHQWL9h58is4ej0TjQ4yH9mpboGZ1xJb8BhTEjwNZ65VbecNZaS9cl61q+xJtKy7ML3Z7RqWphp5o1Ir1SLFQ==}
+    dependencies:
+      '@vill-v/ts': 0.1.9
     dev: false
 
   /@vue/compiler-core/3.2.37:

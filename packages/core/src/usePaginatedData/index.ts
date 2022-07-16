@@ -1,6 +1,6 @@
 import { useAsyncData, UseAsyncStateOptions } from '../useAsyncData'
 import { onMounted, Ref, ref, shallowRef, toRaw } from 'vue-demi'
-import { getByPath } from '@vrx/shared'
+import { getByPath, Path } from '@vrx/shared'
 
 /**
  * 分页数据发生变化时入参
@@ -15,7 +15,7 @@ export interface UsePaginatedDataOptions<
   SearchData extends Record<string, any> = any,
   Shallow extends boolean = boolean
 > extends UseAsyncStateOptions<Data[], Shallow> {
-  totalPath?: string | (string | number)[]
+  totalPath?: Path
   initSearchData?: () => SearchData
   dataConcat?: boolean
 }

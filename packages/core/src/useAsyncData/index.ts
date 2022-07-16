@@ -1,10 +1,10 @@
 import { onMounted, ref, shallowRef, Ref, UnwrapRef } from 'vue-demi'
-import { getByPath } from '@vrx/shared'
+import { getByPath, Path } from '@vrx/shared'
 
 export interface UseAsyncStateOptions<Data = any, Shallow extends boolean = boolean> {
   immediate?: boolean
   initData?: () => Data
-  path?: string | (string | number)[]
+  path?: Path
   shallow?: Shallow
 }
 
