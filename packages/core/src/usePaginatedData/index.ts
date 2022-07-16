@@ -32,7 +32,7 @@ export interface UsePaginatedDataPagination {
  * @param options
  */
 export function usePaginatedData<Data = any, SearchData = any, Shallow extends boolean = boolean>(
-  fn: (params?: { pagination: UsePaginatedDataPagination; params: SearchData }) => Promise<any>,
+  fn: (params: { pagination: UsePaginatedDataPagination; params: SearchData }) => Promise<any>,
   options?: UsePaginatedDataOptions<Data, SearchData, Shallow>
 ) {
   const {
