@@ -29,7 +29,12 @@ export function useAsyncLoading() {
   const _run = <Data = any>(fn: Promise<Data>) => {
     error.value = false
     setLoading(true)
-    return fn.catch(() => (error.value = false)).finally(() => setLoading(false))
+    return fn
+      .catch((err) => {
+        error.value = false
+        return Promise.reject(err)
+      })
+      .finally(() => setLoading(false))
   }
 
   /**
