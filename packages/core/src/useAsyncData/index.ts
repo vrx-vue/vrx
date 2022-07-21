@@ -1,5 +1,5 @@
 import { onMounted, ref, shallowRef, Ref, UnwrapRef } from 'vue-demi'
-import { getByPath, Path } from '@vrx/shared'
+import { getByPath, Path, useAsyncLoading } from '@vrx/shared'
 
 export interface UseAsyncStateOptions<Data = any, Shallow extends boolean = boolean> {
   immediate?: boolean
@@ -28,25 +28,13 @@ export function useAsyncData<Data = any, Shallow extends boolean = boolean>(
   /**
    * 是否正在加载
    */
-  const loading = ref(false)
-  /**
-   * 是否发生了错误
-   */
-  const error = ref(false)
+  const { loading, run, error } = useAsyncLoading()
 
   const execute = (params?: any) => {
-    loading.value = true
-    return fn(params)
-      .then((res) => {
-        data.value = getByPath(res, path)
-        return res
-      })
-      .catch(() => {
-        error.value = true
-      })
-      .finally(() => {
-        loading.value = false
-      }) as Promise<any>
+    return run(fn(params)).then((res) => {
+      data.value = getByPath(res, path)
+      return res
+    }) as Promise<any>
   }
 
   immediate &&
