@@ -39,7 +39,7 @@ const getFunctions = () => {
 export default defineConfig({
   title: 'vrx',
   lang: 'zh-CN',
-  base: '/vrx/',
+  base: '/',
   lastUpdated: true,
   vite: { server: { port: 3002 } },
   description: '开发中对于技术的总结，归纳',
