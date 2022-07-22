@@ -1,0 +1,1 @@
+import{_ as e,c as r,o as t,a}from"./app.3bc3347b.js";const f=JSON.parse('{"title":"\u52A8\u673A","description":"","frontmatter":{},"headers":[],"relativePath":"guide/motive.md","lastUpdated":1658523304000}'),o={name:"guide/motive.md"},s=a("",6),n=[s];function p(_,c,i,d,u,l){return t(),r("div",null,n)}var v=e(o,[["render",p]]);export{f as __pageData,v as default};
