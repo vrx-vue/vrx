@@ -4,6 +4,7 @@
   "license": "MIT",
   "sideEffects": false,
   "repository": "https://gitee.com/vrx/vrx",
+  "homepage": "https://vrx.gitee.io/",
   "keywords": [
     "vue",
     "utils",
