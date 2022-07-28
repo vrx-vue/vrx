@@ -17,6 +17,7 @@ export interface UsePaginatedDataOptions<
 > extends UseAsyncStateOptions<Data[], Shallow> {
   totalPath?: Path
   initSearchData?: () => SearchData
+  initPagination?: () => UsePaginatedDataPaginationChangeOptions
   dataConcat?: boolean
 }
 
@@ -37,12 +38,13 @@ export function usePaginatedData<Data = any, SearchData = any, Shallow extends b
 ) {
   const {
     totalPath = 'total',
-    initSearchData,
+    initSearchData = () => ({}),
     dataConcat = false,
     path,
     initData,
     shallow,
     immediate,
+    initPagination = () => ({}),
   } = options || {}
 
   const { loading, error, execute: _execute } = useAsyncData(fn, { ...options, immediate: false })
@@ -59,7 +61,7 @@ export function usePaginatedData<Data = any, SearchData = any, Shallow extends b
   /**
    * 搜索数据
    */
-  const searchData = ref<SearchData>(initSearchData?.() || ({} as any))
+  const searchData = ref<SearchData>(initSearchData() as any)
 
   /**
    * 分页数据
@@ -68,6 +70,7 @@ export function usePaginatedData<Data = any, SearchData = any, Shallow extends b
     pageSize: 10,
     pageNum: 1,
     total: 0,
+    ...initPagination(),
   })
 
   const setList = (res) => {
