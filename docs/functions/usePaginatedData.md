@@ -61,6 +61,8 @@ const {
         totalPath: 'res.data.total',
         // 初始化搜索值
         initSearchData: () => ({name: ''}),
+        // 初始化的分页参数
+        initPagination: () => ({pageNum: 1, pageSize: 8}),
         // 是否开启列表滚动分页模式，即自动拼接数组
         dataConcat: false
     }
@@ -77,19 +79,17 @@ interface UsePaginatedDataPaginationChangeOptions {
     pageSize: string;
     pageNum: string;
 }
-
 interface UsePaginatedDataOptions<Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = boolean> extends UseAsyncStateOptions<Data[], Shallow> {
     totalPath?: Path;
     initSearchData?: () => SearchData;
+    initPagination?: () => UsePaginatedDataPaginationChangeOptions;
     dataConcat?: boolean;
 }
-
 interface UsePaginatedDataPagination {
     pageSize: number;
     pageNum: number;
     total: number;
 }
-
 /**
  * 一个分页数据加载方案
  * @param fn
