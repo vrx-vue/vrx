@@ -10,6 +10,11 @@ export interface UsePaginatedDataPaginationChangeOptions {
   pageNum: string
 }
 
+export interface UsePaginatedDataPagination {
+  pageSize: number
+  pageNum: number
+  total: number
+}
 export interface UsePaginatedDataOptions<
   Data = any,
   SearchData extends Record<string, any> = any,
@@ -17,16 +22,9 @@ export interface UsePaginatedDataOptions<
 > extends UseAsyncStateOptions<Data[], Shallow> {
   totalPath?: Path
   initSearchData?: () => SearchData
-  initPagination?: () => UsePaginatedDataPaginationChangeOptions
+  initPagination?: () => Omit<UsePaginatedDataPagination, 'total'>
   dataConcat?: boolean
 }
-
-export interface UsePaginatedDataPagination {
-  pageSize: number
-  pageNum: number
-  total: number
-}
-
 /**
  * 一个分页数据加载方案
  * @param fn
