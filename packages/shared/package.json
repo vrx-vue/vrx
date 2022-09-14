@@ -39,8 +39,8 @@
     }
   },
   "dependencies": {
-    "vue-demi": "*",
-    "@vill-v/path-prop": "^0.1.9"
+    "@vill-v/path-prop": "^0.1.9",
+    "vue-demi": "*"
   },
   "publishConfig": {
     "access": "public"

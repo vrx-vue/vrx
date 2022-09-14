@@ -11,8 +11,4 @@ export default {
     test: { title: '✅ 测试' },
     BreakingChange: { title: '⚠️ 破坏性改动' },
   },
-  scopeMap: {
-    core: 'core',
-    shared: 'shared',
-  },
 }

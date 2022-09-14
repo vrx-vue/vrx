@@ -38,9 +38,9 @@
     }
   },
   "dependencies": {
-    "vue-demi": "*",
+    "@vill-v/type-as": "^0.1.9",
     "@vrx/shared": "workspace:*",
-    "@vill-v/type-as": "^0.1.7"
+    "vue-demi": "*"
   },
   "publishConfig": {
     "access": "public"
