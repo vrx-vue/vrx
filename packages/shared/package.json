@@ -39,7 +39,7 @@
     }
   },
   "dependencies": {
-    "@vill-v/path-prop": "^0.1.9",
+    "@vill-v/path-prop": "^1.0.0",
     "vue-demi": "*"
   },
   "publishConfig": {

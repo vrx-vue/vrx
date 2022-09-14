@@ -42,20 +42,20 @@ importers:
 
   packages/core:
     specifiers:
-      '@vill-v/type-as': ^0.1.9
+      '@vill-v/type-as': ^1.0.0
       '@vrx/shared': workspace:*
       vue-demi: '*'
     dependencies:
-      '@vill-v/type-as': 0.1.9
+      '@vill-v/type-as': 1.0.0
       '@vrx/shared': link:../shared
       vue-demi: 0.13.2
 
   packages/shared:
     specifiers:
-      '@vill-v/path-prop': ^0.1.9
+      '@vill-v/path-prop': ^1.0.0
       vue-demi: '*'
     dependencies:
-      '@vill-v/path-prop': 0.1.9
+      '@vill-v/path-prop': 1.0.0
       vue-demi: 0.13.2
 
 packages:
@@ -513,28 +513,28 @@ packages:
       - supports-color
     dev: true
 
-  /@vill-v/path-prop/0.1.9:
-    resolution: {integrity: sha512-ptiPvOO841zq4nPA7GxP5aTunskuefS1fxHs2C5I/2y97UGe8Qm//FShHAy251yiOgcvEvMdXwyAekJCrQxR3Q==}
+  /@vill-v/path-prop/1.0.0:
+    resolution: {integrity: sha512-OwOnKY8/jwbR+3dcnc1SQkHcPkWbtgJzDixjtrJjcFfd2hKnNe/lgTTCNWnK+GxmfhvoH2wH/fAnQ/dnKCleKQ==}
     dependencies:
-      '@vill-v/type-as': 0.1.9
+      '@vill-v/type-as': 1.0.0
     dev: false
 
   /@vill-v/prettier-config/0.0.8:
     resolution: {integrity: sha512-vwvHn7nIXHrrUnT3rcdxlaPsQAvlu+apzCAXwgnWRrDAeLlFQk+NJun6eAENpdgEFH8XKlDeSteoo6N16jebGw==}
     dev: true
 
-  /@vill-v/ts/0.1.9:
-    resolution: {integrity: sha512-+dA8puyZn9qXOR3VIxJlrK4oWwtOh8QanRS9gfHDKeXhEgSJSzy3BmuWd7QkNoTcwubEqBBxz0+LGryldAU+pw==}
+  /@vill-v/ts/1.0.0:
+    resolution: {integrity: sha512-isVY4F6MuiU1tSYO27Hq2QrZySVx/k1AtOIc4bJc0B4Ms00uoYYOAd7Z/vXOVCffTPc4HkIYdSVh3qP/1YFzGw==}
     dev: false
 
   /@vill-v/tsconfig/0.0.8:
     resolution: {integrity: sha512-ZC4m8Z3AtCJuK6AHThGTkv/KeTwv8HhICFZUMAy7UtBnX8mLa4BU3gChB7oe7IAyPucMTHFv729vzzpPqBtgOg==}
     dev: true
 
-  /@vill-v/type-as/0.1.9:
-    resolution: {integrity: sha512-1mHQWL9h58is4ej0TjQ4yH9mpboGZ1xJb8BhTEjwNZ65VbecNZaS9cl61q+xJtKy7ML3Z7RqWphp5o1Ir1SLFQ==}
+  /@vill-v/type-as/1.0.0:
+    resolution: {integrity: sha512-ysJgAy8uK4RIegJ1qVN8JltVZVQVL9Hfsymw/42AYh8fdMFHn5VxtY5Ud4oV0sbmcvDS39vgKiC7kXVE1uyVug==}
     dependencies:
-      '@vill-v/ts': 0.1.9
+      '@vill-v/ts': 1.0.0
     dev: false
 
   /@vitejs/plugin-vue/3.1.0_vite@3.1.0+vue@3.2.39:
