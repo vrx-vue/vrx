@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.1 (v0.1.0..v0.1.1)
+
+
+### 🏡 框架
+
+  - Generate CHANGELOG.md (1e354af)
+  - Release v0.1.1 (31f6774)
+
+### ❤️  Contributors
+
+- Whitekite
+
 ## v0.1.0 (v0.1.0-beta.4..v0.1.0)
 
 
