@@ -1,6 +1,6 @@
 import { useAsyncData, UseAsyncStateOptions } from '../useAsyncData'
-import { onMounted, Ref, ref, shallowRef, toRaw } from 'vue-demi'
-import { getByPath, Path } from '@vrx/shared'
+import { onMounted, ref, toRaw } from 'vue-demi'
+import { getByPath, Path, resetRef } from '@vrx/shared'
 
 /**
  * 分页数据发生变化时入参
@@ -15,6 +15,7 @@ export interface UsePaginatedDataPagination {
   pageNum: number
   total: number
 }
+
 export interface UsePaginatedDataOptions<
   Data = any,
   SearchData extends Record<string, any> = any,
@@ -25,6 +26,7 @@ export interface UsePaginatedDataOptions<
   initPagination?: () => Omit<UsePaginatedDataPagination, 'total'>
   dataConcat?: boolean
 }
+
 /**
  * 一个分页数据加载方案
  * @param fn
@@ -40,20 +42,22 @@ export function usePaginatedData<
 ) {
   const {
     totalPath = 'total',
-    initSearchData = () => ({}),
+    initSearchData = () => ({} as SearchData),
     dataConcat = false,
     path,
     initData,
     shallow,
     immediate,
     initPagination = () => ({}),
+    resetBeforeExecute,
   } = options || {}
 
   const { loading, error, execute: _execute } = useAsyncData(fn, { ...options, immediate: false })
 
-  const list: Ref<Data[]> = shallow
-    ? (shallowRef(initData?.()) as any)
-    : (ref(initData?.() as any) as any)
+  const [list, resetList] = resetRef<Data[], Shallow>({
+    initValue: initData,
+    shallow,
+  })
 
   /**
    * 分页是否已经结束
@@ -63,7 +67,9 @@ export function usePaginatedData<
   /**
    * 搜索数据
    */
-  const searchData = ref<SearchData>(initSearchData() as any)
+  const [searchData, resetSearchData] = resetRef<SearchData>({
+    initValue: initSearchData,
+  })
 
   /**
    * 分页数据
@@ -103,6 +109,9 @@ export function usePaginatedData<
    * 执行方法
    */
   const execute = () => {
+    if (!dataConcat && resetBeforeExecute) {
+      resetList()
+    }
     return _execute({ pagination: toRaw(pagination.value), params: toRaw(searchData.value) }).then(
       (res) => {
         pagination.value.total = getByPath<number>(res, totalPath)
@@ -153,7 +162,7 @@ export function usePaginatedData<
    * 重置搜索
    */
   const resetSearch = () => {
-    searchData.value = initSearchData?.() || ({} as any)
+    resetSearchData()
     return pageChange(1)
   }
 
