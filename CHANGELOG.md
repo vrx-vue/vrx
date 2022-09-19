@@ -1,6 +1,32 @@
 # Changelog
 
 
+## v0.2.0-beta.0 (v0.1.1..v0.2.0-beta.0)
+
+
+### 🚀 特性
+
+  - **resetRef:** 一个可重置的 `ref` (实验性-暂供内部使用) (962f2d4)
+  - **useAsyncData:** 增加 在请求前重置数据 的选项 (7c9b2a3)
+  - **usePaginatedData:** 增加 在请求前重置数据 的选项 (7279e1e)
+  - **useImmediateFn:** 是否将一个方法在 `onMounted` 立刻执行 (实验性-暂供内部使用) (6993800)
+  - **useAsyncData:** 内部使用 `useImmediateFn` 重构是否立即执行逻辑 (bead988)
+  - **usePaginatedData:** 内部使用 `useImmediateFn` 重构是否立即执行逻辑 (f5617b0)
+  - **useMultiAsyncData:** 增加 `useAsyncData` 批量版（实验性质，API可能会大改） (e0af171)
+
+### 📖 文档
+
+  - Update docs (4c2751a)
+
+### 🏡 框架
+
+  - Generate CHANGELOG.md (f6357b9)
+  - Release v0.2.0-beta.0 (ef364b8)
+
+### ❤️  Contributors
+
+- Whitekite
+
 ## v0.1.1 (v0.1.0..v0.1.1)
 
 
