@@ -30,7 +30,9 @@ const {
         // 获取数据的字符串路径
         path: 'res.data.data',
         // 是否使用 shallowRef 包装状态
-        shallow: true
+        shallow: true,
+        // 是否在每次请求前调用 initData 重置数据
+        resetBeforeExecute: true,
     }
 )
 ```
@@ -39,16 +41,27 @@ const {
 
 ```ts
 interface UseAsyncStateOptions<Data = any, Shallow extends boolean = boolean> {
-    // 是否在 onMounted 生命周期自动执行一次，注意，自动执行时，无法传递参数
+    /**
+     * 立即执行
+     */
     immediate?: boolean;
-    // 内部状态初始化
+    /**
+     * 初始化数据
+     */
     initData?: () => Data;
-    // 获取数据的字符串路径
+    /**
+     * 获取数据的路径
+     */
     path?: Path;
-    // 是否使用 shallowRef 包装状态
+    /**
+     * 是否改用 `shallowRef`
+     */
     shallow?: Shallow;
+    /**
+     * 是否在请求前重置数据
+     */
+    resetBeforeExecute?: boolean;
 }
-
 /**
  * 获取异步数据
  * @param fn
@@ -56,8 +69,8 @@ interface UseAsyncStateOptions<Data = any, Shallow extends boolean = boolean> {
  */
 declare function useAsyncData<Data = any, Shallow extends boolean = boolean>(fn: (params?: any) => Promise<any>, options?: UseAsyncStateOptions<Data, Shallow>): {
     execute: (params?: any) => Promise<any>;
-    loading: Ref<boolean>;
-    error: Ref<boolean>;
-    data: Shallow extends true ? Ref<Data> : Ref<UnwrapRef<Data>>;
+    loading: vue.Ref<boolean>;
+    error: vue.Ref<boolean>;
+    data: _vrx_shared.MaybeShallowRef<Data, Shallow>;
 };
 ```

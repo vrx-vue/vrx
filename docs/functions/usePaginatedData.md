@@ -64,7 +64,10 @@ const {
         // 初始化的分页参数
         initPagination: () => ({pageNum: 1, pageSize: 8}),
         // 是否开启列表滚动分页模式，即自动拼接数组
-        dataConcat: false
+        dataConcat: false,
+        // 是否在每次请求前调用 initData 重置数据
+        // dataConcat:true 时 resetBeforeExecute无效
+        resetBeforeExecute: true,
     }
 )
 ```
@@ -79,36 +82,36 @@ interface UsePaginatedDataPaginationChangeOptions {
     pageSize: string;
     pageNum: string;
 }
-interface UsePaginatedDataOptions<Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = boolean> extends UseAsyncStateOptions<Data[], Shallow> {
-    totalPath?: Path;
-    initSearchData?: () => SearchData;
-    initPagination?: () => UsePaginatedDataPaginationChangeOptions;
-    dataConcat?: boolean;
-}
 interface UsePaginatedDataPagination {
     pageSize: number;
     pageNum: number;
     total: number;
+}
+interface UsePaginatedDataOptions<Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = boolean> extends UseAsyncStateOptions<Data[], Shallow> {
+    totalPath?: Path;
+    initSearchData?: () => SearchData;
+    initPagination?: () => Omit<UsePaginatedDataPagination, 'total'>;
+    dataConcat?: boolean;
 }
 /**
  * 一个分页数据加载方案
  * @param fn
  * @param options
  */
-declare function usePaginatedData<Data = any, SearchData = any, Shallow extends boolean = boolean>(fn: (params: {
+declare function usePaginatedData<Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = boolean>(fn: (params: {
     pagination: UsePaginatedDataPagination;
     params: SearchData;
 }) => Promise<any>, options?: UsePaginatedDataOptions<Data, SearchData, Shallow>): {
-    list: Ref<Data[]>;
-    finished: Ref<boolean>;
-    searchData: Ref<vue_demi.UnwrapRef<SearchData>>;
-    pagination: Ref<{
+    list: _vrx_shared.MaybeShallowRef<Data[], Shallow>;
+    finished: vue_demi.Ref<boolean>;
+    searchData: vue_demi.Ref<SearchData> | vue_demi.ShallowRef<SearchData>;
+    pagination: vue_demi.Ref<{
         pageSize: number;
         pageNum: number;
         total: number;
     }>;
-    loading: Ref<boolean>;
-    error: Ref<boolean>;
+    loading: vue_demi.Ref<boolean>;
+    error: vue_demi.Ref<boolean>;
     execute: () => Promise<any>;
     search: () => Promise<any>;
     paginationChange: (value: any, options?: UsePaginatedDataPaginationChangeOptions) => Promise<any>;
