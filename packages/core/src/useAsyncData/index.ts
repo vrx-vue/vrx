@@ -1,11 +1,27 @@
-import { onMounted, ref, shallowRef, Ref, UnwrapRef } from 'vue-demi'
-import { getByPath, Path, useAsyncLoading } from '@vrx/shared'
+import { onMounted } from 'vue-demi'
+import { getByPath, Path, resetRef, useAsyncLoading } from '@vrx/shared'
 
 export interface UseAsyncStateOptions<Data = any, Shallow extends boolean = boolean> {
+  /**
+   * 立即执行
+   */
   immediate?: boolean
+  /**
+   * 初始化数据
+   */
   initData?: () => Data
+  /**
+   * 获取数据的路径
+   */
   path?: Path
+  /**
+   * 是否改用 `shallowRef`
+   */
   shallow?: Shallow
+  /**
+   * 是否在请求前重置数据
+   */
+  resetBeforeExecute?: boolean
 }
 
 /**
@@ -17,20 +33,24 @@ export function useAsyncData<Data = any, Shallow extends boolean = boolean>(
   fn: (params?: any) => Promise<any>,
   options?: UseAsyncStateOptions<Data, Shallow>
 ) {
-  const { immediate = false, path, initData, shallow = false } = options || {}
+  const { immediate = false, path, initData, shallow, resetBeforeExecute } = options || {}
 
   /**
    * 状态
    */
-  const data: Shallow extends true ? Ref<Data> : Ref<UnwrapRef<Data>> = shallow
-    ? (shallowRef(initData?.()) as any)
-    : (ref<Data>(initData?.() as Data) as any)
+  const [data, reset] = resetRef<Data, Shallow>({
+    initValue: initData,
+    shallow,
+  })
   /**
    * 是否正在加载
    */
   const { loading, run, error } = useAsyncLoading()
 
   const execute = (params?: any) => {
+    if (resetBeforeExecute) {
+      reset()
+    }
     return run(fn(params)).then((res) => {
       data.value = getByPath(res, path)
       return res
