@@ -1,5 +1,4 @@
-import { onMounted } from 'vue-demi'
-import { getByPath, Path, resetRef, useAsyncLoading } from '@vrx/shared'
+import { getByPath, Path, resetRef, useAsyncLoading, useImmediateFn } from '@vrx/shared'
 
 export interface UseAsyncStateOptions<Data = any, Shallow extends boolean = boolean> {
   /**
@@ -57,10 +56,9 @@ export function useAsyncData<Data = any, Shallow extends boolean = boolean>(
     }) as Promise<any>
   }
 
-  immediate &&
-    onMounted(() => {
-      execute()
-    })
+  useImmediateFn(() => {
+    execute()
+  }, immediate)
 
   return {
     execute,
