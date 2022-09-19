@@ -1,6 +1,6 @@
 import { useAsyncData, UseAsyncStateOptions } from '../useAsyncData'
-import { onMounted, ref, toRaw } from 'vue-demi'
-import { getByPath, Path, resetRef } from '@vrx/shared'
+import { ref, toRaw } from 'vue-demi'
+import { getByPath, Path, resetRef, useImmediateFn } from '@vrx/shared'
 
 /**
  * 分页数据发生变化时入参
@@ -166,10 +166,9 @@ export function usePaginatedData<
     return pageChange(1)
   }
 
-  immediate &&
-    onMounted(() => {
-      execute()
-    })
+  useImmediateFn(() => {
+    execute()
+  }, immediate)
   return {
     list,
     finished,
