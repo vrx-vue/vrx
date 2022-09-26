@@ -75,6 +75,40 @@ const {
 ## Type Declarations
 
 ```ts
+ interface UseAsyncStateOptions<Data = any, Shallow extends boolean = boolean> {
+    /**
+     * 立即执行
+     */
+    immediate?: boolean
+    /**
+     * 初始化数据
+     */
+    initData?: () => Data
+    /**
+     * 获取数据的路径
+     */
+    path?: Path
+    /**
+     * 是否改用 `shallowRef`
+     */
+    shallow?: Shallow
+    /**
+     * 是否在请求前重置数据
+     */
+    resetBeforeExecute?: boolean
+}
+
+interface UseSearchAsyncData<Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = boolean> extends UseAsyncStateOptions<Data, Shallow> {
+    /**
+     * 初始化搜索数据
+     */
+    initSearchData?: () => SearchData;
+    /**
+     * 是否允许在异步任务执行时且存在入参时，直接使用入参作为搜索值
+     */
+    allowOverrideSearchData?: boolean;
+}
+
 /**
  * 分页数据发生变化时入参
  */
@@ -82,17 +116,28 @@ interface UsePaginatedDataPaginationChangeOptions {
     pageSize: string;
     pageNum: string;
 }
+
 interface UsePaginatedDataPagination {
     pageSize: number;
     pageNum: number;
     total: number;
 }
-interface UsePaginatedDataOptions<Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = boolean> extends UseAsyncStateOptions<Data[], Shallow> {
+
+interface UsePaginatedDataOptions<Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = boolean> extends Omit<UseSearchAsyncData<Data[], SearchData, Shallow>, 'allowOverrideSearchData'> {
+    /**
+     * 分页数据总数获取路径
+     */
     totalPath?: Path;
-    initSearchData?: () => SearchData;
+    /**
+     * 初始化 分页参数
+     */
     initPagination?: () => Omit<UsePaginatedDataPagination, 'total'>;
+    /**
+     * 是否在类似 infinityList 业务下，分页拼接数据
+     */
     dataConcat?: boolean;
 }
+
 /**
  * 一个分页数据加载方案
  * @param fn
@@ -104,7 +149,7 @@ declare function usePaginatedData<Data = any, SearchData extends Record<string, 
 }) => Promise<any>, options?: UsePaginatedDataOptions<Data, SearchData, Shallow>): {
     list: _vrx_shared.MaybeShallowRef<Data[], Shallow>;
     finished: vue_demi.Ref<boolean>;
-    searchData: vue_demi.Ref<SearchData> | vue_demi.ShallowRef<SearchData>;
+    searchData: vue_demi.Ref<SearchData>;
     pagination: vue_demi.Ref<{
         pageSize: number;
         pageNum: number;
