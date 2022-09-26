@@ -1,4 +1,4 @@
-import { useAsyncData, UseAsyncStateOptions } from '../useAsyncData'
+import { useSearchAsyncData, UseSearchAsyncData } from '../useSearchAsyncData'
 import { ref, toRaw } from 'vue-demi'
 import { getByPath, Path, resetRef, useImmediateFn } from '@vrx/shared'
 
@@ -20,10 +20,18 @@ export interface UsePaginatedDataOptions<
   Data = any,
   SearchData extends Record<string, any> = any,
   Shallow extends boolean = boolean
-> extends UseAsyncStateOptions<Data[], Shallow> {
+> extends Omit<UseSearchAsyncData<Data[], SearchData, Shallow>, 'allowOverrideSearchData'> {
+  /**
+   * 分页数据总数获取路径
+   */
   totalPath?: Path
-  initSearchData?: () => SearchData
+  /**
+   * 初始化 分页参数
+   */
   initPagination?: () => Omit<UsePaginatedDataPagination, 'total'>
+  /**
+   * 是否在类似 infinityList 业务下，分页拼接数据
+   */
   dataConcat?: boolean
 }
 
@@ -42,7 +50,6 @@ export function usePaginatedData<
 ) {
   const {
     totalPath = 'total',
-    initSearchData = () => ({} as SearchData),
     dataConcat = false,
     path,
     initData,
@@ -52,7 +59,13 @@ export function usePaginatedData<
     resetBeforeExecute,
   } = options || {}
 
-  const { loading, error, execute: _execute } = useAsyncData(fn, { ...options, immediate: false })
+  const {
+    loading,
+    error,
+    execute: _execute,
+    searchData,
+    resetSearchData,
+  } = useSearchAsyncData(fn, { ...options, immediate: false, allowOverrideSearchData: true })
 
   const [list, resetList] = resetRef<Data[], Shallow>({
     initValue: initData,
@@ -63,13 +76,6 @@ export function usePaginatedData<
    * 分页是否已经结束
    */
   const finished = ref(false)
-
-  /**
-   * 搜索数据
-   */
-  const [searchData, resetSearchData] = resetRef<SearchData>({
-    initValue: initSearchData,
-  })
 
   /**
    * 分页数据
