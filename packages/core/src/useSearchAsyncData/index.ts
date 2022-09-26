@@ -52,14 +52,25 @@ export const useSearchAsyncData = <
     return _execute(toRaw(data))
   }
 
+  const search = () => {
+    return _execute(toRaw(searchData.value))
+  }
+
+  const resetSearch = () => {
+    resetSearchData()
+    return search()
+  }
+
   useImmediateFn(() => {
     execute()
   }, immediate)
 
   return {
     searchData,
+    search,
     resetSearchData,
     execute,
+    resetSearch,
     loading,
     error,
     data,

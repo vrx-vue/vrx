@@ -161,6 +161,9 @@ export function usePaginatedData<
    * 搜索
    */
   const search = () => {
+    if (resetBeforeExecute) {
+      resetList()
+    }
     return pageChange(1)
   }
 
@@ -169,12 +172,13 @@ export function usePaginatedData<
    */
   const resetSearch = () => {
     resetSearchData()
-    return pageChange(1)
+    return search()
   }
 
   useImmediateFn(() => {
     execute()
   }, immediate)
+
   return {
     list,
     finished,
