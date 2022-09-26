@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.2.0-beta.1 (v0.2.0-beta.0..v0.2.0-beta.1)
+
+
+### 🚀 特性
+
+  - 分离 `usePaginatedData` 搜索部分为单独方法 `useSearchAsyncData` ,解决部分非分页情况的搜索状态控制 (e196265)
+  - 修改 `usePaginatedData` 依赖于 `useSearchAsyncData` (c2717f6)
+
+### 📖 文档
+
+  - Build docs (7e539dd)
+
+### 🏡 框架
+
+  - Generate CHANGELOG.md (57b668b)
+  - Release v0.2.0-beta.1 (6f50173)
+
+### ❤️  Contributors
+
+- Whitekite
+
 ## v0.2.0-beta.0 (v0.1.1..v0.2.0-beta.0)
 
 
