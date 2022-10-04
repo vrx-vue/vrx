@@ -5,6 +5,9 @@ hero:
   name: vrx
   text: 开发中对于 vue composition-api 的总结
   tagline: 开发中对于 vue composition-api 的总结
+  image:
+    src: /favicon.svg
+    alt: vrx
   actions:
     - theme: brand
       text: 开始

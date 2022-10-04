@@ -43,7 +43,14 @@ export default defineConfig({
   lastUpdated: true,
   vite: { server: { port: 3002 } },
   description: '开发中对于技术的总结，归纳',
+  markdown: {
+    theme: {
+      light: 'vitesse-light',
+      dark: 'vitesse-dark',
+    },
+  },
   themeConfig: {
+    logo: '/favicon.svg',
     lastUpdatedText: '最后更新时间',
     socialLinks: [{ link: 'https://gitee.com/vrx/vrx', icon: 'github' }],
     footer: {
@@ -82,4 +89,16 @@ export default defineConfig({
       ...getFunctions(),
     },
   },
+  head: [
+    ['meta', { name: 'theme-color', content: '#ffffff' }],
+    ['meta', { name: 'author', content: 'WhiteKite' }],
+    [
+      'link',
+      {
+        rel: 'icon',
+        href: '/favicon.svg',
+        type: 'image/svg+xml',
+      },
+    ],
+  ],
 })
