@@ -4,6 +4,8 @@ import * as path from 'path'
 // @ts-ignore
 import matter from 'gray-matter'
 
+import pkg from '../../package.json'
+
 const getFunctions = () => {
   const dir = 'docs/functions'
   const funList: Record<string, { link: string; text: string }[]> = {}
@@ -65,6 +67,15 @@ export default defineConfig({
       {
         text: '方法',
         link: '/functions/',
+      },
+      {
+        text: pkg.version,
+        items: [
+          {
+            text: 'Changelog',
+            link: 'https://gitee.com/vrx/vrx/blob/master/CHANGELOG.md',
+          },
+        ],
       },
     ],
     sidebar: {
