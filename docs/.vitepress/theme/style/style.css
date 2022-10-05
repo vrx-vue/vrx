@@ -8,10 +8,10 @@
     --vp-home-hero-name-background: linear-gradient(92.06deg, #42d392 -17.9%, #43E97B 43.39%, #38F9D7 99.4%);
     --vp-home-hero-image-background-image: linear-gradient(
             -45deg,
-            rgba(67, 233, 123, 0.3) 30%,
-            #35495e80
+            rgba(56, 249, 215, 0.7) 30%,
+            #43E97BB2
     );
-    --vp-home-hero-image-filter: blur(50px);
+    --vp-home-hero-image-filter: blur(30px);
     --vp-code-block-bg: #f2f3f5;
 }
 
