@@ -1,6 +1,28 @@
 # Changelog
 
 
+## v0.2.0-beta.1...v0.2.0
+
+
+### 📖 文档
+
+  - Add favicon (2863d91)
+  - Add version & changelog link (390b72a)
+  - Build docs (ca99dde)
+  - 修改 `--vp-home-hero-image-background-image` (a5e3073)
+  - Build docs (b977d4c)
+
+### 🏡 框架
+
+  - Generate CHANGELOG.md (c32d61f)
+  - **eslint:** Fix (3604090)
+  - **build:** 修改打包策略 (cf6e1cb)
+  - Release v0.2.0 (2f0db8b)
+
+### ❤️  Contributors
+
+- Whitekite <1075790909@qq.com>
+
 ## v0.2.0-beta.1 (v0.2.0-beta.0..v0.2.0-beta.1)
 
 
