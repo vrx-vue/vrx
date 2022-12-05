@@ -1,5 +1,5 @@
 import { MayBeRef } from '../utils'
-import { getByPath as _getByPath, Path } from '@vill-v/path-prop'
+import { Path, getByPath as _getByPath } from '@vill-v/path-prop'
 import { unref } from 'vue-demi'
 
 export function getByPath<T = any>(data: MayBeRef<any>, path?: Path) {

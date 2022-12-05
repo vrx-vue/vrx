@@ -1,4 +1,4 @@
-import { getByPath, Path, resetRef, useAsyncLoading, useImmediateFn } from '@vrx/shared'
+import { Path, getByPath, resetRef, useAsyncLoading, useImmediateFn } from '@vrx/shared'
 
 export interface UseAsyncStateOptions<Data = any, Shallow extends boolean = boolean> {
   /**

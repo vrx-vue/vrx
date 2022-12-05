@@ -1,4 +1,4 @@
-import { shallowRef, ref, Ref, ShallowRef } from 'vue-demi'
+import { Ref, ShallowRef, ref, shallowRef } from 'vue-demi'
 
 export type MaybeShallowRef<T = any, Shallow extends boolean = boolean> = Shallow extends true
   ? ShallowRef<T>

@@ -1,5 +1,5 @@
 import { UseAsyncStateOptions } from '../useAsyncData'
-import { getByPath, resetRef, useAsyncLoading, useImmediateFn, MaybeShallowRef } from '@vrx/shared'
+import { MaybeShallowRef, getByPath, resetRef, useAsyncLoading, useImmediateFn } from '@vrx/shared'
 
 export type UseMultiAsyncDataMulti<Data extends Record<string, any> = any> = {
   [Key in keyof Data]: Omit<

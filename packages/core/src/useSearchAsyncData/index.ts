@@ -1,4 +1,4 @@
-import { useAsyncData, UseAsyncStateOptions } from '../useAsyncData'
+import { UseAsyncStateOptions, useAsyncData } from '../useAsyncData'
 import { resetRef, useImmediateFn } from '@vrx/shared'
 import { toRaw } from 'vue-demi'
 import { isNil } from '@vill-v/type-as'
