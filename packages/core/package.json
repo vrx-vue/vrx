@@ -38,7 +38,7 @@
     }
   },
   "dependencies": {
-    "@vill-v/type-as": "^1.0.0",
+    "@vill-v/type-as": "^1.1.2",
     "@vrx/shared": "workspace:*",
     "vue-demi": "*"
   },
