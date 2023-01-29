@@ -5,3 +5,4 @@ node_modules
 packages/*/dist
 packages/*/.turbo
 packages/*/.pnpm-debug.log
+docs/.vitepress/cache/*

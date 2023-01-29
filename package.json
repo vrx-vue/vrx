@@ -6,7 +6,7 @@
     "name": "whitekite",
     "email": "1075790909@qq.com"
   },
-  "packageManager": "pnpm@7.12.0",
+  "packageManager": "pnpm@7.26.2",
   "sideEffects": false,
   "repository": "https://gitee.com/vrx/vrx",
   "scripts": {
@@ -15,25 +15,27 @@
     "changelogen": "changelogen --output CHANGELOG.md",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:serve": "vitepress serve docs",
+    "update:deps": "taze major -r -w -i"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
-    "@types/node": "^16.11.59",
+    "@types/node": "^16.18.11",
     "@vill-v/eslint-config": "^0.0.10",
     "@vill-v/prettier-config": "^0.0.10",
     "@vill-v/tsconfig": "^0.0.10",
     "bumpp": "^8.2.1",
-    "changelogen": "^0.4.0",
-    "eslint": "^8.29.0",
+    "changelogen": "^0.4.1",
+    "eslint": "^8.33.0",
     "fast-glob": "^3.2.12",
     "fs-extra": "^11.1.0",
     "gray-matter": "^4.0.3",
-    "prettier": "^2.8.0",
+    "prettier": "^2.8.3",
+    "taze": "^0.8.5",
     "tsup": "^6.5.0",
-    "turbo": "^1.6.3",
-    "typescript": "^4.9.3",
-    "vitepress": "^1.0.0-alpha.30",
+    "turbo": "^1.7.0",
+    "typescript": "^4.9.4",
+    "vitepress": "^1.0.0-alpha.43",
     "vue": "^3.2.45"
   }
 }
