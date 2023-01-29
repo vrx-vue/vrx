@@ -16,7 +16,11 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
-    "update:deps": "taze major -r -w -i"
+    "update:deps": "taze major -r -w -i",
+    "clean:dist": "vfdel packages/*/dist",
+    "clean:docs": "vfdel docs/.vitepress/dist",
+    "clean:cache": "vfdel docs/.vitepress/cache packages/*/.turbo",
+    "clean:deps": "vfdel node_modules packages/*/node_modules"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
@@ -36,6 +40,7 @@
     "turbo": "^1.7.0",
     "typescript": "^4.9.4",
     "vitepress": "^1.0.0-alpha.43",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "void-fs": "^0.0.1-beta.6"
   }
 }
