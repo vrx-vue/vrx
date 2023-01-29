@@ -15,6 +15,7 @@
   "scripts": {
     "build": "tsup-node"
   },
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
