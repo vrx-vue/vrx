@@ -38,9 +38,24 @@
     "taze": "^0.8.5",
     "tsup": "^6.5.0",
     "turbo": "^1.7.0",
-    "typescript": "^4.9.4",
+    "typescript": "^4.9.5",
     "vitepress": "^1.0.0-alpha.43",
-    "vue": "^3.2.45",
-    "void-fs": "^0.0.1-beta.6"
+    "void-fs": "^0.0.1-beta.6",
+    "vue": "^3.2.45"
+  },
+  "pnpm": {
+    "overrides": {
+      "vue-demi": "0.13.11"
+    },
+    "packageExtensions": {
+      "vue-demi": {
+        "dependencies": {
+          "vue": "^3.2.45"
+        },
+        "peerDependencies": {
+          "vue": "^3.2.45"
+        }
+      }
+    }
   }
 }
