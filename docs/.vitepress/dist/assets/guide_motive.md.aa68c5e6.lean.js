@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as r,a}from"./app.fe094ae9.js";const f=JSON.parse('{"title":"动机","description":"","frontmatter":{},"headers":[],"relativePath":"guide/motive.md","lastUpdated":1658523304000}'),s={name:"guide/motive.md"},o=a("",6),n=[o];function _(c,p,i,d,u,l){return r(),t("div",null,n)}const m=e(s,[["render",_]]);export{f as __pageData,m as default};
