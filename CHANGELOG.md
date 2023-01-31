@@ -1,6 +1,25 @@
 # Changelog
 
 
+## v0.2.0...v0.2.1
+
+
+### 📖 文档
+
+  - Build docs (39da816)
+  - Docs build (59ad469)
+
+### 🏡 框架
+
+  - Generate CHANGELOG.md (61da237)
+  - **core:** 添加 "sideEffects": false, (432a1d7)
+  - PeerDependencies vue 修改为必选 (b88febf)
+  - Release v0.2.1 (11447a0)
+
+### ❤️  Contributors
+
+- Whitekite <1075790909@qq.com>
+
 ## v0.2.0-beta.1...v0.2.0
 
 
