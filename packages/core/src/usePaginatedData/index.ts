@@ -5,6 +5,7 @@ import {
 } from '../useSearchAsyncData'
 import { Ref, ref, toRaw } from 'vue-demi'
 import { MaybeShallowRef, Path, getByPath, resetRef, useImmediateFn } from '@vrx/shared'
+import { isBoolean } from '@vill-v/type-as'
 
 /**
  * 分页数据发生变化时入参
@@ -49,7 +50,7 @@ export interface UsePaginatedDataPaginationChange<Data = any> {
 }
 
 export interface UsePaginatedDataPageChange<Data = any> {
-  (pageNum: number): Promise<Data[]>
+  (pageNum: number | boolean): Promise<Data[]>
 }
 
 export interface UsePaginatedDataPageSizeChange<Data = any> {
@@ -176,8 +177,14 @@ export function usePaginatedData<
    * 页码变化
    * @param pageNum
    */
-  const pageChange = (pageNum: number) => {
-    pagination.value.pageNum = pageNum
+  const pageChange = (pageNum: number | boolean) => {
+    if (isBoolean(pageNum)) {
+      pagination.value.pageNum = pageNum
+        ? pagination.value.pageNum + 1
+        : pagination.value.pageNum - 1
+    } else {
+      pagination.value.pageNum = pageNum
+    }
     return execute()
   }
 
