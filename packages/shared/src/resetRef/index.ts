@@ -9,13 +9,15 @@ export type ResetRef<T = any, Shallow extends boolean = boolean> = [
   () => void
 ]
 
+export interface ResetRefOption<T = any, Shallow extends boolean = boolean> {
+  initValue?: () => T
+  shallow?: Shallow
+}
+
 export function resetRef<T = any, Shallow extends boolean = boolean>({
   initValue,
   shallow,
-}: {
-  initValue?: () => T
-  shallow?: Shallow
-}): ResetRef<T, Shallow> {
+}: ResetRefOption<T, Shallow>): ResetRef<T, Shallow> {
   const data: Shallow extends true ? ShallowRef<T> : Ref<T> = shallow
     ? (shallowRef<T>(initValue?.() as any) as any)
     : (ref<T>(initValue?.() as any) as any)

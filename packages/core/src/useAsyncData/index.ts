@@ -1,4 +1,5 @@
 import { Path, getByPath, resetRef, useAsyncLoading, useImmediateFn } from '@vrx/shared'
+import { isNil } from '@vill-v/type-as'
 
 export interface UseAsyncStateOptions<Data = any, Shallow extends boolean = boolean> {
   /**
@@ -18,9 +19,13 @@ export interface UseAsyncStateOptions<Data = any, Shallow extends boolean = bool
    */
   shallow?: Shallow
   /**
-   * 是否在请求前重置数据
+   * 是否在调用`execute`前重置数据
    */
   resetBeforeExecute?: boolean
+  /**
+   * 在 `execute` 返回值为 `null|undefined` 时 重置数据
+   */
+  resetOnDataNil?: boolean
 }
 
 /**
@@ -32,7 +37,14 @@ export function useAsyncData<Data = any, Shallow extends boolean = boolean>(
   fn: (params?: any) => Promise<any>,
   options?: UseAsyncStateOptions<Data, Shallow>
 ) {
-  const { immediate = false, path, initData, shallow, resetBeforeExecute } = options || {}
+  const {
+    immediate = false,
+    path,
+    initData,
+    shallow,
+    resetBeforeExecute,
+    resetOnDataNil,
+  } = options || {}
 
   /**
    * 状态
@@ -51,7 +63,13 @@ export function useAsyncData<Data = any, Shallow extends boolean = boolean>(
       reset()
     }
     return run(fn(params)).then((res) => {
-      data.value = getByPath(res, path)
+      const _data = getByPath(res, path)
+      // 如果数据为 nil 时，则重置数据
+      if (resetOnDataNil && isNil(_data)) {
+        reset()
+      } else {
+        data.value = _data
+      }
       return res
     }) as Promise<any>
   }

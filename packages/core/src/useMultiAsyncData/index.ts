@@ -1,5 +1,6 @@
 import { UseAsyncStateOptions } from '../useAsyncData'
 import { MaybeShallowRef, getByPath, resetRef, useAsyncLoading, useImmediateFn } from '@vrx/shared'
+import { isNil } from '@vill-v/type-as'
 
 export type UseMultiAsyncDataMulti<Data extends Record<string, any> = any> = {
   [Key in keyof Data]: Omit<
@@ -55,7 +56,13 @@ export const useMultiAsyncData = <
     }
     return run(fn(params)).then((res) => {
       Object.keys(dataObj).forEach((key) => {
-        dataObj[key].value = getByPath(res, multi[key].path)
+        const _data = getByPath(res, multi[key].path)
+        // 如果数据为 nil 时，则重置数据
+        if (multi[key].resetOnDataNil && isNil(_data)) {
+          resetObj[key]()
+        } else {
+          dataObj[key].value = getByPath(res, multi[key].path)
+        }
       })
       return res
     }) as Promise<any>
