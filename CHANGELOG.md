@@ -1,6 +1,30 @@
 # Changelog
 
 
+## v0.3.0
+
+
+### 🚀 特性
+
+  - 为 `useAsyncData` , `useMultiAsyncData` , `useSearchAsyncData` , `usePaginatedData` 提供 当在 `execute` 返回值为 `null (undefined` 时 重置数据的功能)
+  - 优化 dts (59d60d1)
+  - `usePaginatedData` `pageChange` 支持 下一页 上一页功能 (aa4c9b8)
+
+### 📖 文档
+
+  - Build docs (071b3d0)
+
+### 🏡 框架
+
+  - Generating changelog for v0.2.0...v0.2.1 (d075e5d)
+  - 删除 changelogen script (68adea8)
+  - 替换 release script (8efaf77)
+
+### ❤️  Contributors
+
+- Whitekite <1075790909@qq.com>
+- 1c79965 <whitekite>
+
 ## v0.2.0...v0.2.1
 
 
