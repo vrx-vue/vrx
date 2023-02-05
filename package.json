@@ -11,7 +11,7 @@
   "repository": "https://gitee.com/vrx/vrx",
   "scripts": {
     "build": "turbo run build",
-    "release": "bumpp package.json packages/*/package.json",
+    "release": "vbumpp package.json packages/*/package.json",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
