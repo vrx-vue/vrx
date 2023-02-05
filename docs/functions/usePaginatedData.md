@@ -6,8 +6,8 @@ category: component
 
 对表格分页场景与滚动分页加载场景的业务封装
 
-::: warning 特别注意
-注意该方法要求异步方法返回值内必须返回数据总量
+::: warning
+特别注意注意该方法要求异步方法返回值内必须返回数据总量
 :::
 
 ## Usage
@@ -34,21 +34,23 @@ const {
     search,
     // 分页数据更改
     paginationChange,
-    // 页码更改
+    /**
+     * 页码更改
+     * pageChange(true) 下一页
+     * pageChange(false) 上一页
+     * pageChange(1) 跳转至第一页
+     */
     pageChange,
     // pageSize更改
     pageSizeChange,
     // 重置所有搜索
     resetSearch,
 } = usePaginatedData(
-    ({
-         params,
-         pagination
-     }) => fetch(`https://localhost/api/${pagination.pageNum}/${pagination.pageSize}`,
-        {
-            body: JSON.stringify(params)
-        }
-    ), {
+    ({params, pagination}) =>
+        fetch(`https://localhost/api/${pagination.pageNum}/${pagination.pageSize}`, {
+            body: JSON.stringify(params),
+        }),
+    {
         // 是否在 onMounted 生命周期自动执行一次，注意，自动执行时，无法传递参数
         immediate: true,
         // 内部状态初始化
@@ -68,6 +70,10 @@ const {
         // 是否在每次请求前调用 initData 重置数据
         // dataConcat:true 时 resetBeforeExecute无效
         resetBeforeExecute: true,
+        /**
+         * 在 `execute` 返回值为 `null|undefined` 时 重置数据
+         */
+        resetOnDataNil: true
     }
 )
 ```
@@ -75,67 +81,67 @@ const {
 ## Type Declarations
 
 ```ts
- interface UseAsyncStateOptions<Data = any, Shallow extends boolean = boolean> {
-    /**
-     * 立即执行
-     */
-    immediate?: boolean
-    /**
-     * 初始化数据
-     */
-    initData?: () => Data
-    /**
-     * 获取数据的路径
-     */
-    path?: Path
-    /**
-     * 是否改用 `shallowRef`
-     */
-    shallow?: Shallow
-    /**
-     * 是否在请求前重置数据
-     */
-    resetBeforeExecute?: boolean
-}
-
-interface UseSearchAsyncData<Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = boolean> extends UseAsyncStateOptions<Data, Shallow> {
-    /**
-     * 初始化搜索数据
-     */
-    initSearchData?: () => SearchData;
-    /**
-     * 是否允许在异步任务执行时且存在入参时，直接使用入参作为搜索值
-     */
-    allowOverrideSearchData?: boolean;
-}
-
 /**
  * 分页数据发生变化时入参
  */
 interface UsePaginatedDataPaginationChangeOptions {
-    pageSize: string;
-    pageNum: string;
+    pageSize: string
+    pageNum: string
 }
 
 interface UsePaginatedDataPagination {
-    pageSize: number;
-    pageNum: number;
-    total: number;
+    pageSize: number
+    pageNum: number
+    total: number
 }
 
-interface UsePaginatedDataOptions<Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = boolean> extends Omit<UseSearchAsyncData<Data[], SearchData, Shallow>, 'allowOverrideSearchData'> {
+interface UsePaginatedDataOptions<
+    Data = any,
+    SearchData extends Record<string, any> = any,
+    Shallow extends boolean = false
+> extends Omit<UseSearchAsyncData<Data[], SearchData, Shallow>, 'allowOverrideSearchData'> {
     /**
      * 分页数据总数获取路径
      */
-    totalPath?: Path;
+    totalPath?: Path
     /**
      * 初始化 分页参数
      */
-    initPagination?: () => Omit<UsePaginatedDataPagination, 'total'>;
+    initPagination?: () => Omit<UsePaginatedDataPagination, 'total'>
     /**
      * 是否在类似 infinityList 业务下，分页拼接数据
      */
-    dataConcat?: boolean;
+    dataConcat?: boolean
+}
+
+interface UsePaginatedDataExecuteParams<SearchData extends Record<string, any> = any> {
+    pagination: UsePaginatedDataPagination
+    params: SearchData
+}
+
+interface UsePaginatedDataPaginationChange<Data = any> {
+    (value: any, options?: UsePaginatedDataPaginationChangeOptions): Promise<Data[]>
+}
+
+interface UsePaginatedDataPageChange<Data = any> {
+    (pageNum: number | boolean): Promise<Data[]>
+}
+
+interface UsePaginatedDataPageSizeChange<Data = any> {
+    (pageSize: number): Promise<Data[]>
+}
+
+interface UsePaginatedDataReturn<
+    Data = any,
+    SearchData extends Record<string, any> = any,
+    Shallow extends boolean = false
+> extends Omit<UseSearchAsyncDataReturn<Data[], SearchData, Shallow>, 'data' | 'resetSearchData'> {
+    list: MaybeShallowRef<Data[], Shallow>
+    finished: Ref<boolean>
+    pagination: Ref<UsePaginatedDataPagination>
+    paginationChange: UsePaginatedDataPaginationChange<Data>
+    pageChange: UsePaginatedDataPageChange<Data>
+    pageSizeChange: UsePaginatedDataPageSizeChange<Data>
 }
 
 /**
@@ -143,25 +149,12 @@ interface UsePaginatedDataOptions<Data = any, SearchData extends Record<string, 
  * @param fn
  * @param options
  */
-declare function usePaginatedData<Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = boolean>(fn: (params: {
-    pagination: UsePaginatedDataPagination;
-    params: SearchData;
-}) => Promise<any>, options?: UsePaginatedDataOptions<Data, SearchData, Shallow>): {
-    list: _vrx_shared.MaybeShallowRef<Data[], Shallow>;
-    finished: vue_demi.Ref<boolean>;
-    searchData: vue_demi.Ref<SearchData>;
-    pagination: vue_demi.Ref<{
-        pageSize: number;
-        pageNum: number;
-        total: number;
-    }>;
-    loading: vue_demi.Ref<boolean>;
-    error: vue_demi.Ref<boolean>;
-    execute: () => Promise<any>;
-    search: () => Promise<any>;
-    paginationChange: (value: any, options?: UsePaginatedDataPaginationChangeOptions) => Promise<any>;
-    pageChange: (pageNum: number) => Promise<any>;
-    pageSizeChange: (pageSize: number) => Promise<any>;
-    resetSearch: () => Promise<any>;
-};
+declare function usePaginatedData<
+    Data = any,
+    SearchData extends Record<string, any> = any,
+    Shallow extends boolean = false
+>(
+    fn: (params: UsePaginatedDataExecuteParams) => Promise<any>,
+    options?: UsePaginatedDataOptions<Data, SearchData, Shallow>
+): UsePaginatedDataReturn<Data, SearchData, Shallow>
 ```

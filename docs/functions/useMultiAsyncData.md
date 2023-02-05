@@ -46,12 +46,20 @@ const {
                 initData: () => [],
                 // 获取数据的字符串路径
                 path: 'res.data.roleList',
+                /**
+                 * 在 `execute` 返回值为 `null|undefined` 时 重置数据
+                 */
+                resetOnDataNil: true
             },
             userList: {
                 // 内部状态初始化
                 initData: () => [],
                 // 获取数据的字符串路径
                 path: 'res.data.userList',
+                /**
+                 * 在 `execute` 返回值为 `null|undefined` 时 重置数据
+                 */
+                resetOnDataNil: true
             }
         }
     }
@@ -61,23 +69,23 @@ const {
 ## Type Declarations
 
 ```ts
-declare type UseMultiAsyncDataMulti<Data extends Record<string, any> = any> = {
-    [Key in keyof Data]: Omit<UseAsyncStateOptions<Data[Key]>, 'resetBeforeExecute' | 'immediate' | 'shallow'>;
+type UseMultiAsyncDataMulti<Data extends Record<string, any> = any> = {
+    [Key in keyof Data]: UseAsyncStateCommonOptions<Data[Key]>;
 };
-interface UseMultiAsyncData<Data extends Record<string, any> = any, Shallow extends boolean = boolean> {
+
+interface UseMultiAsyncData<Data extends Record<string, any> = any, Shallow extends boolean = false> extends UseAsyncStateActionOptions<Shallow> {
     multi: UseMultiAsyncDataMulti<Data>;
-    resetBeforeExecute?: boolean;
-    immediate?: boolean;
-    shallow?: Shallow;
 }
+
+type UseMultiAsyncDataReturn<Data extends Record<string, any>, Shallow extends boolean = false> =
+    UseAsyncStateCommonReturn
+    & {
+    [Key in keyof Data]: MaybeShallowRef<Data[Key], Shallow>;
+};
 /**
  * 获取异步方法内批量数据
  * @param fn
  * @param options
  */
-declare const useMultiAsyncData: <Data extends Record<string, any>, Shallow extends boolean = boolean>(fn: (params?: any) => Promise<any>, options: UseMultiAsyncData<Data, Shallow>) => {
-    execute: (params?: any) => Promise<any>;
-    loading: vue.Ref<boolean>;
-    error: vue.Ref<boolean>;
-} & { [Key in keyof Data]: MaybeShallowRef<Data[Key], Shallow>; };
+declare const useMultiAsyncData: <Data extends Record<string, any>, Shallow extends boolean = false>(fn: (params?: any) => Promise<any>, options: UseMultiAsyncData<Data, Shallow>) => UseMultiAsyncDataReturn<Data, Shallow>;
 ```

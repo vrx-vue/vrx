@@ -26,13 +26,20 @@ const [list, resetList] = resetRef({
 ## Type Declarations
 
 ```ts
-declare type MaybeShallowRef<T = any, Shallow extends boolean = boolean> = Shallow extends true ? ShallowRef<T> : Ref<T>;
-declare type ResetRef<T = any, Shallow extends boolean = boolean> = [
+type MaybeShallowRef<T = any, Shallow extends boolean = false> = Shallow extends true ? ShallowRef<T> : Ref<T>;
+type ResetRef<T = any, Shallow extends boolean = false> = [
     MaybeShallowRef<T, Shallow>,
-    () => void
+    VoidFunction
 ];
-declare function resetRef<T = any, Shallow extends boolean = boolean>({ initValue, shallow, }: {
-    initValue?: () => T;
+interface ResetRefOption<T = any, Shallow extends boolean = false> {
+    /**
+     * 初始化/重置调用方法
+     */
+    initValue?: Fn<T>;
+    /**
+     * 是否使用 `shallowRef` 包装
+     */
     shallow?: Shallow;
-}): ResetRef<T, Shallow>;
+}
+declare function resetRef<T = any, Shallow extends boolean = false>({ initValue, shallow, }: ResetRefOption<T, Shallow>): ResetRef<T, Shallow>;
 ```

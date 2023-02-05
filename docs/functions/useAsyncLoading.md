@@ -34,17 +34,16 @@ const request2 = () => {
 ## Type Declarations
 
 ```ts
+interface UseAsyncLoadingState {
+    loading: Ref<boolean>;
+    error: Ref<boolean>;
+}
+interface UseAsyncLoadingReturn extends UseAsyncLoadingState {
+    setLoading: (value: boolean) => void;
+    run: <Data = any>(fn: MayBeFn<Promise<Data>>) => Promise<Data>;
+}
 /**
  * 控制异步方法的加载态
  */
-declare function useAsyncLoading(): {
-    // 是否正在加载中
-    loading: vue_demi.Ref<boolean>;
-    // 手动更新加载状态
-    setLoading: (value?: boolean) => void;
-    // 执行异步方法
-    run: <Data = any>(fn: Promise<Data> | (() => Promise<Data>)) => Promise<Data>;
-    // 异步方法是否在执行中发生错误
-    error: vue_demi.Ref<boolean>;
-};
+declare function useAsyncLoading(): UseAsyncLoadingReturn;
 ```

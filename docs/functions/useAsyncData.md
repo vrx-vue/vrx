@@ -33,6 +33,10 @@ const {
         shallow: true,
         // 是否在每次请求前调用 initData 重置数据
         resetBeforeExecute: true,
+        /**
+         * 在 `execute` 返回值为 `null|undefined` 时 重置数据
+         */
+        resetOnDataNil: true
     }
 )
 ```
@@ -40,37 +44,51 @@ const {
 ## Type Declarations
 
 ```ts
-interface UseAsyncStateOptions<Data = any, Shallow extends boolean = boolean> {
-    /**
-     * 立即执行
-     */
-    immediate?: boolean;
+interface UseAsyncStateCommonOptions<Data = any> {
     /**
      * 初始化数据
      */
-    initData?: () => Data;
+    initData?: Fn<Data>;
     /**
      * 获取数据的路径
      */
     path?: Path;
     /**
+     * 在 `execute` 返回值为 `null|undefined` 时 重置数据
+     */
+    resetOnDataNil?: boolean;
+}
+
+interface UseAsyncStateActionOptions<Shallow extends boolean = false> {
+    /**
+     * 立即执行
+     */
+    immediate?: boolean;
+    /**
      * 是否改用 `shallowRef`
      */
     shallow?: Shallow;
     /**
-     * 是否在请求前重置数据
+     * 是否在调用`execute`前重置数据
      */
     resetBeforeExecute?: boolean;
 }
+
+interface UseAsyncStateOptions<Data = any, Shallow extends boolean = false> extends UseAsyncStateCommonOptions<Data>, UseAsyncStateActionOptions<Shallow> {
+}
+
+interface UseAsyncStateCommonReturn<Data = any> extends UseAsyncLoadingState {
+    execute: (params?: any) => Promise<Data>;
+}
+
+interface UseAsyncStateReturn<Data = any, Shallow extends boolean = false> extends UseAsyncStateCommonReturn<Data> {
+    data: MaybeShallowRef<Data, Shallow>;
+}
+
 /**
  * 获取异步数据
  * @param fn
  * @param options
  */
-declare function useAsyncData<Data = any, Shallow extends boolean = boolean>(fn: (params?: any) => Promise<any>, options?: UseAsyncStateOptions<Data, Shallow>): {
-    execute: (params?: any) => Promise<any>;
-    loading: vue.Ref<boolean>;
-    error: vue.Ref<boolean>;
-    data: _vrx_shared.MaybeShallowRef<Data, Shallow>;
-};
+declare function useAsyncData<Data = any, Shallow extends boolean = false>(fn: (params?: any) => Promise<any>, options?: UseAsyncStateOptions<Data, Shallow>): UseAsyncStateReturn<Data, Shallow>;
 ```
