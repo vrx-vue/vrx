@@ -1,6 +1,10 @@
-import { UseSearchAsyncData, useSearchAsyncData } from '../useSearchAsyncData'
-import { ref, toRaw } from 'vue-demi'
-import { Path, getByPath, resetRef, useImmediateFn } from '@vrx/shared'
+import {
+  UseSearchAsyncData,
+  UseSearchAsyncDataReturn,
+  useSearchAsyncData,
+} from '../useSearchAsyncData'
+import { Ref, ref, toRaw } from 'vue-demi'
+import { MaybeShallowRef, Path, getByPath, resetRef, useImmediateFn } from '@vrx/shared'
 
 /**
  * 分页数据发生变化时入参
@@ -19,7 +23,7 @@ export interface UsePaginatedDataPagination {
 export interface UsePaginatedDataOptions<
   Data = any,
   SearchData extends Record<string, any> = any,
-  Shallow extends boolean = boolean
+  Shallow extends boolean = false
 > extends Omit<UseSearchAsyncData<Data[], SearchData, Shallow>, 'allowOverrideSearchData'> {
   /**
    * 分页数据总数获取路径
@@ -35,6 +39,35 @@ export interface UsePaginatedDataOptions<
   dataConcat?: boolean
 }
 
+export interface UsePaginatedDataExecuteParams<SearchData extends Record<string, any> = any> {
+  pagination: UsePaginatedDataPagination
+  params: SearchData
+}
+
+export interface UsePaginatedDataPaginationChange<Data = any> {
+  (value: any, options?: UsePaginatedDataPaginationChangeOptions): Promise<Data[]>
+}
+
+export interface UsePaginatedDataPageChange<Data = any> {
+  (pageNum: number): Promise<Data[]>
+}
+
+export interface UsePaginatedDataPageSizeChange<Data = any> {
+  (pageSize: number): Promise<Data[]>
+}
+export interface UsePaginatedDataReturn<
+  Data = any,
+  SearchData extends Record<string, any> = any,
+  Shallow extends boolean = false
+> extends Omit<UseSearchAsyncDataReturn<Data[], SearchData, Shallow>, 'data' | 'resetSearchData'> {
+  list: MaybeShallowRef<Data[], Shallow>
+  finished: Ref<boolean>
+  pagination: Ref<UsePaginatedDataPagination>
+  paginationChange: UsePaginatedDataPaginationChange<Data>
+  pageChange: UsePaginatedDataPageChange<Data>
+  pageSizeChange: UsePaginatedDataPageSizeChange<Data>
+}
+
 /**
  * 一个分页数据加载方案
  * @param fn
@@ -43,11 +76,11 @@ export interface UsePaginatedDataOptions<
 export function usePaginatedData<
   Data = any,
   SearchData extends Record<string, any> = any,
-  Shallow extends boolean = boolean
+  Shallow extends boolean = false
 >(
-  fn: (params: { pagination: UsePaginatedDataPagination; params: SearchData }) => Promise<any>,
+  fn: (params: UsePaginatedDataExecuteParams) => Promise<any>,
   options?: UsePaginatedDataOptions<Data, SearchData, Shallow>
-) {
+): UsePaginatedDataReturn<Data, SearchData, Shallow> {
   const {
     totalPath = 'total',
     dataConcat = false,

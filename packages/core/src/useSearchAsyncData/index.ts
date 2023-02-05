@@ -1,12 +1,12 @@
-import { UseAsyncStateOptions, useAsyncData } from '../useAsyncData'
-import { resetRef, useImmediateFn } from '@vrx/shared'
-import { toRaw } from 'vue-demi'
+import { UseAsyncStateOptions, UseAsyncStateReturn, useAsyncData } from '../useAsyncData'
+import { Fn, resetRef, useImmediateFn } from '@vrx/shared'
+import { Ref, toRaw } from 'vue-demi'
 import { isNil } from '@vill-v/type-as'
 
 export interface UseSearchAsyncData<
   Data = any,
   SearchData extends Record<string, any> = any,
-  Shallow extends boolean = boolean
+  Shallow extends boolean = false
 > extends UseAsyncStateOptions<Data, Shallow> {
   /**
    * 初始化搜索数据
@@ -19,14 +19,25 @@ export interface UseSearchAsyncData<
   allowOverrideSearchData?: boolean
 }
 
+export interface UseSearchAsyncDataReturn<
+  Data = any,
+  SearchData extends Record<string, any> = any,
+  Shallow extends boolean = false
+> extends UseAsyncStateReturn<Data, Shallow> {
+  searchData: Ref<SearchData>
+  search: Fn<Promise<Data>>
+  resetSearchData: VoidFunction
+  resetSearch: Fn<Promise<Data>>
+}
+
 export const useSearchAsyncData = <
   Data = any,
   SearchData extends Record<string, any> = any,
-  Shallow extends boolean = boolean
+  Shallow extends boolean = false
 >(
   fn: (params?: any) => Promise<any>,
   options?: UseSearchAsyncData<Data, SearchData, Shallow>
-) => {
+): UseSearchAsyncDataReturn<Data, SearchData, Shallow> => {
   const {
     initSearchData = () => ({} as SearchData),
     immediate,

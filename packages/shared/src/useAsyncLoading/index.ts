@@ -1,9 +1,19 @@
-import { ref } from 'vue-demi'
+import { Ref, ref } from 'vue-demi'
+import { MayBeFn } from '../utils'
+
+export interface UseAsyncLoadingState {
+  loading: Ref<boolean>
+  error: Ref<boolean>
+}
+export interface UseAsyncLoadingReturn extends UseAsyncLoadingState {
+  setLoading: (value: boolean) => void
+  run: <Data = any>(fn: MayBeFn<Promise<Data>>) => Promise<Data>
+}
 
 /**
  * 控制异步方法的加载态
  */
-export function useAsyncLoading() {
+export function useAsyncLoading(): UseAsyncLoadingReturn {
   /**
    * 是否正在加载
    */

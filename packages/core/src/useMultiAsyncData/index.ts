@@ -1,23 +1,26 @@
-import { UseAsyncStateOptions } from '../useAsyncData'
+import {
+  UseAsyncStateActionOptions,
+  UseAsyncStateCommonOptions,
+  UseAsyncStateCommonReturn,
+} from '../useAsyncData'
 import { MaybeShallowRef, getByPath, resetRef, useAsyncLoading, useImmediateFn } from '@vrx/shared'
 import { isNil } from '@vill-v/type-as'
 
 export type UseMultiAsyncDataMulti<Data extends Record<string, any> = any> = {
-  [Key in keyof Data]: Omit<
-    UseAsyncStateOptions<Data[Key]>,
-    'resetBeforeExecute' | 'immediate' | 'shallow'
-  >
+  [Key in keyof Data]: UseAsyncStateCommonOptions<Data[Key]>
 }
 
 export interface UseMultiAsyncData<
   Data extends Record<string, any> = any,
-  Shallow extends boolean = boolean
-> {
+  Shallow extends boolean = false
+> extends UseAsyncStateActionOptions<Shallow> {
   multi: UseMultiAsyncDataMulti<Data>
-  resetBeforeExecute?: boolean
-  immediate?: boolean
-  shallow?: Shallow
 }
+
+export type UseMultiAsyncDataReturn<
+  Data extends Record<string, any>,
+  Shallow extends boolean = false
+> = UseAsyncStateCommonReturn & { [Key in keyof Data]: MaybeShallowRef<Data[Key], Shallow> }
 
 /**
  * 获取异步方法内批量数据
@@ -26,11 +29,11 @@ export interface UseMultiAsyncData<
  */
 export const useMultiAsyncData = <
   Data extends Record<string, any>,
-  Shallow extends boolean = boolean
+  Shallow extends boolean = false
 >(
   fn: (params?: any) => Promise<any>,
   options: UseMultiAsyncData<Data, Shallow>
-) => {
+): UseMultiAsyncDataReturn<Data, Shallow> => {
   const { multi, resetBeforeExecute, immediate, shallow } = options
 
   const dataObj: { [Key in keyof Data]: MaybeShallowRef<Data[Key], Shallow> } = {} as any

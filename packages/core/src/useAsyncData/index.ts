@@ -1,19 +1,35 @@
-import { Path, getByPath, resetRef, useAsyncLoading, useImmediateFn } from '@vrx/shared'
+import {
+  Fn,
+  MaybeShallowRef,
+  Path,
+  UseAsyncLoadingState,
+  getByPath,
+  resetRef,
+  useAsyncLoading,
+  useImmediateFn,
+} from '@vrx/shared'
 import { isNil } from '@vill-v/type-as'
 
-export interface UseAsyncStateOptions<Data = any, Shallow extends boolean = boolean> {
-  /**
-   * 立即执行
-   */
-  immediate?: boolean
+export interface UseAsyncStateCommonOptions<Data = any> {
   /**
    * 初始化数据
    */
-  initData?: () => Data
+  initData?: Fn<Data>
   /**
    * 获取数据的路径
    */
   path?: Path
+  /**
+   * 在 `execute` 返回值为 `null|undefined` 时 重置数据
+   */
+  resetOnDataNil?: boolean
+}
+
+export interface UseAsyncStateActionOptions<Shallow extends boolean = false> {
+  /**
+   * 立即执行
+   */
+  immediate?: boolean
   /**
    * 是否改用 `shallowRef`
    */
@@ -22,10 +38,19 @@ export interface UseAsyncStateOptions<Data = any, Shallow extends boolean = bool
    * 是否在调用`execute`前重置数据
    */
   resetBeforeExecute?: boolean
-  /**
-   * 在 `execute` 返回值为 `null|undefined` 时 重置数据
-   */
-  resetOnDataNil?: boolean
+}
+
+export interface UseAsyncStateOptions<Data = any, Shallow extends boolean = false>
+  extends UseAsyncStateCommonOptions<Data>,
+    UseAsyncStateActionOptions<Shallow> {}
+
+export interface UseAsyncStateCommonReturn<Data = any> extends UseAsyncLoadingState {
+  execute: (params?: any) => Promise<Data>
+}
+
+export interface UseAsyncStateReturn<Data = any, Shallow extends boolean = false>
+  extends UseAsyncStateCommonReturn<Data> {
+  data: MaybeShallowRef<Data, Shallow>
 }
 
 /**
@@ -33,10 +58,10 @@ export interface UseAsyncStateOptions<Data = any, Shallow extends boolean = bool
  * @param fn
  * @param options
  */
-export function useAsyncData<Data = any, Shallow extends boolean = boolean>(
+export function useAsyncData<Data = any, Shallow extends boolean = false>(
   fn: (params?: any) => Promise<any>,
   options?: UseAsyncStateOptions<Data, Shallow>
-) {
+): UseAsyncStateReturn<Data, Shallow> {
   const {
     immediate = false,
     path,
