@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.3.1
+
+
+### 📖 文档
+
+  - Update docs (522aaf3)
+  - 优化 `MaybeShallowRef` 类型 ,并优化其相关推导 (dfb7ce6)
+
+### ❤️  Contributors
+
+- Whitekite <1075790909@qq.com>
+
 ## v0.3.0
 
 
