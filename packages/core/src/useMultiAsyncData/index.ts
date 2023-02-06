@@ -12,14 +12,14 @@ export type UseMultiAsyncDataMulti<Data extends Record<string, any> = any> = {
 
 export interface UseMultiAsyncData<
   Data extends Record<string, any> = any,
-  Shallow extends boolean = false
+  Shallow extends boolean = boolean
 > extends UseAsyncStateActionOptions<Shallow> {
   multi: UseMultiAsyncDataMulti<Data>
 }
 
 export type UseMultiAsyncDataReturn<
   Data extends Record<string, any>,
-  Shallow extends boolean = false
+  Shallow extends boolean = boolean
 > = UseAsyncStateCommonReturn & { [Key in keyof Data]: MaybeShallowRef<Data[Key], Shallow> }
 
 /**
@@ -29,7 +29,7 @@ export type UseMultiAsyncDataReturn<
  */
 export const useMultiAsyncData = <
   Data extends Record<string, any>,
-  Shallow extends boolean = false
+  Shallow extends boolean = boolean
 >(
   fn: (params?: any) => Promise<any>,
   options: UseMultiAsyncData<Data, Shallow>

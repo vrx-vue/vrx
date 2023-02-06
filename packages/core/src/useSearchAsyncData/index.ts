@@ -6,7 +6,7 @@ import { isNil } from '@vill-v/type-as'
 export interface UseSearchAsyncData<
   Data = any,
   SearchData extends Record<string, any> = any,
-  Shallow extends boolean = false
+  Shallow extends boolean = boolean
 > extends UseAsyncStateOptions<Data, Shallow> {
   /**
    * 初始化搜索数据
@@ -22,7 +22,7 @@ export interface UseSearchAsyncData<
 export interface UseSearchAsyncDataReturn<
   Data = any,
   SearchData extends Record<string, any> = any,
-  Shallow extends boolean = false
+  Shallow extends boolean = boolean
 > extends UseAsyncStateReturn<Data, Shallow> {
   searchData: Ref<SearchData>
   search: Fn<Promise<Data>>
@@ -33,7 +33,7 @@ export interface UseSearchAsyncDataReturn<
 export const useSearchAsyncData = <
   Data = any,
   SearchData extends Record<string, any> = any,
-  Shallow extends boolean = false
+  Shallow extends boolean = boolean
 >(
   fn: (params?: any) => Promise<any>,
   options?: UseSearchAsyncData<Data, SearchData, Shallow>

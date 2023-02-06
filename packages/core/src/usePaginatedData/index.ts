@@ -24,7 +24,7 @@ export interface UsePaginatedDataPagination {
 export interface UsePaginatedDataOptions<
   Data = any,
   SearchData extends Record<string, any> = any,
-  Shallow extends boolean = false
+  Shallow extends boolean = boolean
 > extends Omit<UseSearchAsyncData<Data[], SearchData, Shallow>, 'allowOverrideSearchData'> {
   /**
    * 分页数据总数获取路径

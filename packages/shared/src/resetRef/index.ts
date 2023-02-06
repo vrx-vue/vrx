@@ -1,16 +1,18 @@
 import { Ref, ShallowRef, ref, shallowRef } from 'vue-demi'
 import { Fn } from '../utils'
 
-export type MaybeShallowRef<T = any, Shallow extends boolean = false> = Shallow extends true
+export type MaybeShallowRef<T = any, Shallow extends boolean = boolean> = Shallow extends boolean
+  ? Ref<T>
+  : Shallow extends true
   ? ShallowRef<T>
   : Ref<T>
 
-export type ResetRef<T = any, Shallow extends boolean = false> = [
+export type ResetRef<T = any, Shallow extends boolean = boolean> = [
   MaybeShallowRef<T, Shallow>,
   VoidFunction
 ]
 
-export interface ResetRefOption<T = any, Shallow extends boolean = false> {
+export interface ResetRefOption<T = any, Shallow extends boolean = boolean> {
   /**
    * 初始化/重置调用方法
    */
@@ -21,11 +23,11 @@ export interface ResetRefOption<T = any, Shallow extends boolean = false> {
   shallow?: Shallow
 }
 
-export function resetRef<T = any, Shallow extends boolean = false>({
+export function resetRef<T = any, Shallow extends boolean = boolean>({
   initValue,
   shallow,
 }: ResetRefOption<T, Shallow>): ResetRef<T, Shallow> {
-  const data: Shallow extends true ? ShallowRef<T> : Ref<T> = shallow
+  const data: MaybeShallowRef<T,Shallow> = shallow
     ? (shallowRef<T>(initValue?.() as any) as any)
     : (ref<T>(initValue?.() as any) as any)
 

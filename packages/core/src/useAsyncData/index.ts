@@ -25,7 +25,7 @@ export interface UseAsyncStateCommonOptions<Data = any> {
   resetOnDataNil?: boolean
 }
 
-export interface UseAsyncStateActionOptions<Shallow extends boolean = false> {
+export interface UseAsyncStateActionOptions<Shallow extends boolean = boolean> {
   /**
    * 立即执行
    */
@@ -40,7 +40,7 @@ export interface UseAsyncStateActionOptions<Shallow extends boolean = false> {
   resetBeforeExecute?: boolean
 }
 
-export interface UseAsyncStateOptions<Data = any, Shallow extends boolean = false>
+export interface UseAsyncStateOptions<Data = any, Shallow extends boolean = boolean>
   extends UseAsyncStateCommonOptions<Data>,
     UseAsyncStateActionOptions<Shallow> {}
 
@@ -48,7 +48,7 @@ export interface UseAsyncStateCommonReturn<Data = any> extends UseAsyncLoadingSt
   execute: (params?: any) => Promise<Data>
 }
 
-export interface UseAsyncStateReturn<Data = any, Shallow extends boolean = false>
+export interface UseAsyncStateReturn<Data = any, Shallow extends boolean = boolean>
   extends UseAsyncStateCommonReturn<Data> {
   data: MaybeShallowRef<Data, Shallow>
 }
@@ -58,7 +58,7 @@ export interface UseAsyncStateReturn<Data = any, Shallow extends boolean = false
  * @param fn
  * @param options
  */
-export function useAsyncData<Data = any, Shallow extends boolean = false>(
+export function useAsyncData<Data = any, Shallow extends boolean = boolean>(
   fn: (params?: any) => Promise<any>,
   options?: UseAsyncStateOptions<Data, Shallow>
 ): UseAsyncStateReturn<Data, Shallow> {
