@@ -8,20 +8,21 @@ vue-composition-api 的工具集
 
 ## 安装{#install}
 
-使用npm
+:::code-group
 
-```bash
+
+```bash [npm]
 $ npm i @vrx/core
 ```
 
-使用yarn
 
-```bash
+```bash [yarn]
 $ yarn add @vrx/core
 ```
 
-使用pnpm
 
-```bash
+```bash [pnpm]
 $ pnpm add @vrx/core
 ```
+
+:::
