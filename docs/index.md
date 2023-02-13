@@ -14,10 +14,16 @@ hero:
       link: /guide/
 
 features:
-- title: ESM+CJS
+- icon: 🔧
+  title: ESM+CJS
   details: 所有软件包均打包至ESM+CJS
-- title: typescript支持
+- icon: 💪
+  title: typescript支持
   details: 使用typescript编写，自带dts
-- title: 同构
+- icon: 🔋
+  title: 同构
   details: vue2｜3同构
+- icon: 🦉
+  title: tree shakeable
+  details: 只引入你想使用的
 ---

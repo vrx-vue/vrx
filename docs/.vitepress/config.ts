@@ -5,6 +5,9 @@ import * as path from 'path'
 import matter from 'gray-matter'
 
 import pkg from '../../package.json'
+import { giteeIcon } from './gitee-icon'
+import UnoCss from 'unocss/vite'
+import { presetUno } from 'unocss/preset-uno'
 
 const getFunctions = () => {
   const dir = 'docs/functions'
@@ -43,7 +46,7 @@ export default defineConfig({
   lang: 'zh-CN',
   base: '/',
   lastUpdated: true,
-  vite: { server: { port: 3002 } },
+  vite: { server: { port: 3002 }, plugins: [UnoCss({ presets: [presetUno()] })] },
   description: '开发中对于技术的总结，归纳',
   markdown: {
     theme: {
@@ -54,7 +57,14 @@ export default defineConfig({
   themeConfig: {
     logo: '/favicon.svg',
     lastUpdatedText: '最后更新时间',
-    socialLinks: [{ link: 'https://gitee.com/vrx/vrx', icon: 'github' }],
+    socialLinks: [
+      {
+        link: 'https://gitee.com/vrx/vrx',
+        icon: {
+          svg: giteeIcon,
+        },
+      },
+    ],
     outline: {
       label: '本页',
     },
