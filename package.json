@@ -6,7 +6,7 @@
     "name": "whitekite",
     "email": "1075790909@qq.com"
   },
-  "packageManager": "pnpm@7.26.3",
+  "packageManager": "pnpm@7.27.0",
   "sideEffects": false,
   "repository": "https://gitee.com/vrx/vrx",
   "scripts": {
