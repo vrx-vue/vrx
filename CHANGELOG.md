@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.3.2
+
+
+### 📖 文档
+
+  - Update docs (dc3b84b)
+  - 优化文档中文支持 (7151fb6)
+  - 添加 team信息，替换 github icon -> gitee icon (d70014d)
+
+### 🏡 框架
+
+  - Update release script (9ba97df)
+
+### ❤️  Contributors
+
+- Whitekite <1075790909@qq.com>
+
 ## v0.3.1
 
 
