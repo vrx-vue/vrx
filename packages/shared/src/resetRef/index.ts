@@ -27,7 +27,7 @@ export function resetRef<T = any, Shallow extends boolean = boolean>({
   initValue,
   shallow,
 }: ResetRefOption<T, Shallow>): ResetRef<T, Shallow> {
-  const data: MaybeShallowRef<T,Shallow> = shallow
+  const data: MaybeShallowRef<T, Shallow> = shallow
     ? (shallowRef<T>(initValue?.() as any) as any)
     : (ref<T>(initValue?.() as any) as any)
 
