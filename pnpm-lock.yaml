@@ -15,6 +15,7 @@ importers:
       '@vill-v/eslint-config': ^0.0.11
       '@vill-v/prettier-config': ^0.0.11
       '@vill-v/tsconfig': ^0.0.11
+      '@vrx/core': workspace:*
       eslint: ^8.34.0
       fast-glob: ^3.2.12
       fs-extra: ^11.1.0
@@ -35,6 +36,7 @@ importers:
       '@vill-v/eslint-config': 0.0.11_ztlnmuobvwn63gpuifwwrjpt4i
       '@vill-v/prettier-config': 0.0.11
       '@vill-v/tsconfig': 0.0.11
+      '@vrx/core': link:packages/core
       eslint: 8.34.0
       fast-glob: 3.2.12
       fs-extra: 11.1.0
@@ -62,9 +64,11 @@ importers:
   packages/shared:
     specifiers:
       '@vill-v/path-prop': ^1.2.2
+      '@vill-v/type-as': ^1.2.2
       vue-demi: 0.13.11
     dependencies:
       '@vill-v/path-prop': 1.2.2
+      '@vill-v/type-as': 1.2.2
       vue-demi: 0.13.11
 
 packages:

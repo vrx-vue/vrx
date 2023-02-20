@@ -24,6 +24,7 @@
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/node": "^18.14.0",
+    "@vrx/core": "workspace:*",
     "@vill-v/bumpp": "^0.0.4",
     "@vill-v/eslint-config": "^0.0.11",
     "@vill-v/prettier-config": "^0.0.11",
