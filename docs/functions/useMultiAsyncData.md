@@ -2,15 +2,9 @@
 category: state
 ---
 
-# useMultiAsyncData
+# useMultiAsyncData <Badge type="warning" text="测试" />
 
 作为 [useAsyncData](./useAsyncData) 的批量版，可以一次性从异步任务中获取多个状态
-
-::: warning 警告
-
- 该功能处于实验阶段,未经过完整测试，且API不稳定
-
-:::
 
 ## Usage
 
