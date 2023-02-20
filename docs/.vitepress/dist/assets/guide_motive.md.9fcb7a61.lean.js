@@ -1,0 +1,1 @@
+import{_ as e,a as t,o as r,h as a}from"./app.feba4732.js";const f=JSON.parse('{"title":"动机","description":"","frontmatter":{},"headers":[],"relativePath":"guide/motive.md","lastUpdated":1676300397000}'),s={name:"guide/motive.md"},o=a("",7),n=[o];function p(_,c,i,d,u,l){return r(),t("div",null,n)}const m=e(s,[["render",p]]);export{f as __pageData,m as default};
