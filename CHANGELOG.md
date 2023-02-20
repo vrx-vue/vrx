@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.3.3
+
+
+### 🚀 特性
+
+  - 新增 `arrayStringJump` 方法，应对后端交互时其接受/返回特定分隔符模拟数组的字符串 (019d543)
+
+### 📖 文档
+
+  - Update docs (11699b2)
+  - 新增 `arrayStringJump` 方法，应对后端交互时其接受/返回特定分隔符模拟数组的字符串 (fa4f1a9)
+
+### ❤️  Contributors
+
+- Whitekite <1075790909@qq.com>
+
 ## v0.3.2
 
 
