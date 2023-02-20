@@ -13,6 +13,9 @@ const getFunctions = () => {
   const dir = 'docs/functions'
   const funList: Record<string, { link: string; text: string }[]> = {}
   fs.readdirSync(path.resolve(dir)).forEach((item) => {
+    if (item === 'demo') {
+      return
+    }
     if (item === 'index.md') {
       return
     }
