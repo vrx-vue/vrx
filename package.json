@@ -24,7 +24,7 @@
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/node": "^18.15.0",
-    "@vill-v/bumpp": "^0.2.0",
+    "@vill-v/bumpp": "^0.2.1",
     "@vill-v/eslint-config": "^0.0.11",
     "@vill-v/prettier-config": "^0.0.11",
     "@vill-v/tsconfig": "^0.0.11",

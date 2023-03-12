@@ -11,7 +11,7 @@ importers:
     specifiers:
       '@rushstack/eslint-patch': ^1.2.0
       '@types/node': ^18.15.0
-      '@vill-v/bumpp': ^0.2.0
+      '@vill-v/bumpp': ^0.2.1
       '@vill-v/eslint-config': ^0.0.11
       '@vill-v/prettier-config': ^0.0.11
       '@vill-v/tsconfig': ^0.0.11
@@ -32,7 +32,7 @@ importers:
     devDependencies:
       '@rushstack/eslint-patch': 1.2.0
       '@types/node': 18.15.0
-      '@vill-v/bumpp': 0.2.0
+      '@vill-v/bumpp': 0.2.1
       '@vill-v/eslint-config': 0.0.11_cxk2izsnbljdhebs7ezdbimyva
       '@vill-v/prettier-config': 0.0.11
       '@vill-v/tsconfig': 0.0.11
@@ -1258,8 +1258,8 @@ packages:
       - rollup
     dev: true
 
-  /@vill-v/bumpp/0.2.0:
-    resolution: {integrity: sha512-eUr4qSiGFGQfG3tdmviwV1h+ik7gyceCocjJUKEt/4BUpalKt/BygKtBkviPzYGYNQDSgMLisFwKsEu9naR0Rg==}
+  /@vill-v/bumpp/0.2.1:
+    resolution: {integrity: sha512-lvaazchrCim+Kr4JVz1PWmVKu6TEzVUCSlE9d9K/1vQlqVn0q2JjDDjW/Fe906ruWsjjO/ysrHpWsSe3IhWEKQ==}
     engines: {node: '>=16'}
     hasBin: true
     dependencies:
