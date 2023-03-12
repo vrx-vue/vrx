@@ -57,6 +57,7 @@ export default defineConfig({
       dark: 'vitesse-dark',
     },
   },
+  cleanUrls: true,
   themeConfig: {
     logo: '/favicon.svg',
     lastUpdatedText: '最后更新时间',
