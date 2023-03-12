@@ -17,6 +17,22 @@
 
 - Whitekite <1075790909@qq.com>
 
+## v0.3.4
+
+
+### 🩹 修复
+
+  - **useAsyncLoading:** `error` 状态判断错误 (65955b1)
+
+### 📖 文档
+
+  - Build docs (b232891)
+  - Build docs (a8dcae0)
+
+### ❤️  Contributors
+
+- Whitekite <1075790909@qq.com>
+
 ## v0.3.3
 
 
