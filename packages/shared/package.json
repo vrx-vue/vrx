@@ -38,6 +38,7 @@
   "dependencies": {
     "@vill-v/path-prop": "^1.2.2",
     "@vill-v/type-as": "^1.2.2",
+    "hookable": "^5.5.1",
     "vue-demi": "*"
   },
   "publishConfig": {

@@ -65,10 +65,12 @@ importers:
     specifiers:
       '@vill-v/path-prop': ^1.2.2
       '@vill-v/type-as': ^1.2.2
+      hookable: ^5.5.1
       vue-demi: 0.13.11
     dependencies:
       '@vill-v/path-prop': 1.2.2
       '@vill-v/type-as': 1.2.2
+      hookable: 5.5.1
       vue-demi: 0.13.11
 
 packages:
@@ -2664,6 +2666,10 @@ packages:
     dependencies:
       function-bind: 1.1.1
     dev: true
+
+  /hookable/5.5.1:
+    resolution: {integrity: sha512-ac50aYjbtRMMZEtTG0qnVaBDA+1lqL9fHzDnxMQlVuO6LZWcBB7NXjIu9H9iImClewNdrit4RiEzi9QpRTgKrg==}
+    dev: false
 
   /hosted-git-info/5.2.1:
     resolution: {integrity: sha512-xIcQYMnhcx2Nr4JTjsFmwwnr9vldugPy9uVm0o87bjqqWMv9GaqsTeT+i99wTl0mk1uLxJtHxLb8kymqTENQsw==}

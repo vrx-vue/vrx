@@ -41,7 +41,7 @@ export function useAsyncLoading(): UseAsyncLoadingReturn {
     setLoading(true)
     return fn
       .catch((err) => {
-        error.value = false
+        error.value = true
         return Promise.reject(err)
       })
       .finally(() => setLoading(false))
@@ -52,8 +52,6 @@ export function useAsyncLoading(): UseAsyncLoadingReturn {
    * @param fn
    */
   const run = <Data = any>(fn: (() => Promise<Data>) | Promise<Data>) => {
-    error.value = false
-    setLoading(true)
     if (fn instanceof Promise) {
       return _run(fn)
     }
