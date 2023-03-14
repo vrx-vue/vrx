@@ -17,6 +17,7 @@
     --vp-code-tab-text-color: var(--vp-c-text-light-2);
     --vp-code-tab-hover-text-color: var(--vp-c-text-light-1);
     --vp-code-block-divider-color: #e2e3e4;
+    --vp-code-copy-code-bg: transparent;
 }
 
 .dark {
