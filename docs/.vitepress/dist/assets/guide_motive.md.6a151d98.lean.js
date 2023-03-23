@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as r,N as a}from"./chunks/framework.19a5bd38.js";const f=JSON.parse('{"title":"动机","description":"","frontmatter":{},"headers":[],"relativePath":"guide/motive.md","lastUpdated":1676300397000}'),o={name:"guide/motive.md"},s=a("",7),n=[s];function p(_,c,i,l,u,d){return r(),t("div",null,n)}const m=e(o,[["render",p]]);export{f as __pageData,m as default};
