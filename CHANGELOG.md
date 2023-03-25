@@ -1,6 +1,30 @@
 # Changelog
 
 
+## v0.3.5
+
+
+### 🚀 特性
+
+  - **usePaginatedData:** 修改 ts 泛型 (a6ccd4e)
+
+### 📖 文档
+
+  - Build docs (a19c530)
+  - 修改复制图标背景颜色 (41486e5)
+  - Build docs (259e4ac)
+  - Build docs (8eee810)
+  - Build docs (4dccdd9)
+  - Build docs (ddaf4ec)
+
+### 🏡 框架
+
+  - 清除多余的 CHANGELOG.md (f97c760)
+
+### ❤️  Contributors
+
+- Whitekite <1075790909@qq.com>
+
 ## v0.3.4
 
 
