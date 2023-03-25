@@ -77,7 +77,7 @@ export interface UsePaginatedDataReturn<
 export function usePaginatedData<
   Data = any,
   SearchData extends Record<string, any> = any,
-  Shallow extends boolean = false
+  Shallow extends boolean = boolean
 >(
   fn: (params: UsePaginatedDataExecuteParams) => Promise<any>,
   options?: UsePaginatedDataOptions<Data, SearchData, Shallow>
