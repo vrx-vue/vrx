@@ -4,7 +4,7 @@
   const members = [
     {
       avatar:
-        'https://portrait.gitee.com/uploads/avatars/user/2737/8211287_white-kite_1660498418.png',
+        'https://foruda.gitee.com/avatar/1677119722694555626/8211287_white-kite_1660498418.png',
       name: 'WhiteKite',
       title: 'Author',
       desc: '希儿天下第一',
