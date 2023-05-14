@@ -6,7 +6,7 @@
     "name": "whitekite",
     "email": "1075790909@qq.com"
   },
-  "packageManager": "pnpm@8.2.0",
+  "packageManager": "pnpm@8.5.0",
   "sideEffects": false,
   "repository": "https://gitee.com/vrx/vrx",
   "scripts": {
@@ -23,25 +23,25 @@
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
-    "@types/node": "^18.15.11",
+    "@types/node": "^18.16.9",
     "@vill-v/bumpp": "^0.2.3",
     "@vill-v/eslint-config": "^0.0.14",
     "@vill-v/prettier-config": "^0.0.14",
     "@vill-v/tsconfig": "^0.0.14",
     "@vrx/core": "workspace:*",
-    "eslint": "^8.38.0",
+    "eslint": "^8.40.0",
     "fast-glob": "^3.2.12",
     "fs-extra": "^11.1.1",
     "gray-matter": "^4.0.3",
-    "prettier": "^2.8.7",
-    "taze": "^0.9.1",
+    "prettier": "^2.8.8",
+    "taze": "^0.10.1",
     "tsup": "^6.7.0",
-    "turbo": "^1.9.1",
+    "turbo": "^1.9.4",
     "typescript": "^5.0.4",
-    "unocss": "^0.51.4",
-    "vitepress": "^1.0.0-alpha.71",
+    "unocss": "^0.51.12",
+    "vitepress": "1.0.0-alpha.75",
     "void-fs": "^0.0.1-beta.8",
-    "vue": "^3.2.47"
+    "vue": "^3.3.2"
   },
   "pnpm": {
     "overrides": {
