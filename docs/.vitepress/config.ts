@@ -111,10 +111,12 @@ export default defineConfig({
       {
         text: '指引',
         link: '/guide/',
+        activeMatch:'^\/guide\/'
       },
       {
         text: '方法',
         link: '/functions/',
+        activeMatch:'^\/functions\/'
       },
       {
         text: pkg.version,
