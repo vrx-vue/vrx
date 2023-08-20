@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
-import * as fs from 'fs-extra'
-import * as path from 'path'
+import * as fs from 'node:fs'
+import * as path from 'node:path'
 // @ts-ignore
 import matter from 'gray-matter'
 
