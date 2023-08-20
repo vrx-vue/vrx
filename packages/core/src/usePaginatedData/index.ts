@@ -1,11 +1,11 @@
+import { Ref, ref, toRaw } from 'vue-demi'
+import { MaybeShallowRef, Path, getByPath, resetRef, useImmediateFn } from '@vrx/shared'
+import { isBoolean } from '@vill-v/type-as'
 import {
   UseSearchAsyncData,
   UseSearchAsyncDataReturn,
   useSearchAsyncData,
 } from '../useSearchAsyncData'
-import { Ref, ref, toRaw } from 'vue-demi'
-import { MaybeShallowRef, Path, getByPath, resetRef, useImmediateFn } from '@vrx/shared'
-import { isBoolean } from '@vill-v/type-as'
 
 /**
  * 分页数据发生变化时入参
@@ -24,7 +24,7 @@ export interface UsePaginatedDataPagination {
 export interface UsePaginatedDataOptions<
   Data = any,
   SearchData extends Record<string, any> = any,
-  Shallow extends boolean = boolean
+  Shallow extends boolean = boolean,
 > extends Omit<UseSearchAsyncData<Data[], SearchData, Shallow>, 'allowOverrideSearchData'> {
   /**
    * 分页数据总数获取路径
@@ -59,7 +59,7 @@ export interface UsePaginatedDataPageSizeChange<Data = any> {
 export interface UsePaginatedDataReturn<
   Data = any,
   SearchData extends Record<string, any> = any,
-  Shallow extends boolean = false
+  Shallow extends boolean = false,
 > extends Omit<UseSearchAsyncDataReturn<Data[], SearchData, Shallow>, 'data' | 'resetSearchData'> {
   list: MaybeShallowRef<Data[], Shallow>
   finished: Ref<boolean>
@@ -77,7 +77,7 @@ export interface UsePaginatedDataReturn<
 export function usePaginatedData<
   Data = any,
   SearchData extends Record<string, any> = any,
-  Shallow extends boolean = boolean
+  Shallow extends boolean = boolean,
 >(
   fn: (params: UsePaginatedDataExecuteParams) => Promise<any>,
   options?: UsePaginatedDataOptions<Data, SearchData, Shallow>
