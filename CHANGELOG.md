@@ -1,6 +1,24 @@
 # Changelog
 
 
+## v0.4.0
+
+
+### 🚀 特性
+
+- 内部包 `@vill-v/path-prop` 升级至`1.3.0` 支持解析 `data[0]['foo.bar']` `data[0]['foo-bar']` 形式路径，涉及方法 `useAsyncData` `useMultiAsyncData` `usePaginatedData` `useSearchAsyncData` `getByPath` (6a4798b)
+
+### 📖 文档
+
+- 文档team头像地址更换 (f9f1a75)
+- Build docs (f3a3f04)
+- Add local search (3ef65b4)
+- Fix nav active match error (a18dbd1)
+
+### ❤️  贡献者
+
+- Whitekite <1075790909@qq.com>
+
 ## v0.3.5
 
 
