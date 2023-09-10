@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.4.1
+
+
+### 🩹 修复
+
+- 修复`getByPath` 的 ts 类型错误 (3ed3c41)
+
+### 📖 文档
+
+- Build docs (071072e)
+- Update pwa config (8a1f59b)
+- Update pwa registerType config (e76f6dd)
+- Update pwa registerType (9059094)
+- Update pwa condig (c8441c5)
+- Update pwa config (4635b2b)
+- Update pwa config (87a76f4)
+
+### ❤️  贡献者
+
+- Whitekite <1075790909@qq.com>
+
 ## v0.4.0
 
 
