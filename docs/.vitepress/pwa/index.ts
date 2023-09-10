@@ -10,4 +10,8 @@ export const pwa: PwaOptions = {
     theme_color: '#10b981',
     icons,
   },
+  workbox: {
+    globPatterns: ['**/*.{css,js,html,svg,png,ico,txt,woff2}'],
+    navigateFallbackDenylist: [/^\/arco-docs/]
+  },
 }
