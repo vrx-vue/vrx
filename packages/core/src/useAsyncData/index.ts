@@ -88,7 +88,7 @@ export function useAsyncData<Data = any, Shallow extends boolean = boolean>(
       reset()
     }
     return run(fn(params)).then((res) => {
-      const _data = getByPath(res, path)
+      const _data = getByPath<Data>(res, path)
       // 如果数据为 nil 时，则重置数据
       if (resetOnDataNil && isNil(_data)) {
         reset()
