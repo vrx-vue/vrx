@@ -2,7 +2,7 @@ import type { PwaOptions } from '@vite-pwa/vitepress'
 import { icons } from './icons'
 
 export const pwa: PwaOptions = {
-  registerType:'autoUpdate',
+  registerType: 'autoUpdate',
   manifest: {
     name: 'Vrx',
     short_name: 'Vrx',
