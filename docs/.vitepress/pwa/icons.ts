@@ -6,51 +6,25 @@ export const icons = [
     purpose: 'any',
   },
   {
-    src: '/icons/16.png',
-    sizes: '16x16',
-  },
-  {
-    src: '/icons/32.png',
-    sizes: '32x32',
-  },
-  {
-    src: '/icons/64.png',
+    src: 'pwa-64x64.png',
     sizes: '64x64',
+    type: 'image/png',
   },
   {
-    src: '/icons/72.png',
-    sizes: '72x72',
-  },
-  {
-    src: '/icons/100.png',
-    sizes: '100x100',
-  },
-  {
-    src: '/icons/128.png',
-    sizes: '128x128',
-  },
-  {
-    src: '/icons/144.png',
-    sizes: '144x144',
-  },
-  {
-    src: '/icons/180.png',
-    sizes: '180x180',
-  },
-  {
-    src: '/icons/192.png',
+    src: 'pwa-192x192.png',
     sizes: '192x192',
+    type: 'image/png',
   },
   {
-    src: '/icons/256.png',
-    sizes: '256x256',
-  },
-  {
-    src: '/icons/512.png',
+    src: 'pwa-512x512.png',
     sizes: '512x512',
+    type: 'image/png',
+    purpose: 'any',
   },
   {
-    src: '/icons/1024.png',
-    sizes: '1024x1024',
+    src: 'maskable-icon-512x512.png',
+    sizes: '512x512',
+    type: 'image/png',
+    purpose: 'maskable',
   },
 ]
