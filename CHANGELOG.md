@@ -1,6 +1,28 @@
 # Changelog
 
 
+## v0.4.2
+
+
+### 🚀 特性
+
+- **nuxt:** 增加 `nuxt-module` 支持 (1131e03)
+
+### 📖 文档
+
+- Update docs (633e0ca)
+- Update docs (f2b6793)
+- Update pwa icon (287f149)
+- 增加 nuxt 集成说明 (b6b5b35)
+
+### 🏡 框架
+
+- **dep:** Update auto gitee release util (9ef3251)
+
+### ❤️ Contributors
+
+- Whitekite <1075790909@qq.com>
+
 ## v0.4.1
 
 
