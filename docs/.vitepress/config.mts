@@ -132,6 +132,7 @@ export default withPwa(
             items: [
               { text: '动机', link: '/guide/motive' },
               { text: '开始', link: '/guide/' },
+              { text: 'Nuxt 集成', link: '/guide/nuxt' },
             ],
           },
           {

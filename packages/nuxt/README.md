@@ -4,6 +4,8 @@
 
 ![npm (scoped)](https://img.shields.io/npm/v/@vrx/nuxt?style=flat-square)
 
+> 由于 `useAsyncData` 与 **nuxt3** 全局方法冲突，在自动导入时将重命名为 `$useAsyncData` 避免冲突
+
 ## 安装
 
 ```shell
@@ -21,6 +23,8 @@ export default defineNuxtConfig({
 })
 ```
 
-## Options
+🎉 配置完成后，默认所有方法都可以自动导入了
 
-请跳转 [Options](https://gitee.com/vrx/vrx/blob/master/packages/nuxt/src/types.ts) 查看
+## 配置项
+
+请跳转 [配置项](https://gitee.com/vrx/vrx/blob/master/packages/nuxt/src/types.ts) 查看
