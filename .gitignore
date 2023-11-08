@@ -2,7 +2,9 @@ node_modules
 .DS_Store
 *.local
 .idea
-packages/*/dist
+.nuxt
+dist
+.turbo
 packages/*/.turbo
 packages/*/.pnpm-debug.log
 docs/.vitepress/cache/*

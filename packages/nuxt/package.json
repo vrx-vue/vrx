@@ -1,0 +1,48 @@
+{
+  "name": "@vrx/nuxt",
+  "version": "0.4.1",
+  "license": "MIT",
+  "type": "module",
+  "repository": "https://gitee.com/vrx/vrx",
+  "homepage": "https://vrx.gitee.io/",
+  "keywords": [
+    "vue",
+    "utils",
+    "vue-composition-api",
+    "nuxt",
+    "nuxt-modules"
+  ],
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node ./gen-imports.js && tsup-node"
+  },
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "peerDependencies": {
+    "nuxt": "^3.0.0"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.8.1",
+    "@vrx/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@nuxt/schema": "3.8.1",
+    "mlly": "^1.4.2",
+    "magicast": "^0.3.0",
+    "unimport": "^3.4.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

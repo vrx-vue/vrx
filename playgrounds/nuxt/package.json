@@ -1,0 +1,19 @@
+{
+  "name": "@vrx/playground-nuxt",
+  "version": "0.4.1",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@vrx/nuxt": "workspace:*",
+    "@vrx/core": "workspace:*"
+  },
+  "devDependencies": {
+    "nuxt": "^3.8.1",
+    "typescript": "^5.2.2"
+  }
+}
