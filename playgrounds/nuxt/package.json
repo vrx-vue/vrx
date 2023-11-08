@@ -9,8 +9,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@vrx/nuxt": "workspace:*",
-    "@vrx/core": "workspace:*"
+    "@vrx/core": "workspace:*",
+    "@vrx/nuxt": "workspace:*"
   },
   "devDependencies": {
     "nuxt": "^3.8.1",

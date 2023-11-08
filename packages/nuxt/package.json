@@ -38,8 +38,8 @@
   },
   "devDependencies": {
     "@nuxt/schema": "3.8.1",
-    "mlly": "^1.4.2",
     "magicast": "^0.3.0",
+    "mlly": "^1.4.2",
     "unimport": "^3.4.0"
   },
   "publishConfig": {
