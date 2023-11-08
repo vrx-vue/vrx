@@ -8,3 +8,4 @@ dist
 packages/*/.turbo
 packages/*/.pnpm-debug.log
 docs/.vitepress/cache/*
+!docs/.vitepress/dist
