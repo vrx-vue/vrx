@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.4.3
+
+[compare changes](https://github.com/vrx-vue/vrx/compare/v0.4.2...v0.4.3)
+
+### 📖 文档
+
+- Build doc ([cc55ecb](https://github.com/vrx-vue/vrx/commit/cc55ecb))
+- Update docs ([d1902c7](https://github.com/vrx-vue/vrx/commit/d1902c7))
+- Update docs ([99a3191](https://github.com/vrx-vue/vrx/commit/99a3191))
+- 修改 nuxt 配置项跳转查看地址 ([335786a](https://github.com/vrx-vue/vrx/commit/335786a))
+
+### 🏡 框架
+
+- 项目储存位置从 gitee 迁移至 github ([ee71a40](https://github.com/vrx-vue/vrx/commit/ee71a40))
+- Add github pages build actions ([eefbd5d](https://github.com/vrx-vue/vrx/commit/eefbd5d))
+- Update build script ([e54f2be](https://github.com/vrx-vue/vrx/commit/e54f2be))
+
+### ❤️ 贡献者
+
+- Whitekite <1075790909@qq.com>
+
 ## v0.4.2
 
 
