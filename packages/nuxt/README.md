@@ -27,4 +27,4 @@ export default defineNuxtConfig({
 
 ## 配置项
 
-请跳转 [配置项](https://gitee.com/vrx/vrx/blob/master/packages/nuxt/src/types.ts) 查看
+请跳转 [配置项](https://github.com/vrx-vue/vrx/blob/main/packages/nuxt/src/types.ts) 查看
