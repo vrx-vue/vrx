@@ -11,6 +11,5 @@ export const pwa: PwaOptions = {
   },
   workbox: {
     globPatterns: ['**/*.{css,js,html,svg,png,ico,txt,woff2}'],
-    navigateFallbackDenylist: [/^\/arco-docs/]
   },
 }

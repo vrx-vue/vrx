@@ -1,26 +1,22 @@
 <script lang="ts" setup>
-  import { VPTeamPage, VPTeamMembers } from 'vitepress/theme'
-  import { giteeIcon } from '../../gitee-icon'
+  import { VPTeamMembers } from 'vitepress/theme'
+
   const members = [
     {
-      avatar:
-        'https://foruda.gitee.com/avatar/1677119722694555626/8211287_white-kite_1660498418.png',
-      name: 'WhiteKite',
+      avatar: 'https://avatars.githubusercontent.com/Colourlessglow',
+      name: 'Colourlessglow',
       title: 'Author',
       desc: '希儿天下第一',
       links: [
         {
-          icon: {
-            svg: giteeIcon,
-          },
-          link: 'https://gitee.com/white-kite',
+          icon: 'github',
+          link: 'https://github.com/Colourlessglow',
         },
       ],
     },
   ]
 </script>
+
 <template>
-  <VPTeamPage class="mt-20px">
-    <VPTeamMembers size="small" :members="members" />
-  </VPTeamPage>
+  <VPTeamMembers class="mt-20px" size="small" :members="members" />
 </template>

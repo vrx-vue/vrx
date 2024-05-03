@@ -3,8 +3,8 @@
   "version": "0.4.2",
   "license": "MIT",
   "type": "module",
-  "repository": "https://gitee.com/vrx/vrx",
-  "homepage": "https://vrx.gitee.io/",
+  "repository": "https://github.com/vrx-vue/vrx.git",
+  "homepage": "https://vrx-vue.github.io/vrx/",
   "keywords": [
     "vue",
     "utils",
@@ -33,14 +33,14 @@
     "nuxt": "^3.0.0"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.8.1",
+    "@nuxt/kit": "^3.11.2",
+    "@nuxt/schema": "^3.11.2",
     "@vrx/core": "workspace:*"
   },
   "devDependencies": {
-    "@nuxt/schema": "3.8.1",
-    "magicast": "^0.3.0",
-    "mlly": "^1.4.2",
-    "unimport": "^3.4.0"
+    "magicast": "^0.3.4",
+    "mlly": "^1.7.0",
+    "unimport": "^3.7.1"
   },
   "publishConfig": {
     "access": "public"

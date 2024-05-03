@@ -1,13 +1,11 @@
 import { defineConfig } from 'vitepress'
 import * as fs from 'node:fs'
 import * as path from 'node:path'
-// @ts-ignore
 import matter from 'gray-matter'
 
 import pkg from '../../package.json'
-import { giteeIcon } from './gitee-icon'
 import UnoCss from 'unocss/vite'
-import { presetUno } from 'unocss/preset-uno'
+import { presetUno } from 'unocss'
 import { withPwa } from '@vite-pwa/vitepress'
 import { pwa } from './pwa'
 
@@ -50,7 +48,7 @@ export default withPwa(
   defineConfig({
     title: 'vrx',
     lang: 'zh-CN',
-    base: '/',
+    base: '/vrx',
     lastUpdated: true,
     vite: { server: { port: 3002 }, plugins: [UnoCss({ presets: [presetUno()] })] },
     description: '开发中对于技术的总结，归纳',
@@ -84,10 +82,8 @@ export default withPwa(
       },
       socialLinks: [
         {
-          link: 'https://gitee.com/vrx/vrx',
-          icon: {
-            svg: giteeIcon,
-          },
+          link: 'https://github.com/vrx-vue/vrx',
+          icon: 'github',
         },
       ],
       outline: {
@@ -120,7 +116,7 @@ export default withPwa(
           items: [
             {
               text: 'Changelog',
-              link: 'https://gitee.com/vrx/vrx/blob/master/CHANGELOG.md',
+              link: 'https://github.com/vrx-vue/vrx/blob/master/CHANGELOG.md',
             },
           ],
         },
@@ -155,7 +151,7 @@ export default withPwa(
         'link',
         {
           rel: 'icon',
-          href: '/favicon.ico',
+          href: '/vrx/favicon.ico',
           sizes: 'any',
         },
       ],
@@ -163,7 +159,7 @@ export default withPwa(
         'link',
         {
           rel: 'icon',
-          href: '/favicon.svg',
+          href: '/vrx/favicon.svg',
           type: 'image/svg+xml',
         },
       ],
@@ -171,7 +167,7 @@ export default withPwa(
         'link',
         {
           rel: 'apple-touch-icon',
-          href: '/apple-touch-icon-180x180.png',
+          href: '/vrx/apple-touch-icon-180x180.png',
         },
       ],
     ],
