@@ -15,7 +15,6 @@ import ArrayStringJump from './demo/arrayStringJump.vue'
 > 适用于与后端交互时其接受/返回特定分隔符模拟数组的字符串
 >
 > 示例: `parent,child,child`
->
 
 ## Demo
 
@@ -24,7 +23,7 @@ import ArrayStringJump from './demo/arrayStringJump.vue'
 ## Usage
 
 ```ts twoslash
-import { ref } from "vue";
+import { ref } from 'vue'
 import { arrayStringJump } from '@vrx/core'
 
 const stringRef = ref('')
@@ -39,8 +38,7 @@ stringJumpRef.value = []
 // stringRef: ''
 
 const arrayRef = ref<string[]>([])
-
-const arrayJumpRef  = arrayStringJump(arrayRef)
+const arrayJumpRef = arrayStringJump(arrayRef)
 // arrayJumpRef: ''
 
 arrayRef.value.push('foo')
@@ -54,8 +52,14 @@ arrayJumpRef.value = ''
 ## Type Declarations
 
 ```ts
-declare function arrayStringJump(value: Ref<string>, sep?: string): WritableComputedRef<string[]>;
-declare function arrayStringJump(value: Ref<string[]>, sep?: string): WritableComputedRef<string>;
-declare function arrayStringJump(value: Ref<string | undefined>, sep?: string): WritableComputedRef<string[] | undefined>;
-declare function arrayStringJump(value: Ref<string[] | undefined>, sep?: string): WritableComputedRef<string | undefined>;
+declare function arrayStringJump(value: Ref<string>, sep?: string): WritableComputedRef<string[]>
+declare function arrayStringJump(value: Ref<string[]>, sep?: string): WritableComputedRef<string>
+declare function arrayStringJump(
+  value: Ref<string | undefined>,
+  sep?: string
+): WritableComputedRef<string[] | undefined>
+declare function arrayStringJump(
+  value: Ref<string[] | undefined>,
+  sep?: string
+): WritableComputedRef<string | undefined>
 ```
