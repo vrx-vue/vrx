@@ -10,16 +10,16 @@ category: utils
 
 ## Usage
 
-```ts
-import {ref} from 'vue'
-import {getByPath} from '@vrx/core'
+```ts twoslash
+import { ref } from 'vue'
+import { getByPath } from '@vrx/core'
 
-const data = ref({text: {inner: 'test'}})
+const data = ref({ text: { inner: 'test' } })
 
 getByPath(data, 'text.inner')
 // => test
 
-const object = {text: {inner: 'test'}}
+const object = { text: { inner: 'test' } }
 
 getByPath(object, 'text.inner')
 
@@ -29,8 +29,7 @@ getByPath(object, 'text.inner')
 ## Type Declarations
 
 ```ts
-declare type MayBeRef<T = any> = Ref<T> | T;
+declare type MayBeRef<T = any> = Ref<T> | T
 
-declare function getByPath<T = any>(data: MayBeRef<any>, path?: Path): any;
+declare function getByPath<T = any>(data: MayBeRef<any>, path?: Path): any
 ```
-

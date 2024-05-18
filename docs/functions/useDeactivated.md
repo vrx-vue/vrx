@@ -8,16 +8,15 @@ category: component
 
 ## Usage
 
-```vue
-
+```vue twoslash
 <script setup lang="ts">
-import {useDeactivated} from '@vrx/core'
-import {watch} from "vue";
+  import { useDeactivated } from '@vrx/core'
+  import { watch } from 'vue'
 
-const deactivated = useDeactivated()
-watch(deactivated, () => {
-  // 监听组件是否失活
-})
+  const deactivated = useDeactivated()
+  watch(deactivated, () => {
+    // 监听组件是否失活
+  })
 </script>
 ```
 
@@ -28,5 +27,5 @@ watch(deactivated, () => {
  * 是否被取消激活了
  * once:true 则只记录一次历史状态，可以用于判断组件是否被<keep-alive>
  */
-declare function useDeactivated(once?: boolean): vue_demi.Ref<boolean>;
+declare function useDeactivated(once?: boolean): vue_demi.Ref<boolean>
 ```

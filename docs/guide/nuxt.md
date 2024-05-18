@@ -26,7 +26,10 @@ $ pnpm add @vrx/nuxt
 
 ## nuxt.config.ts
 
-```ts
+```ts twoslash
+import { defineNuxtConfig } from 'nuxt/config'
+import type {} from '@vrx/nuxt'
+
 export default defineNuxtConfig({
   modules: ['@vrx/nuxt'],
   vrx: {

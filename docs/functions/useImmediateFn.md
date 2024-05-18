@@ -8,22 +8,23 @@ category: utils
 
 ## Usage
 
-```ts
-import {ref} from "vue";
+```ts twoslash
+import { ref } from 'vue'
+import { useImmediateFn } from '@vrx/core'
 
 const useCustomHook = (immediate: boolean) => {
-    /**
-     * 某组件实例
-     */
-    const elRef = ref()
-    
-    useImmediateFn(() => {
-        elRef.value.$el;
-    }, immediate)
-    
-    return {
-        elRef
-    }
+  /**
+   * 某组件实例
+   */
+  const elRef = ref()
+
+  useImmediateFn(() => {
+    elRef.value.$el
+  }, immediate)
+
+  return {
+    elRef,
+  }
 }
 ```
 
@@ -35,5 +36,5 @@ const useCustomHook = (immediate: boolean) => {
  * @param fn
  * @param immediate
  */
-declare const useImmediateFn: (fn: () => any, immediate?: boolean) => void;
+declare const useImmediateFn: (fn: () => any, immediate?: boolean) => void
 ```

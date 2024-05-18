@@ -23,8 +23,9 @@ import ArrayStringJump from './demo/arrayStringJump.vue'
 
 ## Usage
 
-```ts
-import {ref} from "vue";
+```ts twoslash
+import { ref } from "vue";
+import { arrayStringJump } from '@vrx/core'
 
 const stringRef = ref('')
 
@@ -37,7 +38,7 @@ stringRef.value = 'foo,bar'
 stringJumpRef.value = []
 // stringRef: ''
 
-const arrayRef = ref([])
+const arrayRef = ref<string[]>([])
 
 const arrayJumpRef  = arrayStringJump(arrayRef)
 // arrayJumpRef: ''

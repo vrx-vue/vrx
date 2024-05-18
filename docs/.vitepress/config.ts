@@ -1,12 +1,13 @@
-import { defineConfig } from 'vitepress'
 import * as fs from 'node:fs'
 import * as path from 'node:path'
+import { defineConfig } from 'vitepress'
 import matter from 'gray-matter'
 
-import pkg from '../../package.json'
 import UnoCss from 'unocss/vite'
 import { presetUno } from 'unocss'
 import { withPwa } from '@vite-pwa/vitepress'
+import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
+import pkg from '../../package.json'
 import { pwa } from './pwa'
 
 const getFunctions = () => {
@@ -53,6 +54,9 @@ export default withPwa(
     vite: { server: { port: 3002 }, plugins: [UnoCss({ presets: [presetUno()] })] },
     description: '开发中对于技术的总结，归纳',
     cleanUrls: true,
+    markdown: {
+      codeTransformers: [transformerTwoslash()],
+    },
     themeConfig: {
       logo: '/favicon.svg',
       lastUpdatedText: '最后更新时间',

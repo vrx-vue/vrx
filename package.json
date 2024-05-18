@@ -25,6 +25,7 @@
     "generate-pwa-assets": "pwa-assets-generator --preset minimal docs/public/favicon.svg"
   },
   "devDependencies": {
+    "@shikijs/vitepress-twoslash": "^1.5.2",
     "@types/node": "^20.12.8",
     "@vill-v/bumpp": "^1.0.4",
     "@vill-v/eslint-config": "^1.2.1",
@@ -33,9 +34,11 @@
     "@vite-pwa/assets-generator": "^0.2.4",
     "@vite-pwa/vitepress": "^0.5.0",
     "@vrx/core": "workspace:*",
+    "@vrx/nuxt": "workspace:*",
     "eslint": "^9.1.1",
     "fast-glob": "^3.3.2",
     "gray-matter": "^4.0.3",
+    "nuxt": "^3.11.2",
     "prettier": "^3.2.5",
     "taze": "^0.13.8",
     "tsup": "^8.0.2",

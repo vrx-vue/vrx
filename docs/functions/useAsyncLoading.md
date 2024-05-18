@@ -8,19 +8,18 @@ category: utils
 
 ## Usage
 
-```vue
-
+```vue twoslash
 <script setup lang="ts">
-import {useAsyncLoading} from '@vrx/core'
+  import { useAsyncLoading } from '@vrx/core'
 
-const {loading, error, run} = useAsyncLoading()
-const request1 = () => {
-  run(fetch('https://localhost'))
-}
+  const { loading, error, run } = useAsyncLoading()
+  const request1 = () => {
+    run(fetch('https://localhost'))
+  }
 
-const request2 = () => {
-  return fetch('https://localhost')
-}
+  const request2 = () => {
+    return fetch('https://localhost')
+  }
 </script>
 <template>
   <div>
@@ -35,15 +34,15 @@ const request2 = () => {
 
 ```ts
 interface UseAsyncLoadingState {
-    loading: Ref<boolean>;
-    error: Ref<boolean>;
+  loading: Ref<boolean>
+  error: Ref<boolean>
 }
 interface UseAsyncLoadingReturn extends UseAsyncLoadingState {
-    setLoading: (value: boolean) => void;
-    run: <Data = any>(fn: MayBeFn<Promise<Data>>) => Promise<Data>;
+  setLoading: (value: boolean) => void
+  run: <Data = any>(fn: MayBeFn<Promise<Data>>) => Promise<Data>
 }
 /**
  * 控制异步方法的加载态
  */
-declare function useAsyncLoading(): UseAsyncLoadingReturn;
+declare function useAsyncLoading(): UseAsyncLoadingReturn
 ```
