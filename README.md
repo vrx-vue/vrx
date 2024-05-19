@@ -1,3 +1,7 @@
+<p align="center">
+<img src="https://vrx-vue.github.io/vrx/favicon.svg" width="200" height="300">
+</p>
+
 # vrx
 
 vue-composition-api 的工具集
