@@ -13,7 +13,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup-node"
+    "build": "automd && tsup-node"
   },
   "sideEffects": false,
   "exports": {

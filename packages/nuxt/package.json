@@ -16,7 +16,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "node ./gen-imports.js && tsup-node"
+    "build": "automd && node ./gen-imports.js && tsup-node"
   },
   "sideEffects": false,
   "exports": {
