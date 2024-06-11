@@ -10,7 +10,7 @@ export default defineNuxtModule<VrxOption>({
   defaults: {
     autoImports: true,
     transpile: false,
-    excludeOptimizeDeps: false,
+    excludeOptimizeDeps: true,
   },
   setup(option, nuxt) {
     if (option.excludeOptimizeDeps) {
