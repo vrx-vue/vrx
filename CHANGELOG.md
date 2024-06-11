@@ -1,6 +1,29 @@
 # Changelog
 
 
+## v0.4.4
+
+[compare changes](https://github.com/vrx-vue/vrx/compare/v0.4.3...v0.4.4)
+
+### 🔥 性能优化
+
+- **nuxt:** 使用 vite 运行时增加排除 `@vill-v/type-as` `@vill-v/path-prop` 依赖预构建 ([3666fba](https://github.com/vrx-vue/vrx/commit/3666fba))
+- **nuxt:** 按照 [`nuxt@3.12.0`](https://github.com/nuxt/nuxt/pull/27372) 优化建议，默认排除依赖预构建 ([1347c67](https://github.com/vrx-vue/vrx/commit/1347c67))
+
+### 📖 文档
+
+- Markdown 增加 `twoslash` 支持 ([371bf8e](https://github.com/vrx-vue/vrx/commit/371bf8e))
+- Fix `twoslash` build error ([6902fb4](https://github.com/vrx-vue/vrx/commit/6902fb4))
+
+### 🏡 框架
+
+- Use [`automd`](https://automd.unjs.io/) to update `README.md` ([2813123](https://github.com/vrx-vue/vrx/commit/2813123))
+- Update `README.md` ([f895949](https://github.com/vrx-vue/vrx/commit/f895949))
+
+### ❤️ 贡献者
+
+- Whitekite <1075790909@qq.com>
+
 ## v0.4.3
 
 [compare changes](https://github.com/vrx-vue/vrx/compare/v0.4.2...v0.4.3)
