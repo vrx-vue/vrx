@@ -1,3 +1,6 @@
+<script setup lang="ts">
+  $useAsyncData()
+</script>
 <template>
-  <NuxtPage />
+  <div>wwww</div>
 </template>

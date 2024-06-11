@@ -1,4 +1,4 @@
-export const packages = ['@vrx/core', '@vrx/shared']
+export const packages = ['@vrx/core', '@vrx/shared', '@vill-v/type-as', '@vill-v/path-prop']
 export const fns = [
   {
     from: '@vrx/core',
