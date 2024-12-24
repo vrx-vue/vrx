@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.5.1
+
+[compare changes](https://github.com/vrx-vue/vrx/compare/v0.5.0...v0.5.1)
+
+### 🩹 修复
+
+- 修复 useMultiAsyncData 执行时 signal 不存在的问题 ([7d34491](https://github.com/vrx-vue/vrx/commit/7d34491))
+
+### ❤️ 贡献者
+
+- Whitekite ([@Colourlessglow](http://github.com/Colourlessglow))
+
 ## v0.5.0
 
 [compare changes](https://github.com/vrx-vue/vrx/compare/v0.4.4...v0.5.0)
