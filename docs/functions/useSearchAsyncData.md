@@ -29,10 +29,17 @@ const {
   resetSearch,
   // 重置搜索状态，但并不触发异步任务
   resetSearchData,
+  // 取消异步方法
+  abort,
+  // 异步方法是否取消
+  aborted,
+  // 是否可以取消
+  canAbort,
 } = useSearchAsyncData(
-  (params) =>
+  (params,{signal}) =>
     fetch(`https://localhost/api/`, {
       body: JSON.stringify(params),
+      signal
     }),
   {
     // 是否在 onMounted 生命周期自动执行一次，注意，自动执行时，无法传递参数
@@ -59,58 +66,21 @@ const {
 ## Type Declarations
 
 ```ts
-interface UseAsyncStateOptions<Data = any, Shallow extends boolean = boolean> {
-  /**
-   * 立即执行
-   */
-  immediate?: boolean
-  /**
-   * 初始化数据
-   */
-  initData?: () => Data
-  /**
-   * 获取数据的路径
-   */
-  path?: Path
-  /**
-   * 是否改用 `shallowRef`
-   */
-  shallow?: Shallow
-  /**
-   * 是否在请求前重置数据
-   */
-  resetBeforeExecute?: boolean
+interface UseSearchAsyncData<Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = boolean> extends UseAsyncStateOptions<Data, Shallow> {
+    /**
+     * 初始化搜索数据
+     */
+    initSearchData?: () => SearchData;
+    /**
+     * 是否允许在异步任务执行时且存在入参时，直接使用入参作为搜索值
+     */
+    allowOverrideSearchData?: boolean;
 }
-
-interface UseSearchAsyncData<
-  Data = any,
-  SearchData extends Record<string, any> = any,
-  Shallow extends boolean = boolean,
-> extends UseAsyncStateOptions<Data, Shallow> {
-  /**
-   * 初始化搜索数据
-   */
-  initSearchData?: () => SearchData
-  /**
-   * 是否允许在异步任务执行时且存在入参时，直接使用入参作为搜索值
-   */
-  allowOverrideSearchData?: boolean
+interface UseSearchAsyncDataReturn<Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = boolean> extends UseAsyncStateReturn<Data, Shallow> {
+    searchData: Ref<SearchData>;
+    search: Fn<Promise<Data>>;
+    resetSearchData: VoidFunction;
+    resetSearch: Fn<Promise<Data>>;
 }
-declare const useSearchAsyncData: <
-  Data = any,
-  SearchData extends Record<string, any> = any,
-  Shallow extends boolean = boolean,
->(
-  fn: (params?: any) => Promise<any>,
-  options?: UseSearchAsyncData<Data, SearchData, Shallow> | undefined
-) => {
-  searchData: vue_demi.Ref<SearchData>
-  search: () => Promise<any>
-  resetSearchData: () => void
-  execute: (params?: any) => Promise<any>
-  resetSearch: () => Promise<any>
-  loading: vue_demi.Ref<boolean>
-  error: vue_demi.Ref<boolean>
-  data: _vrx_shared.MaybeShallowRef<Data, Shallow>
-}
+declare const useSearchAsyncData: <Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = boolean>(fn: (params: any | undefined, options: UseAsyncStateExecOptions) => Promise<any>, options?: UseSearchAsyncData<Data, SearchData, Shallow>) => UseSearchAsyncDataReturn<Data, SearchData, Shallow>;
 ```

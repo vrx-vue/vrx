@@ -22,7 +22,13 @@ const {
   roleList,
   // 状态对应multi选项中对应的key值
   userList,
-} = useMultiAsyncData((params) => fetch('https://localhost', { body: JSON.stringify(params) }), {
+  // 取消异步方法
+  abort,
+  // 异步方法是否取消
+  aborted,
+  // 是否可以取消
+  canAbort,
+} = useMultiAsyncData((params,{signal}) => fetch('https://localhost', { body: JSON.stringify(params),signal }), {
   // 是否在 onMounted 生命周期自动执行一次，注意，自动执行时，无法传递参数
   immediate: true,
   // 是否使用 shallowRef 包装状态
@@ -59,30 +65,18 @@ const {
 
 ```ts
 type UseMultiAsyncDataMulti<Data extends Record<string, any> = any> = {
-  [Key in keyof Data]: UseAsyncStateCommonOptions<Data[Key]>
+    [Key in keyof Data]: UseAsyncStateCommonOptions<Data[Key]>;
+};
+interface UseMultiAsyncData<Data extends Record<string, any> = any, Shallow extends boolean = boolean> extends UseAsyncStateActionOptions<Shallow> {
+    multi: UseMultiAsyncDataMulti<Data>;
 }
-
-interface UseMultiAsyncData<Data extends Record<string, any> = any, Shallow extends boolean = false>
-  extends UseAsyncStateActionOptions<Shallow> {
-  multi: UseMultiAsyncDataMulti<Data>
-}
-
-type UseMultiAsyncDataReturn<
-  Data extends Record<string, any>,
-  Shallow extends boolean = false,
-> = UseAsyncStateCommonReturn & {
-  [Key in keyof Data]: MaybeShallowRef<Data[Key], Shallow>
-}
+type UseMultiAsyncDataReturn<Data extends Record<string, any>, Shallow extends boolean = boolean> = UseAsyncStateCommonReturn & {
+    [Key in keyof Data]: MaybeShallowRef<Data[Key], Shallow>;
+};
 /**
  * 获取异步方法内批量数据
  * @param fn
  * @param options
  */
-declare const useMultiAsyncData: <
-  Data extends Record<string, any>,
-  Shallow extends boolean = false,
->(
-  fn: (params?: any) => Promise<any>,
-  options: UseMultiAsyncData<Data, Shallow>
-) => UseMultiAsyncDataReturn<Data, Shallow>
+declare const useMultiAsyncData: <Data extends Record<string, any>, Shallow extends boolean = boolean>(fn: (params: any | undefined, options: UseAsyncStateExecOptions) => Promise<any>, options: UseMultiAsyncData<Data, Shallow>) => UseMultiAsyncDataReturn<Data, Shallow>;
 ```

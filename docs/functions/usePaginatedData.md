@@ -43,10 +43,17 @@ const {
   pageSizeChange,
   // 重置所有搜索
   resetSearch,
+  // 取消异步方法
+  abort,
+  // 异步方法是否取消
+  aborted,
+  // 是否可以取消
+  canAbort,
 } = usePaginatedData(
-  ({ params, pagination }) =>
+  ({ params, pagination },{signal}) =>
     fetch(`https://localhost/api/${pagination.pageNum}/${pagination.pageSize}`, {
       body: JSON.stringify(params),
+      signal
     }),
   {
     // 是否在 onMounted 生命周期自动执行一次，注意，自动执行时，无法传递参数
@@ -83,76 +90,53 @@ const {
  * 分页数据发生变化时入参
  */
 interface UsePaginatedDataPaginationChangeOptions {
-  pageSize: string
-  pageNum: string
+    pageSize: string;
+    pageNum: string;
 }
-
 interface UsePaginatedDataPagination {
-  pageSize: number
-  pageNum: number
-  total: number
+    pageSize: number;
+    pageNum: number;
+    total: number;
 }
-
-interface UsePaginatedDataOptions<
-  Data = any,
-  SearchData extends Record<string, any> = any,
-  Shallow extends boolean = false,
-> extends Omit<UseSearchAsyncData<Data[], SearchData, Shallow>, 'allowOverrideSearchData'> {
-  /**
-   * 分页数据总数获取路径
-   */
-  totalPath?: Path
-  /**
-   * 初始化 分页参数
-   */
-  initPagination?: () => Omit<UsePaginatedDataPagination, 'total'>
-  /**
-   * 是否在类似 infinityList 业务下，分页拼接数据
-   */
-  dataConcat?: boolean
+interface UsePaginatedDataOptions<Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = boolean> extends Omit<UseSearchAsyncData<Data[], SearchData, Shallow>, 'allowOverrideSearchData'> {
+    /**
+     * 分页数据总数获取路径
+     */
+    totalPath?: Path;
+    /**
+     * 初始化 分页参数
+     */
+    initPagination?: () => Omit<UsePaginatedDataPagination, 'total'>;
+    /**
+     * 是否在类似 infinityList 业务下，分页拼接数据
+     */
+    dataConcat?: boolean;
 }
-
 interface UsePaginatedDataExecuteParams<SearchData extends Record<string, any> = any> {
-  pagination: UsePaginatedDataPagination
-  params: SearchData
+    pagination: UsePaginatedDataPagination;
+    params: SearchData;
 }
-
 interface UsePaginatedDataPaginationChange<Data = any> {
-  (value: any, options?: UsePaginatedDataPaginationChangeOptions): Promise<Data[]>
+    (value: any, options?: UsePaginatedDataPaginationChangeOptions): Promise<Data[]>;
 }
-
 interface UsePaginatedDataPageChange<Data = any> {
-  (pageNum: number | boolean): Promise<Data[]>
+    (pageNum: number | boolean): Promise<Data[]>;
 }
-
 interface UsePaginatedDataPageSizeChange<Data = any> {
-  (pageSize: number): Promise<Data[]>
+    (pageSize: number): Promise<Data[]>;
 }
-
-interface UsePaginatedDataReturn<
-  Data = any,
-  SearchData extends Record<string, any> = any,
-  Shallow extends boolean = false,
-> extends Omit<UseSearchAsyncDataReturn<Data[], SearchData, Shallow>, 'data' | 'resetSearchData'> {
-  list: MaybeShallowRef<Data[], Shallow>
-  finished: Ref<boolean>
-  pagination: Ref<UsePaginatedDataPagination>
-  paginationChange: UsePaginatedDataPaginationChange<Data>
-  pageChange: UsePaginatedDataPageChange<Data>
-  pageSizeChange: UsePaginatedDataPageSizeChange<Data>
+interface UsePaginatedDataReturn<Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = false> extends Omit<UseSearchAsyncDataReturn<Data[], SearchData, Shallow>, 'data' | 'resetSearchData'> {
+    list: MaybeShallowRef<Data[], Shallow>;
+    finished: Ref<boolean>;
+    pagination: Ref<UsePaginatedDataPagination>;
+    paginationChange: UsePaginatedDataPaginationChange<Data>;
+    pageChange: UsePaginatedDataPageChange<Data>;
+    pageSizeChange: UsePaginatedDataPageSizeChange<Data>;
 }
-
 /**
  * 一个分页数据加载方案
  * @param fn
  * @param options
  */
-declare function usePaginatedData<
-  Data = any,
-  SearchData extends Record<string, any> = any,
-  Shallow extends boolean = false,
->(
-  fn: (params: UsePaginatedDataExecuteParams) => Promise<any>,
-  options?: UsePaginatedDataOptions<Data, SearchData, Shallow>
-): UsePaginatedDataReturn<Data, SearchData, Shallow>
+declare function usePaginatedData<Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = boolean>(fn: (params: UsePaginatedDataExecuteParams, options: UseAsyncStateExecOptions) => Promise<any>, options?: UsePaginatedDataOptions<Data, SearchData, Shallow>): UsePaginatedDataReturn<Data, SearchData, Shallow>;
 ```
