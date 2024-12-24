@@ -9,7 +9,7 @@ vue-composition-api 的工具集
 <!-- automd:badges color="green" license licenseBranch name="@vrx/core"  bundlephobia packagephobia -->
 
 [![npm version](https://img.shields.io/npm/v/@vrx/core?color=green)](https://npmjs.com/package/@vrx/core)
-[![npm downloads](https://img.shields.io/npm/dm/@vrx/core?color=green)](https://npmjs.com/package/@vrx/core)
+[![npm downloads](https://img.shields.io/npm/dm/@vrx/core?color=green)](https://npm.chart.dev/@vrx/core)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/@vrx/core?color=green)](https://bundlephobia.com/package/@vrx/core)
 [![license](https://img.shields.io/github/license/vrx-vue/vrx?color=green)](https://github.com/vrx-vue/vrx/blob/true/LICENSE)
 
@@ -42,6 +42,9 @@ pnpm install @vrx/core
 
 # bun
 bun install @vrx/core
+
+# deno
+deno install @vrx/core
 ```
 
 <!-- /automd -->

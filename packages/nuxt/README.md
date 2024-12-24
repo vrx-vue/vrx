@@ -9,7 +9,7 @@
 <!-- automd:badges color="green" license licenseBranch  bundlephobia packagephobia -->
 
 [![npm version](https://img.shields.io/npm/v/@vrx/nuxt?color=green)](https://npmjs.com/package/@vrx/nuxt)
-[![npm downloads](https://img.shields.io/npm/dm/@vrx/nuxt?color=green)](https://npmjs.com/package/@vrx/nuxt)
+[![npm downloads](https://img.shields.io/npm/dm/@vrx/nuxt?color=green)](https://npm.chart.dev/@vrx/nuxt)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/@vrx/nuxt?color=green)](https://bundlephobia.com/package/@vrx/nuxt)
 [![license](https://img.shields.io/github/license/vrx-vue/vrx?color=green)](https://github.com/vrx-vue/vrx/blob/true/LICENSE)
 
@@ -36,6 +36,9 @@ pnpm install @vrx/nuxt
 
 # bun
 bun install @vrx/nuxt
+
+# deno
+deno install @vrx/nuxt
 ```
 
 <!-- /automd -->
