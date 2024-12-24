@@ -9,7 +9,7 @@ import {
   useImmediateFn,
 } from '@vrx/shared'
 import { isNil } from '@vill-v/type-as'
-import { type ComputedRef, type Ref, computed, onBeforeUnmount, ref } from 'vue'
+import { type ComputedRef, type Ref, computed, onBeforeUnmount, ref } from 'vue-demi'
 
 export interface UseAsyncStateCommonOptions<Data = any> {
   /**
