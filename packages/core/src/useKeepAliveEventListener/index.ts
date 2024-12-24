@@ -1,9 +1,9 @@
 import type { Fn, MayBeRef } from '@vrx/shared'
 import { noop, useDeactivated } from '@vrx/shared'
 import { watch } from 'vue-demi'
+import { isString } from '@vill-v/type-as'
 import type { MayBeElementRef } from '../unrefElement'
 import { unrefElement } from '../unrefElement'
-import { isString } from '@vill-v/type-as'
 
 interface InferEventTarget<Events> {
   addEventListener(event: Events, fn?: any, options?: any): any

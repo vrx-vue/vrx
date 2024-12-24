@@ -6,6 +6,7 @@ import {
   UseSearchAsyncDataReturn,
   useSearchAsyncData,
 } from '../useSearchAsyncData'
+import type { UseAsyncStateExecOptions } from '../useAsyncData'
 
 /**
  * 分页数据发生变化时入参
@@ -79,7 +80,7 @@ export function usePaginatedData<
   SearchData extends Record<string, any> = any,
   Shallow extends boolean = boolean,
 >(
-  fn: (params: UsePaginatedDataExecuteParams) => Promise<any>,
+  fn: (params: UsePaginatedDataExecuteParams, options: UseAsyncStateExecOptions) => Promise<any>,
   options?: UsePaginatedDataOptions<Data, SearchData, Shallow>
 ): UsePaginatedDataReturn<Data, SearchData, Shallow> {
   const {
@@ -99,6 +100,9 @@ export function usePaginatedData<
     execute: _execute,
     searchData,
     resetSearchData,
+    abort,
+    aborted,
+    canAbort,
   } = useSearchAsyncData(fn, { ...options, immediate: false, allowOverrideSearchData: true })
 
   const [list, resetList] = resetRef<Data[], Shallow>({
@@ -226,6 +230,9 @@ export function usePaginatedData<
     pagination,
     loading,
     error,
+    abort,
+    canAbort,
+    aborted,
     execute,
     search,
     paginationChange,

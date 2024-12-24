@@ -1,10 +1,12 @@
+import { MaybeShallowRef, getByPath, resetRef, useAsyncLoading, useImmediateFn } from '@vrx/shared'
+import { isNil } from '@vill-v/type-as'
+import { computed, onBeforeUnmount, ref } from 'vue'
 import {
   UseAsyncStateActionOptions,
   UseAsyncStateCommonOptions,
   UseAsyncStateCommonReturn,
+  type UseAsyncStateExecOptions,
 } from '../useAsyncData'
-import { MaybeShallowRef, getByPath, resetRef, useAsyncLoading, useImmediateFn } from '@vrx/shared'
-import { isNil } from '@vill-v/type-as'
 
 export type UseMultiAsyncDataMulti<Data extends Record<string, any> = any> = {
   [Key in keyof Data]: UseAsyncStateCommonOptions<Data[Key]>
@@ -12,14 +14,14 @@ export type UseMultiAsyncDataMulti<Data extends Record<string, any> = any> = {
 
 export interface UseMultiAsyncData<
   Data extends Record<string, any> = any,
-  Shallow extends boolean = boolean
+  Shallow extends boolean = boolean,
 > extends UseAsyncStateActionOptions<Shallow> {
   multi: UseMultiAsyncDataMulti<Data>
 }
 
 export type UseMultiAsyncDataReturn<
   Data extends Record<string, any>,
-  Shallow extends boolean = boolean
+  Shallow extends boolean = boolean,
 > = UseAsyncStateCommonReturn & { [Key in keyof Data]: MaybeShallowRef<Data[Key], Shallow> }
 
 /**
@@ -29,9 +31,9 @@ export type UseMultiAsyncDataReturn<
  */
 export const useMultiAsyncData = <
   Data extends Record<string, any>,
-  Shallow extends boolean = boolean
+  Shallow extends boolean = boolean,
 >(
-  fn: (params?: any) => Promise<any>,
+  fn: (params: any | undefined, options: UseAsyncStateExecOptions) => Promise<any>,
   options: UseMultiAsyncData<Data, Shallow>
 ): UseMultiAsyncDataReturn<Data, Shallow> => {
   const { multi, resetBeforeExecute, immediate, shallow } = options
@@ -51,13 +53,31 @@ export const useMultiAsyncData = <
    */
   const { loading, run, error } = useAsyncLoading()
 
+  const supportAbort = typeof AbortController === 'function'
+
+  let abortController: AbortController | null = null
+
+  const aborted = ref(false)
+
+  const canAbort = computed(() => supportAbort && loading.value)
+
+  const abort = () => {
+    // not support AbortController
+    if (!supportAbort) {
+      return
+    }
+    abortController?.abort()
+    abortController = new AbortController()
+    abortController.signal.onabort = () => (aborted.value = true)
+  }
+
   const execute = (params?: any) => {
     if (resetBeforeExecute) {
       Object.keys(resetObj).forEach((key) => {
         resetObj[key]()
       })
     }
-    return run(fn(params)).then((res) => {
+    return run(fn(params, { signal: abortController!.signal })).then((res) => {
       Object.keys(dataObj).forEach((key) => {
         const _data = getByPath(res, multi[key].path)
         // 如果数据为 nil 时，则重置数据
@@ -75,10 +95,18 @@ export const useMultiAsyncData = <
     execute()
   }, immediate)
 
+  onBeforeUnmount(() => {
+    abort()
+    abortController = null
+  })
+
   return {
     execute,
     loading,
     error,
+    abort,
+    aborted,
+    canAbort,
     ...dataObj,
   }
 }
