@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.5.0
+
+[compare changes](https://github.com/vrx-vue/vrx/compare/v0.4.4...v0.5.0)
+
+### 🚀 特性
+
+- ⚠️  增加 `AbortController` 控制异步方法请求取消，在异步方法重新执行与组件销毁时会自动调用，涉及方法 `useAsyncData` `useMultiAsyncData` `usePaginatedData` `useSearchAsyncData` ([7c3ec2c](https://github.com/vrx-vue/vrx/commit/7c3ec2c))
+
+### 🏡 框架
+
+- Update README.md ([38dda2a](https://github.com/vrx-vue/vrx/commit/38dda2a))
+- Update README.md ([3272238](https://github.com/vrx-vue/vrx/commit/3272238))
+
+#### 🚨 破坏性改动
+
+- ⚠️  增加 `AbortController` 控制异步方法请求取消，在异步方法重新执行与组件销毁时会自动调用，涉及方法 `useAsyncData` `useMultiAsyncData` `usePaginatedData` `useSearchAsyncData` ([7c3ec2c](https://github.com/vrx-vue/vrx/commit/7c3ec2c))
+
+### ❤️ 贡献者
+
+- Whitekite ([@Colourlessglow](http://github.com/Colourlessglow))
+
 ## v0.4.4
 
 [compare changes](https://github.com/vrx-vue/vrx/compare/v0.4.3...v0.4.4)
