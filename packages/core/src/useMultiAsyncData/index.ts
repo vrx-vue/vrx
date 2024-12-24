@@ -72,6 +72,9 @@ export const useMultiAsyncData = <
   }
 
   const execute = (params?: any) => {
+    // 为防止异步方法竞态，调用异步方法前取消上一次调用
+    abort()
+    aborted.value = false
     if (resetBeforeExecute) {
       Object.keys(resetObj).forEach((key) => {
         resetObj[key]()
