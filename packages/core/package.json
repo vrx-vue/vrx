@@ -2,6 +2,7 @@
   "name": "@vrx/core",
   "version": "0.5.1",
   "license": "MIT",
+  "type": "module",
   "repository": "https://github.com/vrx-vue/vrx.git",
   "homepage": "https://vrx-vue.github.io/vrx/",
   "keywords": [
@@ -19,12 +20,12 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
     }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "peerDependencies": {
     "@vue/composition-api": ">=1.1.0",
