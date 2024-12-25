@@ -1,6 +1,6 @@
 {
   "name": "@vrx/core",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "license": "MIT",
   "type": "module",
   "repository": "https://github.com/vrx-vue/vrx.git",
