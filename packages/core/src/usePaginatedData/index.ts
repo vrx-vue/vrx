@@ -41,7 +41,8 @@ export interface UsePaginatedDataOptions<
   dataConcat?: boolean
 }
 
-export interface UsePaginatedDataExecuteParams<SearchData extends Record<string, any> = any> {
+export interface UsePaginatedDataExecuteParams<SearchData extends Record<string, any> = any>
+  extends UseAsyncStateExecOptions {
   pagination: UsePaginatedDataPagination
   params: SearchData
 }
@@ -80,7 +81,7 @@ export function usePaginatedData<
   SearchData extends Record<string, any> = any,
   Shallow extends boolean = boolean,
 >(
-  fn: (params: UsePaginatedDataExecuteParams, options: UseAsyncStateExecOptions) => Promise<any>,
+  fn: (params: UsePaginatedDataExecuteParams) => Promise<any>,
   options?: UsePaginatedDataOptions<Data, SearchData, Shallow>
 ): UsePaginatedDataReturn<Data, SearchData, Shallow> {
   const {
@@ -103,7 +104,11 @@ export function usePaginatedData<
     abort,
     aborted,
     canAbort,
-  } = useSearchAsyncData(fn, { ...options, immediate: false, allowOverrideSearchData: true })
+  } = useSearchAsyncData((params, options) => fn({ ...params, ...options }), {
+    ...options,
+    immediate: false,
+    allowOverrideSearchData: true,
+  })
 
   const [list, resetList] = resetRef<Data[], Shallow>({
     initValue: initData,

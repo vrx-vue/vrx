@@ -50,7 +50,7 @@ const {
   // 是否可以取消
   canAbort,
 } = usePaginatedData(
-  ({ params, pagination },{signal}) =>
+  ({ params, pagination, signal }) =>
     fetch(`https://localhost/api/${pagination.pageNum}/${pagination.pageSize}`, {
       body: JSON.stringify(params),
       signal
@@ -112,7 +112,7 @@ interface UsePaginatedDataOptions<Data = any, SearchData extends Record<string, 
      */
     dataConcat?: boolean;
 }
-interface UsePaginatedDataExecuteParams<SearchData extends Record<string, any> = any> {
+interface UsePaginatedDataExecuteParams<SearchData extends Record<string, any> = any> extends UseAsyncStateExecOptions {
     pagination: UsePaginatedDataPagination;
     params: SearchData;
 }
@@ -138,5 +138,5 @@ interface UsePaginatedDataReturn<Data = any, SearchData extends Record<string, a
  * @param fn
  * @param options
  */
-declare function usePaginatedData<Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = boolean>(fn: (params: UsePaginatedDataExecuteParams, options: UseAsyncStateExecOptions) => Promise<any>, options?: UsePaginatedDataOptions<Data, SearchData, Shallow>): UsePaginatedDataReturn<Data, SearchData, Shallow>;
+declare function usePaginatedData<Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = boolean>(fn: (params: UsePaginatedDataExecuteParams) => Promise<any>, options?: UsePaginatedDataOptions<Data, SearchData, Shallow>): UsePaginatedDataReturn<Data, SearchData, Shallow>;
 ```
