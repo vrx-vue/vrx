@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.6.0
+
+[compare changes](https://github.com/vrx-vue/vrx/compare/v0.5.1...v0.6.0)
+
+### 🚀 特性
+
+- ⚠️  Package.json 修改为 es module 优先 ([18e2921](https://github.com/vrx-vue/vrx/commit/18e2921))
+- ⚠️  编译目标升级至 es2018 ([973e528](https://github.com/vrx-vue/vrx/commit/973e528))
+- ⚠️  精简 `usePaginatedData`  异步方法传参，取消信号参数，集成至 `UsePaginatedDataExecuteParams` 中 ([d5e1db2](https://github.com/vrx-vue/vrx/commit/d5e1db2))
+
+#### 🚨 破坏性改动
+
+- ⚠️  Package.json 修改为 es module 优先 ([18e2921](https://github.com/vrx-vue/vrx/commit/18e2921))
+- ⚠️  编译目标升级至 es2018 ([973e528](https://github.com/vrx-vue/vrx/commit/973e528))
+- ⚠️  精简 `usePaginatedData`  异步方法传参，取消信号参数，集成至 `UsePaginatedDataExecuteParams` 中 ([d5e1db2](https://github.com/vrx-vue/vrx/commit/d5e1db2))
+
+### ❤️ 贡献者
+
+- Whitekite ([@Colourlessglow](http://github.com/Colourlessglow))
+
 ## v0.5.1
 
 [compare changes](https://github.com/vrx-vue/vrx/compare/v0.5.0...v0.5.1)
