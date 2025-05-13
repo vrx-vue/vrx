@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup'
+import { defineConfig } from 'tsdown'
 
 export default defineConfig({
   entry: ['src/index.ts'],
@@ -6,7 +6,10 @@ export default defineConfig({
   clean: true,
   dts: true,
   target: 'es2018',
-  splitting: true,
   treeshake: true,
-  format: ['cjs', 'esm'],
+  format: ['esm'],
+  publint: true,
+  unused: {
+    ignore: ['nuxt'],
+  },
 })

@@ -11,6 +11,7 @@
 [![npm version](https://img.shields.io/npm/v/@vrx/nuxt?color=green)](https://npmjs.com/package/@vrx/nuxt)
 [![npm downloads](https://img.shields.io/npm/dm/@vrx/nuxt?color=green)](https://npm.chart.dev/@vrx/nuxt)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/@vrx/nuxt?color=green)](https://bundlephobia.com/package/@vrx/nuxt)
+[![install size](https://badgen.net/packagephobia/install/@vrx/nuxt?color=green)](https://packagephobia.com/result?p=@vrx/nuxt)
 [![license](https://img.shields.io/github/license/vrx-vue/vrx?color=green)](https://github.com/vrx-vue/vrx/blob/true/LICENSE)
 
 <!-- /automd -->

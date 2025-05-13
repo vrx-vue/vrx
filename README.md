@@ -11,6 +11,7 @@ vue-composition-api 的工具集
 [![npm version](https://img.shields.io/npm/v/@vrx/core?color=green)](https://npmjs.com/package/@vrx/core)
 [![npm downloads](https://img.shields.io/npm/dm/@vrx/core?color=green)](https://npm.chart.dev/@vrx/core)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/@vrx/core?color=green)](https://bundlephobia.com/package/@vrx/core)
+[![install size](https://badgen.net/packagephobia/install/@vrx/core?color=green)](https://packagephobia.com/result?p=@vrx/core)
 [![license](https://img.shields.io/github/license/vrx-vue/vrx?color=green)](https://github.com/vrx-vue/vrx/blob/true/LICENSE)
 
 <!-- /automd -->

@@ -4,7 +4,11 @@
   "license": "MIT",
   "type": "module",
   "sideEffects": false,
-  "repository": "https://github.com/vrx-vue/vrx.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vrx-vue/vrx.git",
+    "directory": "packages/shared"
+  },
   "homepage": "https://vrx-vue.github.io/vrx/",
   "keywords": [
     "vue",
@@ -15,16 +19,17 @@
     "dist"
   ],
   "scripts": {
-    "build": "automd && tsup-node"
+    "build": "automd && tsdown"
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.js"
+      "import":{
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
     }
   },
-  "main": "./dist/index.cjs",
+  "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "peerDependencies": {

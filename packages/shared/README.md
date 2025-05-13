@@ -11,6 +11,7 @@ vrx 系列内的共用工具
 [![npm version](https://img.shields.io/npm/v/@vrx/shared?color=green)](https://npmjs.com/package/@vrx/shared)
 [![npm downloads](https://img.shields.io/npm/dm/@vrx/shared?color=green)](https://npm.chart.dev/@vrx/shared)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/@vrx/shared?color=green)](https://bundlephobia.com/package/@vrx/shared)
+[![install size](https://badgen.net/packagephobia/install/@vrx/shared?color=green)](https://packagephobia.com/result?p=@vrx/shared)
 [![license](https://img.shields.io/github/license/vrx-vue/vrx?color=green)](https://github.com/vrx-vue/vrx/blob/true/LICENSE)
 
 <!-- /automd -->
