@@ -1,6 +1,34 @@
 # Changelog
 
 
+## v1.0.0
+
+[compare changes](https://github.com/vrx-vue/vrx/compare/v0.6.0...v1.0.0)
+
+### 🚀 特性
+
+- ⚠️  Replace `MaybeRef` in favor of Vue's native ([ca50cd0](https://github.com/vrx-vue/vrx/commit/ca50cd0))
+- ⚠️  删除 vue2 支持 ([981979e](https://github.com/vrx-vue/vrx/commit/981979e))
+
+### 📖 文档
+
+- Update docs ([77068d0](https://github.com/vrx-vue/vrx/commit/77068d0))
+
+### 🏡 框架
+
+- ⚠️  Update ESM-only dist ([42b5bbe](https://github.com/vrx-vue/vrx/commit/42b5bbe))
+- Git actions use node 22 deploy ([333819e](https://github.com/vrx-vue/vrx/commit/333819e))
+
+#### 🚨 破坏性改动
+
+- ⚠️  Replace `MaybeRef` in favor of Vue's native ([ca50cd0](https://github.com/vrx-vue/vrx/commit/ca50cd0))
+- ⚠️  删除 vue2 支持 ([981979e](https://github.com/vrx-vue/vrx/commit/981979e))
+- ⚠️  Update ESM-only dist ([42b5bbe](https://github.com/vrx-vue/vrx/commit/42b5bbe))
+
+### ❤️ 贡献者
+
+- Whitekite <1075790909@qq.com>
+
 ## v0.6.0
 
 [compare changes](https://github.com/vrx-vue/vrx/compare/v0.5.1...v0.6.0)
