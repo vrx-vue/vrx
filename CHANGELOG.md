@@ -27,7 +27,7 @@
 
 ### ❤️ 贡献者
 
-- Whitekite <1075790909@qq.com>
+- Whitekite ([@Colourlessglow](http://github.com/Colourlessglow))
 
 ## v0.6.0
 
