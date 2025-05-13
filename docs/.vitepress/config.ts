@@ -4,7 +4,7 @@ import { defineConfig } from 'vitepress'
 import matter from 'gray-matter'
 
 import UnoCss from 'unocss/vite'
-import { presetUno } from 'unocss'
+import { presetWind3 } from 'unocss'
 import { withPwa } from '@vite-pwa/vitepress'
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 import pkg from '../../package.json'
@@ -51,11 +51,12 @@ export default withPwa(
     lang: 'zh-CN',
     base: '/vrx',
     lastUpdated: true,
-    vite: { server: { port: 3002 }, plugins: [UnoCss({ presets: [presetUno()] })] },
+    vite: { server: { port: 3002 }, plugins: [UnoCss({ presets: [presetWind3()] })] },
     description: '开发中对于技术的总结，归纳',
     cleanUrls: true,
     markdown: {
       codeTransformers: [transformerTwoslash()],
+      languages: ['js', 'jsx', 'ts', 'tsx', 'vue'],
     },
     themeConfig: {
       logo: '/favicon.svg',
