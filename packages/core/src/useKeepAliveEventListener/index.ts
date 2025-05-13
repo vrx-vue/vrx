@@ -1,6 +1,6 @@
-import type { Fn, MayBeRef } from '@vrx/shared'
+import type { Fn } from '@vrx/shared'
 import { noop, useDeactivated } from '@vrx/shared'
-import { watch } from 'vue-demi'
+import { type MaybeRef, watch } from 'vue'
 import { isString } from '@vill-v/type-as'
 import type { MayBeElementRef } from '../unrefElement'
 import { unrefElement } from '../unrefElement'
@@ -100,7 +100,7 @@ export function useKeepAliveEventListener<Names extends string, EventType = Even
  * @param options
  */
 export function useKeepAliveEventListener<EventType = Event>(
-  target: MayBeRef<EventTarget | null | undefined>,
+  target: MaybeRef<EventTarget | null | undefined>,
   event: string,
   listener: GeneralEventListener<EventType>,
   options?: boolean | AddEventListenerOptions
@@ -116,7 +116,7 @@ export function useKeepAliveEventListener<EventType = Event>(
  */
 export function useKeepAliveEventListener(...args: any[]) {
   const isDeactivated = useDeactivated()
-  let target: MayBeRef<EventTarget> | undefined
+  let target: MaybeRef<EventTarget> | undefined
   let event: string
   let listener: any
   let options: any

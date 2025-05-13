@@ -1,9 +1,8 @@
-import type { ComponentPublicInstance } from 'vue-demi'
-import { unref } from 'vue-demi'
-import type { MayBeRef } from '@vrx/shared'
+import type { ComponentPublicInstance, MaybeRef } from 'vue'
+import { unref } from 'vue'
 
 export type VueInstance = ComponentPublicInstance
-export type MayBeElementRef<T extends MayBeElement = MayBeElement> = MayBeRef<T>
+export type MayBeElementRef<T extends MayBeElement = MayBeElement> = MaybeRef<T>
 export type MayBeElement = HTMLElement | SVGElement | VueInstance | undefined | null
 
 export type UnRefElementReturn<T extends MayBeElement = MayBeElement> = T extends VueInstance
