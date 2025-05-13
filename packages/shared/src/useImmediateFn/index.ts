@@ -1,4 +1,4 @@
-import { onMounted } from 'vue-demi'
+import { onMounted } from 'vue'
 
 /**
  * 是否将一个方法在 `onMounted` 立刻执行

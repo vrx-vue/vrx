@@ -1,6 +1,6 @@
 import { MaybeShallowRef, getByPath, resetRef, useAsyncLoading, useImmediateFn } from '@vrx/shared'
 import { isNil } from '@vill-v/type-as'
-import { computed, onBeforeUnmount, ref } from 'vue-demi'
+import { computed, onBeforeUnmount, ref } from 'vue'
 import {
   UseAsyncStateActionOptions,
   UseAsyncStateCommonOptions,

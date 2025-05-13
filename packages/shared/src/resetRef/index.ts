@@ -1,15 +1,15 @@
-import { Ref, ShallowRef, ref, shallowRef } from 'vue-demi'
+import { Ref, ShallowRef, ref, shallowRef } from 'vue'
 import { Fn } from '../utils'
 
 export type MaybeShallowRef<T = any, Shallow extends boolean = boolean> = Shallow extends boolean
   ? Ref<T>
   : Shallow extends true
-  ? ShallowRef<T>
-  : Ref<T>
+    ? ShallowRef<T>
+    : Ref<T>
 
 export type ResetRef<T = any, Shallow extends boolean = boolean> = [
   MaybeShallowRef<T, Shallow>,
-  VoidFunction
+  VoidFunction,
 ]
 
 export interface ResetRefOption<T = any, Shallow extends boolean = boolean> {

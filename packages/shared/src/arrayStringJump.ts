@@ -1,5 +1,6 @@
-import { Ref, WritableComputedRef, computed } from 'vue-demi'
+import { Ref, WritableComputedRef, computed } from 'vue'
 import { isNil } from '@vill-v/type-as'
+
 export function arrayStringJump(value: Ref<string>, sep?: string): WritableComputedRef<string[]>
 
 export function arrayStringJump(value: Ref<string[]>, sep?: string): WritableComputedRef<string>

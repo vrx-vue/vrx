@@ -52,7 +52,6 @@
     "vitepress": "^2.0.0-alpha.5",
     "void-fs": "^0.0.1-beta.18",
     "vue": "^3.5.13",
-    "vue-demi": "^0.14.10",
     "workbox-window": "^7.3.0"
   },
   "peerDependencyRules": {

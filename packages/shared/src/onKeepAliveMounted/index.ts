@@ -1,4 +1,4 @@
-import { onActivated, onMounted } from 'vue-demi'
+import { onActivated, onMounted } from 'vue'
 import { Fn } from '../utils'
 import { useDeactivated } from '../useDeactivated'
 

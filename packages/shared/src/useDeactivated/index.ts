@@ -1,4 +1,4 @@
-import { onActivated, onDeactivated, ref } from 'vue-demi'
+import { onActivated, onDeactivated, ref } from 'vue'
 
 /**
  * 是否被取消激活了

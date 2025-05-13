@@ -1,5 +1,5 @@
 import { Fn, resetRef, useImmediateFn } from '@vrx/shared'
-import { Ref, toRaw } from 'vue-demi'
+import { Ref, toRaw } from 'vue'
 import { isNil } from '@vill-v/type-as'
 import {
   type UseAsyncStateExecOptions,
