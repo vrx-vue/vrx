@@ -142,6 +142,15 @@ importers:
         specifier: ^3.2.0
         version: 3.5.13(typescript@5.8.3)
 
+  packages/unimports:
+    devDependencies:
+      '@vrx/core':
+        specifier: workspace:*
+        version: link:../core
+      mlly:
+        specifier: ^1.7.4
+        version: 1.8.2
+
   playgrounds/nuxt:
     dependencies:
       '@vrx/core':
@@ -2407,6 +2416,11 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
+  acorn@8.16.0:
+    resolution: {integrity: sha512-UVJyE9MttOsBQIDKw1skb9nAwQuR5wuGD3+82K6JgJlm/Y+KI92oNsMNGZCYdDsVtRHSak0pcV5Dno5+4jh9sw==}
+    engines: {node: '>=0.4.0'}
+    hasBin: true
+
   agent-base@6.0.2:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
     engines: {node: '>= 6.0.0'}
@@ -3577,6 +3591,15 @@ packages:
       picomatch:
         optional: true
 
+  fdir@6.5.0:
+    resolution: {integrity: sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      picomatch: ^3 || ^4
+    peerDependenciesMeta:
+      picomatch:
+        optional: true
+
   fecha@4.2.3:
     resolution: {integrity: sha512-OP2IUU6HeYKJi3i0z4A19kHMQoLVs4Hc+DPqqxI2h/DPZHTm/vjsfC6P0b4jCMy14XizLBqvndQ+UilD7707Jw==}
 
@@ -4710,6 +4733,9 @@ packages:
   mlly@1.7.4:
     resolution: {integrity: sha512-qmdSIPC4bDJXgZTCR7XosJiNKySV7O215tsPtDN9iEO/7q/76b/ijtgRu/+epFXSJhijtTCCGp3DWS549P3xKw==}
 
+  mlly@1.8.2:
+    resolution: {integrity: sha512-d+ObxMQFmbt10sretNDytwt85VrbkhhUA/JBGm1MPaWJ65Cl4wOgLaB1NYvJSZ0Ef03MMEU/0xpPMXUIQ29UfA==}
+
   mocked-exports@0.1.1:
     resolution: {integrity: sha512-aF7yRQr/Q0O2/4pIXm6PZ5G+jAd7QS4Yu8m+WEeEHGnbo+7mE36CbLSDQiXYV8bVL3NfmdeqPJct0tUlnjVSnA==}
 
@@ -5080,6 +5106,10 @@ packages:
 
   picomatch@4.0.2:
     resolution: {integrity: sha512-M7BAV6Rlcy5u+m6oPhAPFgJTzAioX/6B0DxyvDlo9l8+T3nLKbrczg2WLUyzd45L8RqfUMyGPzekbMvX2Ldkwg==}
+    engines: {node: '>=12'}
+
+  picomatch@4.0.4:
+    resolution: {integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==}
     engines: {node: '>=12'}
 
   pkce-challenge@5.0.0:
@@ -5728,6 +5758,7 @@ packages:
   source-map@0.8.0-beta.0:
     resolution: {integrity: sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==}
     engines: {node: '>= 8'}
+    deprecated: The work that was done in this beta branch won't be included in future versions
 
   sourcemap-codec@1.4.8:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
@@ -5946,6 +5977,10 @@ packages:
     resolution: {integrity: sha512-mEwzpUgrLySlveBwEVDMKk5B57bhLPYovRfPAXD5gA/98Opn0rCDj3GtLwFvCvH5RK9uPCExUROW5NjDwvqkxw==}
     engines: {node: '>=12.0.0'}
 
+  tinyglobby@0.2.16:
+    resolution: {integrity: sha512-pn99VhoACYR8nFHhxqix+uvsbXineAasWm5ojXoN8xEwK5Kd3/TrhNn1wByuD52UxWRLy8pu+kRMniEi6Eq9Zg==}
+    engines: {node: '>=12.0.0'}
+
   tmp-promise@3.0.3:
     resolution: {integrity: sha512-RwM7MoPojPxsOBYnyd2hy0bxtIlVrihNs9pj5SUvY8Zz1sQcQG2tG1hSr8PDxfgEB8RNKDhqbIlroIarSNDNsQ==}
 
@@ -6119,6 +6154,9 @@ packages:
 
   ufo@1.6.1:
     resolution: {integrity: sha512-9a4/uxlTWJ4+a5i0ooc1rU7C7YOw3wT+UGqdeNNHWnOF9qcMBgLRS+4IYUqbczewFx4mLEig6gawh7X6mFlEkA==}
+
+  ufo@1.6.3:
+    resolution: {integrity: sha512-yDJTmhydvl5lJzBmy/hyOAA0d+aqCBuwl818haVdYCRrWV84o7YyeVm4QlVHStqNrrJSTb6jKuFAVqAFsr+K3Q==}
 
   ultrahtml@1.6.0:
     resolution: {integrity: sha512-R9fBn90VTJrqqLDwyMph+HGne8eqY1iPfYhPzZrvKpIfwkWZbcYlfpsb8B9dTvBfpy1/hqAD7Wi8EKfP9e8zdw==}
@@ -7774,7 +7812,7 @@ snapshots:
       globals: 15.15.0
       kolorist: 1.8.0
       local-pkg: 1.1.1
-      mlly: 1.7.4
+      mlly: 1.8.2
     transitivePeerDependencies:
       - supports-color
 
@@ -8151,7 +8189,7 @@ snapshots:
       jiti: 2.4.2
       klona: 2.0.6
       knitwork: 1.2.0
-      mlly: 1.7.4
+      mlly: 1.8.2
       ohash: 2.0.11
       pathe: 2.0.3
       pkg-types: 2.1.0
@@ -8210,7 +8248,7 @@ snapshots:
       jiti: 2.4.2
       knitwork: 1.2.0
       magic-string: 0.30.17
-      mlly: 1.7.4
+      mlly: 1.8.2
       mocked-exports: 0.1.1
       ohash: 2.0.11
       pathe: 2.0.3
@@ -9057,8 +9095,8 @@ snapshots:
     dependencies:
       '@mapbox/node-pre-gyp': 1.0.11
       '@rollup/pluginutils': 5.1.4(rollup@4.40.2)
-      acorn: 8.14.1
-      acorn-import-attributes: 1.9.5(acorn@8.14.1)
+      acorn: 8.16.0
+      acorn-import-attributes: 1.9.5(acorn@8.16.0)
       async-sema: 3.1.1
       bindings: 1.5.0
       estree-walker: 2.0.2
@@ -9421,11 +9459,17 @@ snapshots:
     dependencies:
       acorn: 8.14.1
 
+  acorn-import-attributes@1.9.5(acorn@8.16.0):
+    dependencies:
+      acorn: 8.16.0
+
   acorn-jsx@5.3.2(acorn@8.14.1):
     dependencies:
       acorn: 8.14.1
 
   acorn@8.14.1: {}
+
+  acorn@8.16.0: {}
 
   agent-base@6.0.2:
     dependencies:
@@ -10777,7 +10821,7 @@ snapshots:
   externality@1.0.2:
     dependencies:
       enhanced-resolve: 5.18.1
-      mlly: 1.7.4
+      mlly: 1.8.2
       pathe: 1.1.2
       ufo: 1.6.1
 
@@ -10826,6 +10870,10 @@ snapshots:
   fdir@6.4.4(picomatch@4.0.2):
     optionalDependencies:
       picomatch: 4.0.2
+
+  fdir@6.5.0(picomatch@4.0.4):
+    optionalDependencies:
+      picomatch: 4.0.4
 
   fecha@4.2.3: {}
 
@@ -11613,7 +11661,7 @@ snapshots:
       h3: 1.15.3
       http-shutdown: 1.2.2
       jiti: 2.4.2
-      mlly: 1.7.4
+      mlly: 1.8.2
       node-forge: 1.3.1
       pathe: 1.1.2
       std-env: 3.9.0
@@ -11623,7 +11671,7 @@ snapshots:
 
   local-pkg@1.1.1:
     dependencies:
-      mlly: 1.7.4
+      mlly: 1.8.2
       pkg-types: 2.1.0
       quansync: 0.2.10
 
@@ -12078,6 +12126,13 @@ snapshots:
       pkg-types: 1.3.1
       ufo: 1.6.1
 
+  mlly@1.8.2:
+    dependencies:
+      acorn: 8.16.0
+      pathe: 2.0.3
+      pkg-types: 1.3.1
+      ufo: 1.6.3
+
   mocked-exports@0.1.1: {}
 
   module-definition@5.0.1:
@@ -12159,7 +12214,7 @@ snapshots:
       magic-string: 0.30.17
       magicast: 0.3.5
       mime: 4.0.7
-      mlly: 1.7.4
+      mlly: 1.8.2
       node-fetch-native: 1.6.6
       node-mock-http: 1.0.0
       ofetch: 1.4.1
@@ -12630,12 +12685,14 @@ snapshots:
 
   picomatch@4.0.2: {}
 
+  picomatch@4.0.4: {}
+
   pkce-challenge@5.0.0: {}
 
   pkg-types@1.3.1:
     dependencies:
       confbox: 0.1.8
-      mlly: 1.7.4
+      mlly: 1.8.2
       pathe: 2.0.3
 
   pkg-types@2.1.0:
@@ -13645,6 +13702,11 @@ snapshots:
       fdir: 6.4.4(picomatch@4.0.2)
       picomatch: 4.0.2
 
+  tinyglobby@0.2.16:
+    dependencies:
+      fdir: 6.5.0(picomatch@4.0.4)
+      picomatch: 4.0.4
+
   tmp-promise@3.0.3:
     dependencies:
       tmp: 0.2.3
@@ -13825,6 +13887,8 @@ snapshots:
 
   ufo@1.6.1: {}
 
+  ufo@1.6.3: {}
+
   ultrahtml@1.6.0: {}
 
   unbox-primitive@1.1.0:
@@ -13886,7 +13950,7 @@ snapshots:
       estree-walker: 3.0.3
       local-pkg: 1.1.1
       magic-string: 0.30.17
-      mlly: 1.7.4
+      mlly: 1.8.2
       pathe: 2.0.3
       picomatch: 4.0.2
       pkg-types: 2.1.0
@@ -13986,7 +14050,7 @@ snapshots:
       local-pkg: 1.1.1
       magic-string: 0.30.17
       micromatch: 4.0.8
-      mlly: 1.7.4
+      mlly: 1.8.2
       pathe: 2.0.3
       scule: 1.3.0
       unplugin: 2.3.3
@@ -14062,7 +14126,7 @@ snapshots:
     dependencies:
       knitwork: 1.2.0
       magic-string: 0.30.17
-      mlly: 1.7.4
+      mlly: 1.8.2
       pathe: 1.1.2
       pkg-types: 1.3.1
       unplugin: 1.16.1
@@ -14175,7 +14239,7 @@ snapshots:
     dependencies:
       debug: 4.4.0
       pretty-bytes: 6.1.1
-      tinyglobby: 0.2.13
+      tinyglobby: 0.2.16
       vite: 6.3.5(@types/node@22.15.17)(jiti@2.4.2)(terser@5.39.0)(tsx@4.19.4)(yaml@2.7.1)
       workbox-build: 7.3.0
       workbox-window: 7.3.0

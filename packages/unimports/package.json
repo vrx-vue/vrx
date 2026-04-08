@@ -1,0 +1,46 @@
+{
+  "name": "@vrx/unimports",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vrx-vue/vrx.git",
+    "directory": "packages/unimports"
+  },
+  "homepage": "https://vrx-vue.github.io/vrx/",
+  "keywords": [
+    "vue",
+    "utils",
+    "vue-composition-api",
+    "unimport"
+  ],
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "automd && node ./gen-preset.ts && tsdown"
+  },
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "peerDependencies": {
+    "@vrx/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@vrx/core": "workspace:*",
+    "mlly": "^1.7.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
