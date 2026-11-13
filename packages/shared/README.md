@@ -39,13 +39,13 @@ npm install @vrx/shared
 yarn add @vrx/shared
 
 # pnpm
-pnpm install @vrx/shared
+pnpm add @vrx/shared
 
 # bun
 bun install @vrx/shared
 
 # deno
-deno install @vrx/shared
+deno install npm:@vrx/shared
 ```
 
 <!-- /automd -->

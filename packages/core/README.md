@@ -39,13 +39,13 @@ npm install @vrx/core
 yarn add @vrx/core
 
 # pnpm
-pnpm install @vrx/core
+pnpm add @vrx/core
 
 # bun
 bun install @vrx/core
 
 # deno
-deno install @vrx/core
+deno install npm:@vrx/core
 ```
 
 <!-- /automd -->

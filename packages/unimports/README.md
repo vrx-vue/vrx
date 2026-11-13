@@ -31,13 +31,13 @@ npm install @vrx/unimports
 yarn add @vrx/unimports
 
 # pnpm
-pnpm install @vrx/unimports
+pnpm add @vrx/unimports
 
 # bun
 bun install @vrx/unimports
 
 # deno
-deno install @vrx/unimports
+deno install npm:@vrx/unimports
 ```
 
 <!-- /automd -->

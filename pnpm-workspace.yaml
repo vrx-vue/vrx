@@ -1,9 +1,13 @@
 packages:
   - packages/*
   - playgrounds/*
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - esbuild
-  - sharp
-  - unrs-resolver
-  - vue-demi
+permissions:
+  '@parcel/watcher':
+    build: true
+  esbuild:
+    build: true
+  tsdown:
+    skills: true
+skills:
+  dirs:
+    - .agents/skills

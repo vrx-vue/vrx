@@ -33,13 +33,13 @@ npm install @vrx/nuxt
 yarn add @vrx/nuxt
 
 # pnpm
-pnpm install @vrx/nuxt
+pnpm add @vrx/nuxt
 
 # bun
 bun install @vrx/nuxt
 
 # deno
-deno install @vrx/nuxt
+deno install npm:@vrx/nuxt
 ```
 
 <!-- /automd -->
