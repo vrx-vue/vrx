@@ -21,6 +21,7 @@
     "generate-pwa-assets": "pwa-assets-generator --preset minimal docs/public/favicon.svg"
   },
   "devDependencies": {
+    "@arethetypeswrong/core": "^0.18.5",
     "@shikijs/vitepress-twoslash": "^4.6.0",
     "@types/node": "^26.6.6",
     "@vill-v/bumpp-github": "^6.3.0",
