@@ -1,7 +1,10 @@
 import { defineConfig } from 'tsdown'
 
+import nuxtImports from './tooling/nuxt-imports.ts'
+
 export default defineConfig({
   entry: ['src/index.ts'],
+  plugins: [nuxtImports],
   dts: true,
   target: 'es2018',
   fixedExtension: false,

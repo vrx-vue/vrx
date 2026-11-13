@@ -1,7 +1,10 @@
 import { defineConfig } from 'tsdown'
 
+import unimportPreset from './tooling/unimport-preset.ts'
+
 export default defineConfig({
   entry: ['src/index.ts'],
+  plugins: [unimportPreset],
   dts: true,
   target: 'es2018',
   fixedExtension: false,

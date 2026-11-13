@@ -1,6 +1,6 @@
 import { addImports, defineNuxtModule, extendViteConfig } from '@nuxt/kit'
+import { fns, packages } from 'virtual:vrx/nuxt-imports'
 import { VrxOption } from './types'
-import { fns, packages } from './config'
 
 export default defineNuxtModule<VrxOption>({
   meta: {

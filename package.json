@@ -40,13 +40,11 @@
     "prettier": "^3.5.3",
     "publint": "^0.3.25",
     "tsdown": "^0.23.7",
-    "tsx": "^4.19.4",
     "turbo": "^2.11.10",
     "typescript": "^6.0.3",
     "unocss": "^66.12.0",
     "unplugin-unused": "^0.6.0",
     "vitepress": "^2.0.0-alpha.21",
-    "void-fs": "^0.0.1-beta.18",
     "vue": "^3.5.45",
     "workbox-window": "^7.4.1"
   },

@@ -20,7 +20,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "automd && node ./gen-imports.js && tsdown"
+    "build": "automd && tsdown"
   },
   "sideEffects": false,
   "exports": {
@@ -37,8 +37,6 @@
     "@vrx/core": "workspace:*"
   },
   "devDependencies": {
-    "magicast": "^0.3.5",
-    "mlly": "^1.7.4",
     "nuxt": "^4.6.4",
     "unimport": "^7.0.2"
   },

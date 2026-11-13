@@ -19,7 +19,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "automd && node ./gen-preset.ts && tsdown"
+    "build": "automd && tsdown"
   },
   "sideEffects": false,
   "exports": {
@@ -31,8 +31,7 @@
     "@vrx/core": "workspace:*"
   },
   "devDependencies": {
-    "@vrx/core": "workspace:*",
-    "mlly": "^1.7.4"
+    "@vrx/core": "workspace:*"
   },
   "publishConfig": {
     "access": "public"
