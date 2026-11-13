@@ -1,6 +1,7 @@
 <script lang="ts" setup>
   import { arrayStringJump } from '@vrx/core'
   import { ref, computed, watch } from 'vue'
+
   const stringRef = ref('')
   const stringJumpRef = arrayStringJump(stringRef)
   const arrayStrRef = ref('[]')
@@ -9,7 +10,9 @@
   watch(arrayStrRef, (n) => {
     try {
       arrayRef.value = JSON.parse(`{"data":${n}}`).data
-    } catch (e) {}
+    } catch {
+      // 输入尚不是合法 JSON 时保留上一次的数组。
+    }
   })
 
   const arrayJumpRef = arrayStringJump(arrayRef)

@@ -41,8 +41,9 @@ export interface UsePaginatedDataOptions<
   dataConcat?: boolean
 }
 
-export interface UsePaginatedDataExecuteParams<SearchData extends Record<string, any> = any>
-  extends UseAsyncStateExecOptions {
+export interface UsePaginatedDataExecuteParams<
+  SearchData extends Record<string, any> = any,
+> extends UseAsyncStateExecOptions {
   pagination: UsePaginatedDataPagination
   params: SearchData
 }

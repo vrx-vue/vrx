@@ -8,11 +8,7 @@ vrx 系列内的共用工具
 
 <!-- automd:badges color="green" license licenseBranch  bundlephobia packagephobia -->
 
-[![npm version](https://img.shields.io/npm/v/@vrx/shared?color=green)](https://npmjs.com/package/@vrx/shared)
-[![npm downloads](https://img.shields.io/npm/dm/@vrx/shared?color=green)](https://npm.chart.dev/@vrx/shared)
-[![bundle size](https://img.shields.io/bundlephobia/minzip/@vrx/shared?color=green)](https://bundlephobia.com/package/@vrx/shared)
-[![install size](https://badgen.net/packagephobia/install/@vrx/shared?color=green)](https://packagephobia.com/result?p=@vrx/shared)
-[![license](https://img.shields.io/github/license/vrx-vue/vrx?color=green)](https://github.com/vrx-vue/vrx/blob/true/LICENSE)
+[![npm version](https://img.shields.io/npm/v/@vrx/shared?color=green)](https://npmjs.com/package/@vrx/shared) [![npm downloads](https://img.shields.io/npm/dm/@vrx/shared?color=green)](https://npm.chart.dev/@vrx/shared) [![bundle size](https://img.shields.io/bundlephobia/minzip/@vrx/shared?color=green)](https://bundlephobia.com/package/@vrx/shared) [![install size](https://badgen.net/packagephobia/install/@vrx/shared?color=green)](https://packagephobia.com/result?p=@vrx/shared) [![license](https://img.shields.io/github/license/vrx-vue/vrx?color=green)](https://github.com/vrx-vue/vrx/blob/true/LICENSE)
 
 <!-- /automd -->
 
@@ -51,14 +47,10 @@ deno install npm:@vrx/shared
 <!-- /automd -->
 
 ## 贡献者
+
 <!-- automd:contributors author="Colourlessglow" license="MIT" -->
 
-Published under the [MIT](https://github.com/vrx-vue/vrx/blob/main/LICENSE) license.
-Made by [@Colourlessglow](https://github.com/Colourlessglow) and [community](https://github.com/vrx-vue/vrx/graphs/contributors) 💛
-<br><br>
-<a href="https://github.com/vrx-vue/vrx/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=vrx-vue/vrx" />
-</a>
+Published under the [MIT](https://github.com/vrx-vue/vrx/blob/main/LICENSE) license. Made by [@Colourlessglow](https://github.com/Colourlessglow) and [community](https://github.com/vrx-vue/vrx/graphs/contributors) 💛 <br><br> <a href="https://github.com/vrx-vue/vrx/graphs/contributors"> <img src="https://contrib.rocks/image?repo=vrx-vue/vrx" /> </a>
 
 <!-- /automd -->
 

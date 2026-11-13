@@ -36,10 +36,10 @@ const {
   // 是否可以取消
   canAbort,
 } = useSearchAsyncData(
-  (params,{signal}) =>
+  (params, { signal }) =>
     fetch(`https://localhost/api/`, {
       body: JSON.stringify(params),
-      signal
+      signal,
     }),
   {
     // 是否在 onMounted 生命周期自动执行一次，注意，自动执行时，无法传递参数
@@ -66,21 +66,36 @@ const {
 ## Type Declarations
 
 ```ts
-interface UseSearchAsyncData<Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = boolean> extends UseAsyncStateOptions<Data, Shallow> {
-    /**
-     * 初始化搜索数据
-     */
-    initSearchData?: () => SearchData;
-    /**
-     * 是否允许在异步任务执行时且存在入参时，直接使用入参作为搜索值
-     */
-    allowOverrideSearchData?: boolean;
+interface UseSearchAsyncData<
+  Data = any,
+  SearchData extends Record<string, any> = any,
+  Shallow extends boolean = boolean,
+> extends UseAsyncStateOptions<Data, Shallow> {
+  /**
+   * 初始化搜索数据
+   */
+  initSearchData?: () => SearchData
+  /**
+   * 是否允许在异步任务执行时且存在入参时，直接使用入参作为搜索值
+   */
+  allowOverrideSearchData?: boolean
 }
-interface UseSearchAsyncDataReturn<Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = boolean> extends UseAsyncStateReturn<Data, Shallow> {
-    searchData: Ref<SearchData>;
-    search: Fn<Promise<Data>>;
-    resetSearchData: VoidFunction;
-    resetSearch: Fn<Promise<Data>>;
+interface UseSearchAsyncDataReturn<
+  Data = any,
+  SearchData extends Record<string, any> = any,
+  Shallow extends boolean = boolean,
+> extends UseAsyncStateReturn<Data, Shallow> {
+  searchData: Ref<SearchData>
+  search: Fn<Promise<Data>>
+  resetSearchData: VoidFunction
+  resetSearch: Fn<Promise<Data>>
 }
-declare const useSearchAsyncData: <Data = any, SearchData extends Record<string, any> = any, Shallow extends boolean = boolean>(fn: (params: any | undefined, options: UseAsyncStateExecOptions) => Promise<any>, options?: UseSearchAsyncData<Data, SearchData, Shallow>) => UseSearchAsyncDataReturn<Data, SearchData, Shallow>;
+declare const useSearchAsyncData: <
+  Data = any,
+  SearchData extends Record<string, any> = any,
+  Shallow extends boolean = boolean,
+>(
+  fn: (params: any | undefined, options: UseAsyncStateExecOptions) => Promise<any>,
+  options?: UseSearchAsyncData<Data, SearchData, Shallow>
+) => UseSearchAsyncDataReturn<Data, SearchData, Shallow>
 ```

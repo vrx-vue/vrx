@@ -1,14 +1,17 @@
 :root {
-    --vp-custom-block-warning-border: transparent;
-    --vp-custom-block-info-border: transparent;
-    --vp-custom-block-tip-border: transparent;
-    --vp-custom-block-danger-border: transparent;
-    --vp-custom-block-details-border: transparent;
-    --vp-home-hero-name-color: transparent;
-    --vp-home-hero-name-background: linear-gradient(92.06deg, #42d392 -17.9%, #43E97B 43.39%, #38F9D7 99.4%);
-    --vp-c-brand-1: #10b981;
-    --vp-c-brand-2: #10b981;
-    --vp-c-brand-3: #047857;
+  --vp-custom-block-warning-border: transparent;
+  --vp-custom-block-info-border: transparent;
+  --vp-custom-block-tip-border: transparent;
+  --vp-custom-block-danger-border: transparent;
+  --vp-custom-block-details-border: transparent;
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(
+    92.06deg,
+    #42d392 -17.9%,
+    #43e97b 43.39%,
+    #38f9d7 99.4%
+  );
+  --vp-c-brand-1: #10b981;
+  --vp-c-brand-2: #10b981;
+  --vp-c-brand-3: #047857;
 }
-
-

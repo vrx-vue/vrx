@@ -46,8 +46,7 @@ export interface UseAsyncStateActionOptions<Shallow extends boolean = boolean> {
 }
 
 export interface UseAsyncStateOptions<Data = any, Shallow extends boolean = boolean>
-  extends UseAsyncStateCommonOptions<Data>,
-    UseAsyncStateActionOptions<Shallow> {}
+  extends UseAsyncStateCommonOptions<Data>, UseAsyncStateActionOptions<Shallow> {}
 
 export interface UseAsyncStateExecOptions {
   /**
@@ -78,8 +77,10 @@ export interface UseAsyncStateCommonReturn<Data = any> extends UseAsyncLoadingSt
   canAbort: ComputedRef<boolean>
 }
 
-export interface UseAsyncStateReturn<Data = any, Shallow extends boolean = boolean>
-  extends UseAsyncStateCommonReturn<Data> {
+export interface UseAsyncStateReturn<
+  Data = any,
+  Shallow extends boolean = boolean,
+> extends UseAsyncStateCommonReturn<Data> {
   /**
    * 异步获取到的状态
    */

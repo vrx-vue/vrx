@@ -32,9 +32,7 @@ import type {} from '@vrx/nuxt'
 
 export default defineNuxtConfig({
   modules: ['@vrx/nuxt'],
-  vrx: {
-    /** Options */
-  },
+  vrx: {/** Options */},
 })
 ```
 
