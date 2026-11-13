@@ -4,6 +4,7 @@ node_modules
 .idea
 .nuxt
 dist
+/packages/core/skills/
 packages/*/.pnpm-debug.log
 docs/.vitepress/cache
 .output

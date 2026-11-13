@@ -6,6 +6,12 @@ category: state
 
 对 [vueuse](https://vueuse.org/) 中 [useAsyncState](https://vueuse.org/core/useAsyncState/)的拓展
 
+::: tip Nuxt 中的命名
+
+以下示例面向普通 Vue 项目。在 Nuxt 中，`useAsyncData` 保留给内置实现；启用 `@vrx/nuxt` 后默认使用自动导入的 `$useAsyncData`，直接从 `@vrx/core` 导入则使用 `useAsyncData as useVrxAsyncData`。`$useAsyncData` 不是 `@vrx/core` 的导出，详见 [Nuxt 命名说明](/guide/nuxt#use-async-data-names)。
+
+:::
+
 ## Usage
 
 ```ts twoslash

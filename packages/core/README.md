@@ -46,6 +46,15 @@ deno install npm:@vrx/core
 
 <!-- /automd -->
 
+## Agent Skills
+
+为 AI 编程助手提供两份可独立安装的 Skill：`vrx` 用于 API 使用和集成；`vrx-migration` 用于 VRX 与 Pinia Colada、TanStack Vue Query、Nuxt 内置 `useAsyncData` 之间的双向迁移。按需安装：
+
+```sh
+pnpm dlx skills add vrx-vue/vrx --skill vrx
+pnpm dlx skills add vrx-vue/vrx --skill vrx-migration
+```
+
 ## 贡献者
 
 <!-- automd:contributors author="Colourlessglow" license="MIT" -->

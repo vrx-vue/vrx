@@ -1,0 +1,12 @@
+# Shared async behavior
+
+Applies to `useAsyncData`, `useSearchAsyncData`, `usePaginatedData`, and `useMultiAsyncData`, imported from `@vrx/core`.
+
+- Call inside Vue component setup. `immediate` defaults to `false`; setting it to `true` schedules one call on `onMounted`, without explicit arguments. It does not fetch during setup or SSR. Changes to refs do not automatically refetch; call the appropriate action.
+- The callback must return a Promise. Prefer an `async` callback so synchronous failures become rejections. With `fetch`, parse the response yourself and check `response.ok` if HTTP failures should reject.
+- `loading` and `error` are `Ref<boolean>`, not an error object. A tracked request clears `error`, sets `loading`, sets `error` on rejection, and clears `loading` when settled. Rejections propagate, including abort rejections; catch manually invoked actions when the application needs error handling.
+- The built-in `immediate` callback does not return or catch the request promise. For controlled initial error handling, keep `immediate: false` and use `onMounted(() => { void execute().catch(handleError) })` with the destructured `execute`, where `handleError` is the application's handler. This also handles cancellation of the initial request without an unhandled rejection.
+- `execute` and its search/pagination wrappers resolve to the **original callback response** at runtime. Although public types can claim `Data` or `Data[]`, `path` extraction updates the exposed refs only. Read `data.value`, `list.value`, or the named multi refs for extracted values.
+- Data uses `ref` by default; `shallow: true` selects `shallowRef` for result refs. `initData` is a factory, invoked initially and on reset. Without it, data initially holds `undefined`; provide `() => []` for lists.
+- `abort()` signals the current request. A new execution aborts the preceding request and resets `aborted` to `false`; component unmount also aborts. `aborted` is a ref, and `canAbort` is computed from AbortController support and `loading`. Pass the supplied `signal` to the transport. Execution currently requires an environment with `AbortController`.
+- Cancellation is cooperative: there is no request-ID guard against stale responses. A callback that ignores `signal` can overwrite newer state. `loading` and `error` are shared flags, not concurrency counters; an older request settling can change them while a newer request is pending. Avoid promising strict latest-request state or aggregate loading behavior.

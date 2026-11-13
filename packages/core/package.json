@@ -15,7 +15,8 @@
     "vue-composition-api"
   ],
   "files": [
-    "dist"
+    "dist",
+    "skills"
   ],
   "scripts": {
     "build": "automd && vp pack"

@@ -12,7 +12,7 @@
 
 <!-- /automd -->
 
-> 由于 `useAsyncData` 与 **nuxt3** 全局方法冲突，在自动导入时将重命名为 `$useAsyncData` 避免冲突
+> 在 Nuxt 项目中，`useAsyncData` 保留给 Nuxt 内置 API，VRX 必须使用别名。本模块默认已将 VRX 自动导入为 `$useAsyncData`，无需重复配置。
 
 ## 安装
 
@@ -49,9 +49,30 @@ export default defineNuxtConfig({
 
 🎉 配置完成后，默认所有方法都可以自动导入了
 
+## `useAsyncData` 命名约定
+
+Nuxt 将 `useAsyncData` 作为编译器保留名称，两套 API 的参数、状态和 SSR 行为也不同。使用本模块默认的 `vrx.autoImports: true` 时，VRX 调用 `$useAsyncData(...)`，Nuxt 内置 API 调用 `useAsyncData(...)`。参见 [Nuxt 官方说明](https://nuxt.com/docs/4.x/api/composables/use-async-data)。
+
+直接从 `@vrx/core` 导入时，必须在 Nuxt 代码中使用别名；模块不会替手写的 import 重命名。这也适用于关闭 `vrx.autoImports` 的情况：
+
+```ts
+import { useAsyncData as useVrxAsyncData } from '@vrx/core'
+```
+
+直接导入需要将 `@vrx/core` 声明为项目的直接依赖。`$useAsyncData` 是模块注册的自动导入别名，不是 `@vrx/core` 的导出；普通 Vue 项目仍可使用原名。VRX 的 `immediate` 只在组件挂载后执行，不会提供 Nuxt 内置 API 的服务端预取和 payload hydration。
+
 ## 配置项
 
 请跳转 [配置项](https://github.com/vrx-vue/vrx/blob/main/packages/nuxt/src/types.ts) 查看
+
+## Agent Skills
+
+`vrx` Skill 包含 Nuxt 配置、自动导入别名和异步数据使用指导；`vrx-migration` 提供 VRX 与 Pinia Colada、TanStack Vue Query、Nuxt 内置 `useAsyncData` 之间的双向迁移指南，并说明 SSR 与缓存能力的差异。按需安装：
+
+```sh
+pnpm dlx skills add vrx-vue/vrx --skill vrx
+pnpm dlx skills add vrx-vue/vrx --skill vrx-migration
+```
 
 ## 贡献者
 
