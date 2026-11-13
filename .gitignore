@@ -4,8 +4,6 @@ node_modules
 .idea
 .nuxt
 dist
-.turbo
-packages/*/.turbo
 packages/*/.pnpm-debug.log
 docs/.vitepress/cache
 .output
