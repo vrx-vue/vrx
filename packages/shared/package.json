@@ -19,7 +19,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "automd && tsdown"
+    "build": "automd && vp pack"
   },
   "exports": {
     ".": "./dist/index.js",

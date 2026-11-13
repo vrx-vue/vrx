@@ -1,4 +1,4 @@
-import type { TsdownPlugin } from 'tsdown'
+import type { TsdownPlugin } from 'vite-plus/pack'
 import type { Import } from 'unimport'
 
 const moduleId = 'virtual:vrx/nuxt-imports'

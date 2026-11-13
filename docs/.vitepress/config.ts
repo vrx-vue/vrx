@@ -60,7 +60,9 @@ export default withPwa(
     },
     themeConfig: {
       logo: '/favicon.svg',
-      lastUpdatedText: '最后更新时间',
+      lastUpdated: {
+        text: '最后更新时间',
+      },
       search: {
         provider: 'local',
         options: {

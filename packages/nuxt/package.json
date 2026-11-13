@@ -20,7 +20,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "automd && tsdown"
+    "build": "automd && vp pack"
   },
   "sideEffects": false,
   "exports": {

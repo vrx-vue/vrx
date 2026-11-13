@@ -1,4 +1,4 @@
-import type { TsdownPlugin } from 'tsdown'
+import type { TsdownPlugin } from 'vite-plus/pack'
 
 const moduleId = 'virtual:vrx/unimport-preset'
 const resolvedModuleId = `\0${moduleId}.js`

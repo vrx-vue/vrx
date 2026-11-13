@@ -45,14 +45,16 @@ jobs:
         uses: actions/configure-pages@v6
       - name: Install dependencies
         run: pnpm install
-      - name: Lint
-        run: pnpm lint
       - name: Check formatting
         run: pnpm format:check
       - name: PreBuild deps dist
-        run: pnpm build # 或 pnpm docs:build / yarn docs:build / bun run docs:build
+        run: pnpm build
+      - name: Prepare Nuxt types
+        run: pnpm -C playgrounds/nuxt nuxt:prepare
+      - name: Check lint and types
+        run: pnpm lint
       - name: Build with VitePress
-        run: pnpm docs:build # 或 pnpm docs:build / yarn docs:build / bun run docs:build
+        run: pnpm docs:build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:

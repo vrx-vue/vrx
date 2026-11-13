@@ -1,7 +1,7 @@
 import type { PwaOptions } from '@vite-pwa/vitepress'
 import { icons } from './icons'
 
-export const pwa: PwaOptions = {
+export const pwa: Partial<PwaOptions<'generateSW', 'classic'>> = {
   manifest: {
     name: 'Vrx',
     short_name: 'Vrx',

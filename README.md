@@ -46,19 +46,6 @@ deno install npm:@vrx/core
 
 <!-- /automd -->
 
-## 开发检查
-
-使用 Oxlint 检查代码，使用 Oxfmt 统一格式：
-
-```sh
-pnpm lint
-pnpm lint:fix
-pnpm format
-pnpm format:check
-```
-
-配置由官方工具从原 ESLint / Prettier 预设迁移，仅保留 OXC 原生支持的规则；不支持的规则直接跳过。Vue 检查仅覆盖 `<script>`，不包含模板规则。
-
 ## 贡献者
 
 <!-- automd:contributors author="Colourlessglow" license="MIT" -->
